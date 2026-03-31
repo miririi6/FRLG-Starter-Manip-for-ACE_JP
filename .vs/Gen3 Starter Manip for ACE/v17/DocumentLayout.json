@@ -1,0 +1,155 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Csha\\Gen3 Starter Manip for ACE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\gen3 starter manip for ace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\gen3 starter manip for ace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|C:\\Csha\\Gen3 Starter Manip for ACE\\gen3 starter manip for ace\\gen3 starter manip for ace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\gen3 starter manip for ace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\gen3 starter manip for ace.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\gen3 starter manip for ace.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\configdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\configdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\types.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\types.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\resources.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\resources.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\searchengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\searchengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Gen3 Starter Manip for ACE.Designer.cs",
+              "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.Designer.cs",
+              "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.Designer.cs",
+              "ToolTip": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.Designer.cs",
+              "RelativeToolTip": "Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.Designer.cs",
+              "ViewState": "AgIAAEAEAAAAAAAAAAAjwFYEAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-28T14:35:10.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SearchEngine.cs",
+              "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\SearchEngine.cs",
+              "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\SearchEngine.cs",
+              "ToolTip": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\SearchEngine.cs",
+              "RelativeToolTip": "Gen3 Starter Manip for ACE\\SearchEngine.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGcAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T14:51:46.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Resources.cs",
+              "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Resources.cs",
+              "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\Resources.cs",
+              "ToolTip": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Resources.cs",
+              "RelativeToolTip": "Gen3 Starter Manip for ACE\\Resources.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T09:35:10.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Gen3 Starter Manip for ACE.cs",
+              "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.cs",
+              "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.cs",
+              "ToolTip": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.cs",
+              "RelativeToolTip": "Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAwDgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-28T09:32:33.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ConfigData.cs",
+              "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\ConfigData.cs",
+              "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\ConfigData.cs",
+              "ToolTip": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\ConfigData.cs",
+              "RelativeToolTip": "Gen3 Starter Manip for ACE\\ConfigData.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAawCcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T09:52:36.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Gen3 Starter Manip for ACE.cs [\u30C7\u30B6\u30A4\u30F3]",
+              "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.cs",
+              "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.cs",
+              "ToolTip": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.cs [\u30C7\u30B6\u30A4\u30F3]",
+              "RelativeToolTip": "Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.cs [\u30C7\u30B6\u30A4\u30F3]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-28T09:31:48.06Z",
+              "EditorCaption": " [\u30C7\u30B6\u30A4\u30F3]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Types.cs",
+              "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Types.cs",
+              "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\Types.cs",
+              "ToolTip": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Types.cs",
+              "RelativeToolTip": "Gen3 Starter Manip for ACE\\Types.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAADgvzIAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T10:16:18.77Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Constants.cs",
+              "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Constants.cs",
+              "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\Constants.cs",
+              "ToolTip": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Constants.cs",
+              "RelativeToolTip": "Gen3 Starter Manip for ACE\\Constants.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACwAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T11:52:36.018Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

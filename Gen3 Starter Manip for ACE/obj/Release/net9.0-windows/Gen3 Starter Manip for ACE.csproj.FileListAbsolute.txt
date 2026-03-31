@@ -1,0 +1,17 @@
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\bin\Release\net9.0-windows\Gen3 Starter Manip for ACE.exe
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\bin\Release\net9.0-windows\Gen3 Starter Manip for ACE.deps.json
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\bin\Release\net9.0-windows\Gen3 Starter Manip for ACE.runtimeconfig.json
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\bin\Release\net9.0-windows\Gen3 Starter Manip for ACE.dll
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\bin\Release\net9.0-windows\Gen3 Starter Manip for ACE.pdb
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\obj\Release\net9.0-windows\Gen3_Starter_Manip_for_ACE.Form1.resources
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\obj\Release\net9.0-windows\Gen3_Starter_Manip_for_ACE.Properties.Resources.resources
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\obj\Release\net9.0-windows\Gen3 Starter Manip for ACE.csproj.GenerateResource.cache
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\obj\Release\net9.0-windows\Gen3 Starter Manip for ACE.GeneratedMSBuildEditorConfig.editorconfig
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\obj\Release\net9.0-windows\Gen3 Starter Manip for ACE.AssemblyInfoInputs.cache
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\obj\Release\net9.0-windows\Gen3 Starter Manip for ACE.AssemblyInfo.cs
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\obj\Release\net9.0-windows\Gen3 Starter Manip for ACE.csproj.CoreCompileInputs.cache
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\obj\Release\net9.0-windows\Gen3 Starter Manip for ACE.dll
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\obj\Release\net9.0-windows\refint\Gen3 Starter Manip for ACE.dll
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\obj\Release\net9.0-windows\Gen3 Starter Manip for ACE.pdb
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\obj\Release\net9.0-windows\Gen3 Starter Manip for ACE.genruntimeconfig.cache
+C:\Csha\Gen3 Starter Manip for ACE\Gen3 Starter Manip for ACE\obj\Release\net9.0-windows\ref\Gen3 Starter Manip for ACE.dll

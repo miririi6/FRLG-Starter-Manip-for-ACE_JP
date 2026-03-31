@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "Gen3 Starter Manip for ACE/1.0.0": {
+        "runtime": {
+          "Gen3 Starter Manip for ACE.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Gen3 Starter Manip for ACE/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
