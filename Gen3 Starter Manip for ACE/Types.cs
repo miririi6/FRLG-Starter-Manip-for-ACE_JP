@@ -46,7 +46,7 @@ namespace Gen3_Starter_Manip_for_ACE
         }
         public enum SeedPokemonType : byte
         {
-            Balbasaur, Ivysaur, Venusaur,
+            Bulbasaur, Ivysaur, Venusaur,
             Charmander, Charmeleon, Charizard,
             Squirtle, Wartortle, Blastoise
         }
@@ -77,7 +77,7 @@ namespace Gen3_Starter_Manip_for_ACE
             public int フレーム { get; set; }
             public double 時間 { get; set; }
             public Types.NatureType 性格 { get; set; }
-            public uint PID { get; set; }
+            public uint 性格値 { get; set; }
             public int H { get; set; }
             public int A { get; set; }
             public int B { get; set; }
@@ -85,7 +85,14 @@ namespace Gen3_Starter_Manip_for_ACE
             public int D { get; set; }
             public int S { get; set; }
             public string 性別 { get; set; }
-            public int EXP { get; set; }
+            public string 経験値 { get; set; }
+        }
+        public struct WordExpDataType
+        {
+            public int 経験値 { get; set; }
+            public string ワード3 { get; set; }
+            public string ワード5 { get; set; }
+            public string パターン { get; set; }
         }
         public static string GetDescription(this Enum value)
         {

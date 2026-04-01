@@ -3,7 +3,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
-using static Gen3_Starter_Manip_for_ACE.Form1;
+using static Gen3_Starter_Manip_for_ACE.MainForm;
 using static Gen3_Starter_Manip_for_ACE.Types;
 using static Gen3_Starter_Manip_for_ACE.Constants;
 using static Gen3_Starter_Manip_for_ACE.ConfigData;
@@ -12,9 +12,9 @@ using static Gen3_Starter_Manip_for_ACE.SearchEngine;
 
 namespace Gen3_Starter_Manip_for_ACE
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -26,19 +26,32 @@ namespace Gen3_Starter_Manip_for_ACE
             Resources.loadResources("words.csv", "poke_words.csv");
             string filePath;
             if (ConfigData.Instance.version == RomVersionType.FireRed)
-            {
                 filePath = "corrupted_pokemon_FR.csv";
-            }
             else
-            {
                 filePath = "corrupted_pokemon_LG.csv";
-            }
             Resources.loadCorruptedPokemonData(filePath);
             CalcList.RowTemplate.Height = 16;
+            TIDText.Focus();
+        }
+        public void NoAceModeView()
+        {
+            WordEXPList.Visible = false;
+            ClientSize = new Size(682, 495);
+            MinExpText.Enabled = false;
+            MaxExpText.Enabled = false;
+        }
+        public void AceModeView()
+        {
+            WordEXPList.Visible = true;
+            ClientSize = new Size(958, 495);
+            MinExpText.Enabled = true;
+            MaxExpText.Enabled = true;
         }
 
-        private void CalcButton_Click(object sender, EventArgs e)
+        bool ClickedCalcButton = false;
+        public void CalcButton_Click(object sender, EventArgs e)
         {
+            ClickedCalcButton = true;
             ushort tid;
             if (!ushort.TryParse(TIDText.Text, out tid))
             {
@@ -48,35 +61,55 @@ namespace Gen3_Starter_Manip_for_ACE
 
             CalcList.DataSource = results;
 
-            CalcList.Columns["フレーム"].Width = 55;
-            CalcList.Columns["時間"].Width = 55;
-            CalcList.Columns["PID"].Width = 60;
-            CalcList.Columns["PID"].DefaultCellStyle.Format = "X8";
+            CalcList.Columns["フレーム"].Width = 50;
+            CalcList.Columns["時間"].Width = 54;
+            CalcList.Columns["性格"].Width = 56;
+            CalcList.Columns["性格値"].Width = 65;
+            CalcList.Columns["性格値"].DefaultCellStyle.Format = "X8";
             CalcList.Columns["H"].Width = 24;
             CalcList.Columns["A"].Width = 24;
             CalcList.Columns["B"].Width = 24;
             CalcList.Columns["C"].Width = 24;
             CalcList.Columns["D"].Width = 24;
             CalcList.Columns["S"].Width = 24;
-            CalcList.Columns["性格"].Width = 60;
-            CalcList.Columns["性別"].Width = 40;
-            CalcList.Columns["EXP"].Width = 40;
-            CalcList.Columns[CalcList.ColumnCount - 1].MinimumWidth = 60;
-            CalcList.Columns[CalcList.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            CalcList.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
+            CalcList.Columns["性別"].Width = 37;
+            CalcList.Columns["経験値"].Width = 40;
             if (ConfigData.Instance.isSearchForACE)
             {
-                CalcList.Columns["EXP"].Visible = true;
+                CalcList.Columns["経験値"].Visible = true;
+                CalcList.Columns[CalcList.ColumnCount - 1].MinimumWidth = 40;
+                CalcList.Columns[CalcList.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             else
             {
-                CalcList.Columns["EXP"].Visible = false;
+                CalcList.Columns["経験値"].Visible = false;
+                CalcList.Columns[CalcList.ColumnCount - 2].MinimumWidth = 40;
+                CalcList.Columns[CalcList.ColumnCount - 2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
-            CalcList.RowHeadersVisible = false;
 
             if (CalcList.Rows.Count > 0)
             {
                 showStatus(0);
+                if (ConfigData.Instance.isSearchForACE)
+                {
+                    uint pid = (uint)CalcList.Rows[0].Cells[3].Value;
+                    var wordExpData = SearchEngine.GetWordExpData(tid, pid);
+                    WordEXPList.DataSource = wordExpData;
+                    WordEXPList.Columns["経験値"].Width = 50;
+                    WordEXPList.Columns["ワード3"].Width = 70;
+                    WordEXPList.Columns["ワード5"].Width = 70;
+                    WordEXPList.Columns["パターン"].Width = 50;
+                    WordEXPList.Columns[WordEXPList.ColumnCount - 1].MinimumWidth = 50;
+                    WordEXPList.Columns[WordEXPList.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
+            }
+        }
+
+        public void CalcStartCall()
+        {
+            if (ClickedCalcButton)
+            {
+                CalcButton_Click(null, null);
             }
         }
 
@@ -88,6 +121,8 @@ namespace Gen3_Starter_Manip_for_ACE
                 CalcButton_Click(sender, e);
                 return;
             }
+            if (e.Control)
+                return;
             if (!isNumberOrActionKey(e.KeyCode))
                 e.SuppressKeyPress = true;
         }
@@ -99,6 +134,8 @@ namespace Gen3_Starter_Manip_for_ACE
                 CalcButton_Click(sender, e);
                 return;
             }
+            if (e.Control)
+                return;
             if (!isNumberOrActionKey(e.KeyCode))
                 e.SuppressKeyPress = true;
         }
@@ -110,6 +147,8 @@ namespace Gen3_Starter_Manip_for_ACE
                 CalcButton_Click(sender, e);
                 return;
             }
+            if (e.Control)
+                return;
             if (!isNumberOrActionKey(e.KeyCode))
                 e.SuppressKeyPress = true;
         }
@@ -118,8 +157,26 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (e.RowIndex < 0) return;
             showStatus(e.RowIndex);
+            if (ConfigData.Instance.isSearchForACE)
+            {
+                ushort tid = ushort.TryParse(TIDText.Text, out tid) ? tid : (ushort)0;
+                uint pid = (uint)CalcList.Rows[e.RowIndex].Cells[3].Value;
+                var wordExpData = SearchEngine.GetWordExpData(tid, pid);
+                WordEXPList.DataSource = wordExpData;
+            }
         }
-
+        /*
+        public void RefreshWordExpList()
+        {
+            if (CalcList.CurrentCell != null)
+            {
+                ushort tid = ushort.TryParse(TIDText.Text, out tid) ? tid : (ushort)0;
+                uint pid = (uint)CalcList.Rows[CalcList.CurrentCell.RowIndex].Cells[3].Value;
+                var wordExpData = SearchEngine.GetWordExpData(tid, pid);
+                WordEXPList.DataSource = wordExpData;
+            }
+        }
+        */
         private void SerchAroundFramesButton_Click(object sender, EventArgs e)
         {
             if (CalcList.CurrentCell == null) return;
@@ -131,7 +188,7 @@ namespace Gen3_Starter_Manip_for_ACE
                 tid = 0;
             }
 
-            var results = SearchEngine.SerchAroundFrames(tid, CurrentFrame);
+            var results = SearchEngine.SerchAroundFrames(tid, CurrentFrame, ConfigData.Instance.isSearchForACE);
 
             CalcList.DataSource = results;
             int focusIndex = 49;
@@ -164,54 +221,44 @@ namespace Gen3_Starter_Manip_for_ACE
             }
         }
 
-        private void Spieces_ChekedChanged(object sender, EventArgs e)
+        public void SpiecesChanged()
         {
-            if (sender is RadioButton rb)
-            {
-                if (rb.Checked)
-                {
-                    switch (rb.Name)
-                    {
-                        case "Balbasaur":
-                            ConfigData.Instance.starter = StarterPokemonType.Bulbasaur;
-                            break;
-                        case "Charmander":
-                            ConfigData.Instance.starter = StarterPokemonType.Charmander;
-                            break;
-                        case "Squirtle":
-                            ConfigData.Instance.starter = StarterPokemonType.Squirtle;
-                            break;
-                    }
-                }
-            }
             if (CalcList.CurrentCell == null) return;
             showStatus(CalcList.CurrentCell.RowIndex);
+            if (ConfigData.Instance.isSearchForACE)
+            {
+                ushort tid = ushort.TryParse(TIDText.Text, out tid) ? tid : (ushort)0;
+                uint pid = (uint)CalcList.Rows[CalcList.CurrentCell.RowIndex].Cells[3].Value;
+                var wordExpData = SearchEngine.GetWordExpData(tid, pid);
+                WordEXPList.DataSource = wordExpData;
+            }
         }
 
         private void LoadConfigsFromFile_Click(object sender, EventArgs e)
         {
-
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Title = "設定ファイルを開く";
+                ofd.Filter = "JSONファイル(*.json)|*.json|すべてのファイル(*.*)|*.*";
+                ofd.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = ofd.FileName;
+                    loadConfigData(filePath);
+                }
+            }
         }
         private void SaveConfigs_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
-                // ダイアログのタイトル
                 sfd.Title = "設定ファイルを保存";
-                // 初期ファイル名
                 sfd.FileName = "config.json";
-                // 選択できるファイルの種類（フィルタ）
                 sfd.Filter = "JSONファイル(*.json)|*.json|すべてのファイル(*.*)|*.*";
-                // 最初に見せるフォルダ（デスクトップなど）
-                sfd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
-                // ダイアログを表示し、「保存」が押されたら処理
+                sfd.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    // 選択されたパスを取得
                     string filePath = sfd.FileName;
-
-                    // ここでファイル書き込み処理（例：JSONシリアライズ）
                     saveConfigData(filePath);
                 }
             }
@@ -436,109 +483,127 @@ namespace Gen3_Starter_Manip_for_ACE
             int ivD = (int)CalcList.Rows[rowIndex].Cells[8].Value;
             int ivS = (int)CalcList.Rows[rowIndex].Cells[9].Value;
 
+            IVsHNum.Text = ivH.ToString();
+            IVsANum.Text = ivA.ToString();
+            IVsBNum.Text = ivB.ToString();
+            IVsCNum.Text = ivC.ToString();
+            IVsDNum.Text = ivD.ToString();
+            IVsSNum.Text = ivS.ToString();
+
             var effect = Constants.natureEffects[(int)nature];
             var upStatus = effect.UpStatus;
             var downStatus = effect.DownStatus;
+            int[] lv5 = getStatus(nature, ivH, ivA, ivB, ivC, ivD, ivS, 5, upStatus, downStatus);
+            int[] lv6 = getStatus(nature, ivH, ivA, ivB, ivC, ivD, ivS, 6, upStatus, downStatus);
 
-            int spieceIndex;
-            if (Balbasaur.Checked) { spieceIndex = 0; }
-            else if (Charmander.Checked) { spieceIndex = 1; }
-            else { spieceIndex = 2; }
-            int baseH = Constants.starterPokemonBaseStats[spieceIndex].H;
-            int baseA = Constants.starterPokemonBaseStats[spieceIndex].A;
-            int baseB = Constants.starterPokemonBaseStats[spieceIndex].B;
-            int baseC = Constants.starterPokemonBaseStats[spieceIndex].C;
-            int baseD = Constants.starterPokemonBaseStats[spieceIndex].D;
-            int baseS = Constants.starterPokemonBaseStats[spieceIndex].S;
-            int h = (baseH * 2 + ivH) * 5 / 100 + 15;
-            int a = (int)(((baseA * 2 + ivA) * 5 / 100 + 5) * (upStatus == StatusType.A ? 1.1 : (downStatus == StatusType.A ? 0.9 : 1)));
-            int b = (int)(((baseB * 2 + ivB) * 5 / 100 + 5) * (upStatus == StatusType.B ? 1.1 : (downStatus == StatusType.B ? 0.9 : 1)));
-            int c = (int)(((baseC * 2 + ivC) * 5 / 100 + 5) * (upStatus == StatusType.C ? 1.1 : (downStatus == StatusType.C ? 0.9 : 1)));
-            int d = (int)(((baseD * 2 + ivD) * 5 / 100 + 5) * (upStatus == StatusType.D ? 1.1 : (downStatus == StatusType.D ? 0.9 : 1)));
-            int s = (int)(((baseS * 2 + ivS) * 5 / 100 + 5) * (upStatus == StatusType.S ? 1.1 : (downStatus == StatusType.S ? 0.9 : 1)));
-            StatusHNum.Text = h.ToString();
-            StatusANum.Text = a.ToString();
-            StatusBNum.Text = b.ToString();
-            StatusCNum.Text = c.ToString();
-            StatusDNum.Text = d.ToString();
-            StatusSNum.Text = s.ToString();
+            StatusHNum5.Text = lv5[0].ToString();
+            StatusANum5.Text = lv5[1].ToString();
+            StatusBNum5.Text = lv5[2].ToString();
+            StatusCNum5.Text = lv5[3].ToString();
+            StatusDNum5.Text = lv5[4].ToString();
+            StatusSNum5.Text = lv5[5].ToString();
+            StatusHNum6.Text = lv6[0].ToString();
+            StatusANum6.Text = lv6[1].ToString();
+            StatusBNum6.Text = lv6[2].ToString();
+            StatusCNum6.Text = lv6[3].ToString();
+            StatusDNum6.Text = lv6[4].ToString();
+            StatusSNum6.Text = lv6[5].ToString();
+
             if (upStatus == StatusType.A)
             {
-                StatusANum.ForeColor = Color.Salmon;
+                IVsANum.ForeColor = Color.Salmon;
+                StatusANum5.ForeColor = Color.Salmon;
+                StatusANum6.ForeColor = Color.Salmon;
             }
             else if (downStatus == StatusType.A)
             {
-                StatusANum.ForeColor = Color.Cyan;
+                IVsANum.ForeColor = Color.Cyan;
+                StatusANum5.ForeColor = Color.Cyan;
+                StatusANum6.ForeColor = Color.Cyan;
             }
             else
             {
-                StatusANum.ForeColor = Color.White;
+                IVsANum.ForeColor = Color.White;
+                StatusANum5.ForeColor = Color.White;
+                StatusANum6.ForeColor = Color.White;
             }
             if (upStatus == StatusType.B)
             {
-                StatusBNum.ForeColor = Color.Salmon;
+                IVsBNum.ForeColor = Color.Salmon;
+                StatusBNum5.ForeColor = Color.Salmon;
+                StatusBNum6.ForeColor = Color.Salmon;
             }
             else if (downStatus == StatusType.B)
             {
-                StatusBNum.ForeColor = Color.Cyan;
+                IVsBNum.ForeColor = Color.Cyan;
+                StatusBNum5.ForeColor = Color.Cyan;
+                StatusBNum6.ForeColor = Color.Cyan;
             }
             else
             {
-                StatusBNum.ForeColor = Color.White;
+                IVsBNum.ForeColor = Color.White;
+                StatusBNum5.ForeColor = Color.White;
+                StatusBNum6.ForeColor = Color.White;
             }
             if (upStatus == StatusType.C)
             {
-                StatusCNum.ForeColor = Color.Salmon;
+                IVsCNum.ForeColor = Color.Salmon;
+                StatusCNum5.ForeColor = Color.Salmon;
+                StatusCNum6.ForeColor = Color.Salmon;
             }
             else if (downStatus == StatusType.C)
             {
-                StatusCNum.ForeColor = Color.Cyan;
+                IVsCNum.ForeColor = Color.Cyan;
+                StatusCNum5.ForeColor = Color.Cyan;
+                StatusCNum6.ForeColor = Color.Cyan;
             }
             else
             {
-                StatusCNum.ForeColor = Color.White;
+                IVsCNum.ForeColor = Color.White;
+                StatusCNum5.ForeColor = Color.White;
+                StatusCNum6.ForeColor = Color.White;
             }
             if (upStatus == StatusType.D)
             {
-                StatusDNum.ForeColor = Color.Salmon;
+                IVsDNum.ForeColor = Color.Salmon;
+                StatusDNum5.ForeColor = Color.Salmon;
+                StatusDNum6.ForeColor = Color.Salmon;
             }
             else if (downStatus == StatusType.D)
             {
-                StatusDNum.ForeColor = Color.Cyan;
+                IVsDNum.ForeColor = Color.Cyan;
+                StatusDNum5.ForeColor = Color.Cyan;
+                StatusDNum6.ForeColor = Color.Cyan;
             }
             else
             {
-                StatusDNum.ForeColor = Color.White;
+                IVsDNum.ForeColor = Color.White;
+                StatusDNum5.ForeColor = Color.White;
+                StatusDNum6.ForeColor = Color.White;
             }
             if (upStatus == StatusType.S)
             {
-                StatusSNum.ForeColor = Color.Salmon;
+                IVsSNum.ForeColor = Color.Salmon;
+                StatusSNum5.ForeColor = Color.Salmon;
+                StatusSNum6.ForeColor = Color.Salmon;
             }
             else if (downStatus == StatusType.S)
             {
-                StatusSNum.ForeColor = Color.Cyan;
+                IVsSNum.ForeColor = Color.Cyan;
+                StatusSNum5.ForeColor = Color.Cyan;
+                StatusSNum6.ForeColor = Color.Cyan;
             }
             else
             {
-                StatusSNum.ForeColor = Color.White;
+                IVsSNum.ForeColor = Color.White;
+                StatusSNum5.ForeColor = Color.White;
+                StatusSNum6.ForeColor = Color.White;
             }
         }
         private void setConfigData()
         {
             // コンフィグデータの内容をフォームの各コントロールに反映させる
             var config = ConfigData.Instance;
-            switch (config.starter)
-            {
-                case StarterPokemonType.Bulbasaur:
-                    Balbasaur.Checked = true;
-                    break;
-                case StarterPokemonType.Charmander:
-                    Charmander.Checked = true;
-                    break;
-                case StarterPokemonType.Squirtle:
-                    Squirtle.Checked = true;
-                    break;
-            }
             Hreq.Text = config.requiredHIV.ToString();
             ADreq.Text = config.requiredAIV[0].ToString();
             Areq.Text = config.requiredAIV[1].ToString();
@@ -582,6 +647,8 @@ namespace Gen3_Starter_Manip_for_ACE
             Quirky.Checked = config.checkedNatures.Contains(NatureType.Quirky);
             MinFrame.Text = config.minFrame.ToString();
             MaxFrame.Text = config.maxFrame.ToString();
+            MinExpText.Text = config.minExp.ToString();
+            MaxExpText.Text = config.maxExp.ToString();
             // 性格のチェックボックスを更新
             foreach (var nature in Constants.natureEffects)
             {
@@ -592,6 +659,8 @@ namespace Gen3_Starter_Manip_for_ACE
                     checkBox.Checked = config.checkedNatures.Contains(nature.Name);
                 }
             }
+            if (!config.isSearchForACE)
+                NoAceModeView();
         }
         private bool isNumberOrActionKey(Keys key)
         {
@@ -649,6 +718,14 @@ namespace Gen3_Starter_Manip_for_ACE
                 e.Value = Types.GetDescription(nature);
                 e.FormattingApplied = true;
             }
+            if (CalcList.Columns[e.ColumnIndex].DataPropertyName == "経験値")
+            {
+                if (int.TryParse((string?)e.Value, out int exp) && exp == 65535)
+                {
+                    e.Value = "-";
+                    e.FormattingApplied = true;
+                }
+            }
         }
 
         private void MinFrame_TextChanged(object sender, EventArgs e)
@@ -659,6 +736,42 @@ namespace Gen3_Starter_Manip_for_ACE
         private void MaxFrame_TextChanged(object sender, EventArgs e)
         {
             ConfigData.Instance.maxFrame = int.TryParse(MaxFrame.Text, out int maxFrame) ? maxFrame : 0;
+        }
+
+        private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditSettings settingsForm = new EditSettings(this);
+            settingsForm.Show();
+        }
+        private int[] getStatus(NatureType nature, int ivH, int ivA, int ivB, int ivC, int ivD, int ivS, int level, StatusType upStatus, StatusType downStatus)
+        {
+            int spieceIndex;
+            if (ConfigData.Instance.starter == StarterPokemonType.Bulbasaur) { spieceIndex = 0; }
+            else if (ConfigData.Instance.starter == StarterPokemonType.Charmander) { spieceIndex = 1; }
+            else { spieceIndex = 2; }
+            int baseH = Constants.starterPokemonBaseStats[spieceIndex].H;
+            int baseA = Constants.starterPokemonBaseStats[spieceIndex].A;
+            int baseB = Constants.starterPokemonBaseStats[spieceIndex].B;
+            int baseC = Constants.starterPokemonBaseStats[spieceIndex].C;
+            int baseD = Constants.starterPokemonBaseStats[spieceIndex].D;
+            int baseS = Constants.starterPokemonBaseStats[spieceIndex].S;
+            int h = (baseH * 2 + ivH) * level / 100 + level + 10;
+            int a = (int)(((baseA * 2 + ivA) * level / 100 + 5) * (upStatus == StatusType.A ? 1.1 : (downStatus == StatusType.A ? 0.9 : 1)));
+            int b = (int)(((baseB * 2 + ivB) * level / 100 + 5) * (upStatus == StatusType.B ? 1.1 : (downStatus == StatusType.B ? 0.9 : 1)));
+            int c = (int)(((baseC * 2 + ivC) * level / 100 + 5) * (upStatus == StatusType.C ? 1.1 : (downStatus == StatusType.C ? 0.9 : 1)));
+            int d = (int)(((baseD * 2 + ivD) * level / 100 + 5) * (upStatus == StatusType.D ? 1.1 : (downStatus == StatusType.D ? 0.9 : 1)));
+            int s = (int)(((baseS * 2 + ivS) * level / 100 + 5) * (upStatus == StatusType.S ? 1.1 : (downStatus == StatusType.S ? 0.9 : 1)));
+            return new int[] { h, a, b, c, d, s };
+        }
+
+        private void MinExpText_TextChanged(object sender, EventArgs e)
+        {
+            ConfigData.Instance.minExp = int.TryParse(MinExpText.Text, out int minExp) ? minExp : 0;
+        }
+
+        private void MaxExpText_TextChanged(object sender, EventArgs e)
+        {
+            ConfigData.Instance.maxExp = int.TryParse(MaxExpText.Text, out int maxExp) ? maxExp : 0;
         }
     }
 }

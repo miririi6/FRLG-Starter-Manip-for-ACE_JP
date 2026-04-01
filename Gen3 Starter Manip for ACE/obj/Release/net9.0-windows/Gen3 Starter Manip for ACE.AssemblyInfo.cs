@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Gen3 Starter Manip for ACE")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+882cfcaa00e1bd244db6e4b4c0c65208b9413895")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gen3 Starter Manip for ACE")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gen3 Starter Manip for ACE")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

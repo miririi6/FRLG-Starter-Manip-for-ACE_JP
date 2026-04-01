@@ -1,6 +1,6 @@
 ﻿namespace Gen3_Starter_Manip_for_ACE
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             IVsRequirement = new GroupBox();
             SpeedLabel = new Label();
             SpDefLabel = new Label();
@@ -54,16 +55,16 @@
             AUreq = new TextBox();
             label2 = new Label();
             MinusLabel = new Label();
-            SelectPokemonGroup = new GroupBox();
-            Squirtle = new RadioButton();
-            Charmander = new RadioButton();
-            Balbasaur = new RadioButton();
             TermsGroup = new GroupBox();
             ClearTIDButton = new Button();
             TIDLabel = new Label();
+            maxExpLabel = new Label();
             MaxFrameLabel = new Label();
+            minExpLabel = new Label();
             MinFrameLabel = new Label();
             TIDText = new TextBox();
+            MaxExpText = new TextBox();
+            MinExpText = new TextBox();
             MaxFrame = new TextBox();
             MinFrame = new TextBox();
             CalcButton = new Button();
@@ -110,28 +111,49 @@
             StatusCLabel = new Label();
             StatusBLabel = new Label();
             StatusALabel = new Label();
-            StatusSNum = new Label();
-            StatusDNum = new Label();
-            StatusCNum = new Label();
-            StatusBNum = new Label();
-            StatusANum = new Label();
-            StatusHNum = new Label();
+            StatusSNum6 = new Label();
+            StatusSNum5 = new Label();
+            StatusDNum6 = new Label();
+            StatusDNum5 = new Label();
+            StatusCNum6 = new Label();
+            StatusCNum5 = new Label();
+            StatusBNum6 = new Label();
+            StatusBNum5 = new Label();
+            StatusANum6 = new Label();
+            StatusANum5 = new Label();
+            StatusHNum6 = new Label();
+            StatusHNum5 = new Label();
+            label15 = new Label();
+            label14 = new Label();
             StatusHLabel = new Label();
             SerchAroundFramesButton = new Button();
             menuStrip1 = new MenuStrip();
-            fileToolStripMenuItem = new ToolStripMenuItem();
+            FileToolStripMenuItem = new ToolStripMenuItem();
             LoadConfigsFromFile = new ToolStripMenuItem();
             SaveConfigs = new ToolStripMenuItem();
-            設定ToolStripMenuItem = new ToolStripMenuItem();
-            dataGridView1 = new DataGridView();
+            SettingsToolStripMenuItem = new ToolStripMenuItem();
+            WordEXPList = new DataGridView();
+            panel2 = new Panel();
+            IVsSLabel = new Label();
+            IVsDLabel = new Label();
+            IVsCLabel = new Label();
+            IVsBLabel = new Label();
+            IVsALabel = new Label();
+            IVsSNum = new Label();
+            IVsDNum = new Label();
+            IVsCNum = new Label();
+            IVsBNum = new Label();
+            IVsANum = new Label();
+            IVsHNum = new Label();
+            IVsHLabel = new Label();
             IVsRequirement.SuspendLayout();
-            SelectPokemonGroup.SuspendLayout();
             TermsGroup.SuspendLayout();
             NaturGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CalcList).BeginInit();
             panel1.SuspendLayout();
             menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)WordEXPList).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // IVsRequirement
@@ -512,77 +534,33 @@
             MinusLabel.TabIndex = 0;
             MinusLabel.Text = "-";
             // 
-            // SelectPokemonGroup
-            // 
-            SelectPokemonGroup.Controls.Add(Squirtle);
-            SelectPokemonGroup.Controls.Add(Charmander);
-            SelectPokemonGroup.Controls.Add(Balbasaur);
-            SelectPokemonGroup.Location = new Point(12, 235);
-            SelectPokemonGroup.Name = "SelectPokemonGroup";
-            SelectPokemonGroup.Size = new Size(183, 65);
-            SelectPokemonGroup.TabIndex = 1;
-            SelectPokemonGroup.TabStop = false;
-            SelectPokemonGroup.Text = "ポケモン選択";
-            // 
-            // Squirtle
-            // 
-            Squirtle.AutoSize = true;
-            Squirtle.CheckAlign = ContentAlignment.BottomCenter;
-            Squirtle.Location = new Point(129, 22);
-            Squirtle.Name = "Squirtle";
-            Squirtle.Size = new Size(48, 32);
-            Squirtle.TabIndex = 0;
-            Squirtle.Text = "ゼニガメ";
-            Squirtle.UseVisualStyleBackColor = true;
-            Squirtle.CheckedChanged += Spieces_ChekedChanged;
-            // 
-            // Charmander
-            // 
-            Charmander.AutoSize = true;
-            Charmander.CheckAlign = ContentAlignment.BottomCenter;
-            Charmander.Location = new Point(67, 22);
-            Charmander.Name = "Charmander";
-            Charmander.Size = new Size(46, 32);
-            Charmander.TabIndex = 0;
-            Charmander.Text = "ヒトカゲ";
-            Charmander.UseVisualStyleBackColor = true;
-            Charmander.CheckedChanged += Spieces_ChekedChanged;
-            // 
-            // Balbasaur
-            // 
-            Balbasaur.AutoSize = true;
-            Balbasaur.CheckAlign = ContentAlignment.BottomCenter;
-            Balbasaur.Location = new Point(6, 22);
-            Balbasaur.Name = "Balbasaur";
-            Balbasaur.Size = new Size(57, 32);
-            Balbasaur.TabIndex = 0;
-            Balbasaur.Text = "フシギダネ";
-            Balbasaur.UseVisualStyleBackColor = true;
-            Balbasaur.CheckedChanged += Spieces_ChekedChanged;
-            // 
             // TermsGroup
             // 
             TermsGroup.Controls.Add(ClearTIDButton);
             TermsGroup.Controls.Add(TIDLabel);
+            TermsGroup.Controls.Add(maxExpLabel);
             TermsGroup.Controls.Add(MaxFrameLabel);
+            TermsGroup.Controls.Add(minExpLabel);
             TermsGroup.Controls.Add(MinFrameLabel);
             TermsGroup.Controls.Add(TIDText);
+            TermsGroup.Controls.Add(MaxExpText);
+            TermsGroup.Controls.Add(MinExpText);
             TermsGroup.Controls.Add(MaxFrame);
             TermsGroup.Controls.Add(MinFrame);
-            TermsGroup.Location = new Point(12, 306);
+            TermsGroup.Location = new Point(12, 235);
             TermsGroup.Name = "TermsGroup";
-            TermsGroup.Size = new Size(183, 137);
-            TermsGroup.TabIndex = 2;
+            TermsGroup.Size = new Size(183, 208);
+            TermsGroup.TabIndex = 0;
             TermsGroup.TabStop = false;
             TermsGroup.Text = "検索条件";
             TermsGroup.Enter += TextBox_Enter;
             // 
             // ClearTIDButton
             // 
-            ClearTIDButton.Location = new Point(96, 108);
+            ClearTIDButton.Location = new Point(96, 179);
             ClearTIDButton.Name = "ClearTIDButton";
             ClearTIDButton.Size = new Size(81, 23);
-            ClearTIDButton.TabIndex = 3;
+            ClearTIDButton.TabIndex = 1;
             ClearTIDButton.Text = "ID削除";
             ClearTIDButton.UseVisualStyleBackColor = true;
             ClearTIDButton.Click += ClearTIDButton_Click;
@@ -590,25 +568,43 @@
             // TIDLabel
             // 
             TIDLabel.AutoSize = true;
-            TIDLabel.Location = new Point(6, 81);
+            TIDLabel.Location = new Point(6, 152);
             TIDLabel.Name = "TIDLabel";
             TIDLabel.Size = new Size(60, 15);
             TIDLabel.TabIndex = 2;
             TIDLabel.Text = "トレーナーID";
             // 
+            // maxExpLabel
+            // 
+            maxExpLabel.AutoSize = true;
+            maxExpLabel.Location = new Point(6, 52);
+            maxExpLabel.Name = "maxExpLabel";
+            maxExpLabel.Size = new Size(67, 15);
+            maxExpLabel.TabIndex = 2;
+            maxExpLabel.Text = "最大経験値";
+            // 
             // MaxFrameLabel
             // 
             MaxFrameLabel.AutoSize = true;
-            MaxFrameLabel.Location = new Point(6, 52);
+            MaxFrameLabel.Location = new Point(6, 123);
             MaxFrameLabel.Name = "MaxFrameLabel";
             MaxFrameLabel.Size = new Size(65, 15);
             MaxFrameLabel.TabIndex = 2;
             MaxFrameLabel.Text = "最大フレーム";
             // 
+            // minExpLabel
+            // 
+            minExpLabel.AutoSize = true;
+            minExpLabel.Location = new Point(6, 24);
+            minExpLabel.Name = "minExpLabel";
+            minExpLabel.Size = new Size(67, 15);
+            minExpLabel.TabIndex = 2;
+            minExpLabel.Text = "最小経験値";
+            // 
             // MinFrameLabel
             // 
             MinFrameLabel.AutoSize = true;
-            MinFrameLabel.Location = new Point(6, 24);
+            MinFrameLabel.Location = new Point(6, 95);
             MinFrameLabel.Name = "MinFrameLabel";
             MinFrameLabel.Size = new Size(65, 15);
             MinFrameLabel.TabIndex = 2;
@@ -619,24 +615,56 @@
             TIDText.BorderStyle = BorderStyle.FixedSingle;
             TIDText.Font = new Font("Yu Gothic UI", 9F);
             TIDText.ImeMode = ImeMode.Disable;
-            TIDText.Location = new Point(96, 79);
+            TIDText.Location = new Point(96, 150);
             TIDText.MaxLength = 5;
             TIDText.Name = "TIDText";
             TIDText.Size = new Size(81, 23);
-            TIDText.TabIndex = 2;
+            TIDText.TabIndex = 0;
             TIDText.TextAlign = HorizontalAlignment.Right;
             TIDText.KeyDown += TIDText_KeyDown;
+            // 
+            // MaxExpText
+            // 
+            MaxExpText.BorderStyle = BorderStyle.FixedSingle;
+            MaxExpText.Font = new Font("Yu Gothic UI", 9F);
+            MaxExpText.ImeMode = ImeMode.Disable;
+            MaxExpText.Location = new Point(96, 50);
+            MaxExpText.MaxLength = 256;
+            MaxExpText.Name = "MaxExpText";
+            MaxExpText.Size = new Size(81, 23);
+            MaxExpText.TabIndex = 3;
+            MaxExpText.TextAlign = HorizontalAlignment.Right;
+            MaxExpText.Click += TextBox_Click;
+            MaxExpText.TextChanged += MaxExpText_TextChanged;
+            MaxExpText.Enter += TextBox_Enter;
+            MaxExpText.KeyDown += Frames_KeyDown;
+            // 
+            // MinExpText
+            // 
+            MinExpText.BorderStyle = BorderStyle.FixedSingle;
+            MinExpText.Font = new Font("Yu Gothic UI", 9F);
+            MinExpText.ImeMode = ImeMode.Disable;
+            MinExpText.Location = new Point(96, 22);
+            MinExpText.MaxLength = 256;
+            MinExpText.Name = "MinExpText";
+            MinExpText.Size = new Size(81, 23);
+            MinExpText.TabIndex = 2;
+            MinExpText.TextAlign = HorizontalAlignment.Right;
+            MinExpText.Click += TextBox_Click;
+            MinExpText.TextChanged += MinExpText_TextChanged;
+            MinExpText.Enter += TextBox_Enter;
+            MinExpText.KeyDown += Frames_KeyDown;
             // 
             // MaxFrame
             // 
             MaxFrame.BorderStyle = BorderStyle.FixedSingle;
             MaxFrame.Font = new Font("Yu Gothic UI", 9F);
             MaxFrame.ImeMode = ImeMode.Disable;
-            MaxFrame.Location = new Point(96, 50);
+            MaxFrame.Location = new Point(96, 121);
             MaxFrame.MaxLength = 256;
             MaxFrame.Name = "MaxFrame";
             MaxFrame.Size = new Size(81, 23);
-            MaxFrame.TabIndex = 1;
+            MaxFrame.TabIndex = 5;
             MaxFrame.TextAlign = HorizontalAlignment.Right;
             MaxFrame.Click += TextBox_Click;
             MaxFrame.TextChanged += MaxFrame_TextChanged;
@@ -648,11 +676,11 @@
             MinFrame.BorderStyle = BorderStyle.FixedSingle;
             MinFrame.Font = new Font("Yu Gothic UI", 9F);
             MinFrame.ImeMode = ImeMode.Disable;
-            MinFrame.Location = new Point(96, 22);
+            MinFrame.Location = new Point(96, 93);
             MinFrame.MaxLength = 256;
             MinFrame.Name = "MinFrame";
             MinFrame.Size = new Size(81, 23);
-            MinFrame.TabIndex = 0;
+            MinFrame.TabIndex = 4;
             MinFrame.TextAlign = HorizontalAlignment.Right;
             MinFrame.Click += TextBox_Click;
             MinFrame.TextChanged += MinFrame_TextChanged;
@@ -664,8 +692,8 @@
             CalcButton.Location = new Point(12, 449);
             CalcButton.Name = "CalcButton";
             CalcButton.Size = new Size(183, 37);
-            CalcButton.TabIndex = 3;
-            CalcButton.Text = "計算";
+            CalcButton.TabIndex = 1;
+            CalcButton.Text = "検索";
             CalcButton.UseVisualStyleBackColor = true;
             CalcButton.Click += CalcButton_Click;
             // 
@@ -1109,19 +1137,20 @@
             CalcList.AllowUserToDeleteRows = false;
             CalcList.AllowUserToResizeRows = false;
             CalcList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Yu Gothic UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            CalcList.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Yu Gothic UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            CalcList.DefaultCellStyle = dataGridViewCellStyle5;
             CalcList.Location = new Point(201, 210);
             CalcList.Name = "CalcList";
             CalcList.ReadOnly = true;
+            CalcList.RowHeadersVisible = false;
             CalcList.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            CalcList.Size = new Size(470, 222);
+            CalcList.Size = new Size(470, 179);
             CalcList.TabIndex = 4;
             CalcList.TabStop = false;
             CalcList.CellClick += CalcList_CellClick;
@@ -1135,16 +1164,24 @@
             panel1.Controls.Add(StatusCLabel);
             panel1.Controls.Add(StatusBLabel);
             panel1.Controls.Add(StatusALabel);
-            panel1.Controls.Add(StatusSNum);
-            panel1.Controls.Add(StatusDNum);
-            panel1.Controls.Add(StatusCNum);
-            panel1.Controls.Add(StatusBNum);
-            panel1.Controls.Add(StatusANum);
-            panel1.Controls.Add(StatusHNum);
+            panel1.Controls.Add(StatusSNum6);
+            panel1.Controls.Add(StatusSNum5);
+            panel1.Controls.Add(StatusDNum6);
+            panel1.Controls.Add(StatusDNum5);
+            panel1.Controls.Add(StatusCNum6);
+            panel1.Controls.Add(StatusCNum5);
+            panel1.Controls.Add(StatusBNum6);
+            panel1.Controls.Add(StatusBNum5);
+            panel1.Controls.Add(StatusANum6);
+            panel1.Controls.Add(StatusANum5);
+            panel1.Controls.Add(StatusHNum6);
+            panel1.Controls.Add(StatusHNum5);
+            panel1.Controls.Add(label15);
+            panel1.Controls.Add(label14);
             panel1.Controls.Add(StatusHLabel);
-            panel1.Location = new Point(201, 438);
+            panel1.Location = new Point(417, 395);
             panel1.Name = "panel1";
-            panel1.Size = new Size(210, 48);
+            panel1.Size = new Size(254, 88);
             panel1.TabIndex = 5;
             // 
             // StatusSLabel
@@ -1152,7 +1189,7 @@
             StatusSLabel.AutoSize = true;
             StatusSLabel.Font = new Font("Yu Gothic UI", 12F);
             StatusSLabel.ForeColor = Color.White;
-            StatusSLabel.Location = new Point(176, 3);
+            StatusSLabel.Location = new Point(224, 3);
             StatusSLabel.Margin = new Padding(6, 0, 6, 0);
             StatusSLabel.Name = "StatusSLabel";
             StatusSLabel.Size = new Size(19, 21);
@@ -1164,7 +1201,7 @@
             StatusDLabel.AutoSize = true;
             StatusDLabel.Font = new Font("Yu Gothic UI", 12F);
             StatusDLabel.ForeColor = Color.White;
-            StatusDLabel.Location = new Point(143, 3);
+            StatusDLabel.Location = new Point(191, 3);
             StatusDLabel.Margin = new Padding(6, 0, 6, 0);
             StatusDLabel.Name = "StatusDLabel";
             StatusDLabel.Size = new Size(21, 21);
@@ -1176,7 +1213,7 @@
             StatusCLabel.AutoSize = true;
             StatusCLabel.Font = new Font("Yu Gothic UI", 12F);
             StatusCLabel.ForeColor = Color.White;
-            StatusCLabel.Location = new Point(111, 3);
+            StatusCLabel.Location = new Point(159, 3);
             StatusCLabel.Margin = new Padding(6, 0, 6, 0);
             StatusCLabel.Name = "StatusCLabel";
             StatusCLabel.Size = new Size(20, 21);
@@ -1188,7 +1225,7 @@
             StatusBLabel.AutoSize = true;
             StatusBLabel.Font = new Font("Yu Gothic UI", 12F);
             StatusBLabel.ForeColor = Color.White;
-            StatusBLabel.Location = new Point(80, 3);
+            StatusBLabel.Location = new Point(128, 3);
             StatusBLabel.Margin = new Padding(6, 0, 6, 0);
             StatusBLabel.Name = "StatusBLabel";
             StatusBLabel.Size = new Size(19, 21);
@@ -1200,91 +1237,187 @@
             StatusALabel.AutoSize = true;
             StatusALabel.Font = new Font("Yu Gothic UI", 12F);
             StatusALabel.ForeColor = Color.White;
-            StatusALabel.Location = new Point(48, 3);
+            StatusALabel.Location = new Point(96, 3);
             StatusALabel.Margin = new Padding(6, 0, 6, 0);
             StatusALabel.Name = "StatusALabel";
             StatusALabel.Size = new Size(20, 21);
             StatusALabel.TabIndex = 0;
             StatusALabel.Text = "A";
             // 
-            // StatusSNum
+            // StatusSNum6
             // 
-            StatusSNum.Font = new Font("Yu Gothic UI", 12F);
-            StatusSNum.ForeColor = Color.White;
-            StatusSNum.Location = new Point(172, 24);
-            StatusSNum.Margin = new Padding(6, 0, 6, 0);
-            StatusSNum.Name = "StatusSNum";
-            StatusSNum.Size = new Size(28, 21);
-            StatusSNum.TabIndex = 0;
-            StatusSNum.Text = "0";
-            StatusSNum.TextAlign = ContentAlignment.TopCenter;
+            StatusSNum6.Font = new Font("Yu Gothic UI", 12F);
+            StatusSNum6.ForeColor = Color.White;
+            StatusSNum6.Location = new Point(220, 60);
+            StatusSNum6.Margin = new Padding(6, 0, 6, 0);
+            StatusSNum6.Name = "StatusSNum6";
+            StatusSNum6.Size = new Size(28, 21);
+            StatusSNum6.TabIndex = 0;
+            StatusSNum6.Text = "0";
+            StatusSNum6.TextAlign = ContentAlignment.TopCenter;
             // 
-            // StatusDNum
+            // StatusSNum5
             // 
-            StatusDNum.Font = new Font("Yu Gothic UI", 12F);
-            StatusDNum.ForeColor = Color.White;
-            StatusDNum.Location = new Point(140, 24);
-            StatusDNum.Margin = new Padding(6, 0, 6, 0);
-            StatusDNum.Name = "StatusDNum";
-            StatusDNum.Size = new Size(28, 21);
-            StatusDNum.TabIndex = 0;
-            StatusDNum.Text = "0";
-            StatusDNum.TextAlign = ContentAlignment.TopCenter;
+            StatusSNum5.Font = new Font("Yu Gothic UI", 12F);
+            StatusSNum5.ForeColor = Color.White;
+            StatusSNum5.Location = new Point(220, 30);
+            StatusSNum5.Margin = new Padding(6, 0, 6, 0);
+            StatusSNum5.Name = "StatusSNum5";
+            StatusSNum5.Size = new Size(28, 21);
+            StatusSNum5.TabIndex = 0;
+            StatusSNum5.Text = "0";
+            StatusSNum5.TextAlign = ContentAlignment.TopCenter;
             // 
-            // StatusCNum
+            // StatusDNum6
             // 
-            StatusCNum.Font = new Font("Yu Gothic UI", 12F);
-            StatusCNum.ForeColor = Color.White;
-            StatusCNum.Location = new Point(108, 24);
-            StatusCNum.Margin = new Padding(6, 0, 6, 0);
-            StatusCNum.Name = "StatusCNum";
-            StatusCNum.Size = new Size(28, 21);
-            StatusCNum.TabIndex = 0;
-            StatusCNum.Text = "0";
-            StatusCNum.TextAlign = ContentAlignment.TopCenter;
+            StatusDNum6.Font = new Font("Yu Gothic UI", 12F);
+            StatusDNum6.ForeColor = Color.White;
+            StatusDNum6.Location = new Point(188, 60);
+            StatusDNum6.Margin = new Padding(6, 0, 6, 0);
+            StatusDNum6.Name = "StatusDNum6";
+            StatusDNum6.Size = new Size(28, 21);
+            StatusDNum6.TabIndex = 0;
+            StatusDNum6.Text = "0";
+            StatusDNum6.TextAlign = ContentAlignment.TopCenter;
             // 
-            // StatusBNum
+            // StatusDNum5
             // 
-            StatusBNum.Font = new Font("Yu Gothic UI", 12F);
-            StatusBNum.ForeColor = Color.White;
-            StatusBNum.Location = new Point(76, 24);
-            StatusBNum.Margin = new Padding(6, 0, 6, 0);
-            StatusBNum.Name = "StatusBNum";
-            StatusBNum.Size = new Size(28, 21);
-            StatusBNum.TabIndex = 0;
-            StatusBNum.Text = "0";
-            StatusBNum.TextAlign = ContentAlignment.TopCenter;
+            StatusDNum5.Font = new Font("Yu Gothic UI", 12F);
+            StatusDNum5.ForeColor = Color.White;
+            StatusDNum5.Location = new Point(188, 30);
+            StatusDNum5.Margin = new Padding(6, 0, 6, 0);
+            StatusDNum5.Name = "StatusDNum5";
+            StatusDNum5.Size = new Size(28, 21);
+            StatusDNum5.TabIndex = 0;
+            StatusDNum5.Text = "0";
+            StatusDNum5.TextAlign = ContentAlignment.TopCenter;
             // 
-            // StatusANum
+            // StatusCNum6
             // 
-            StatusANum.Font = new Font("Yu Gothic UI", 12F);
-            StatusANum.ForeColor = Color.White;
-            StatusANum.Location = new Point(44, 24);
-            StatusANum.Margin = new Padding(6, 0, 6, 0);
-            StatusANum.Name = "StatusANum";
-            StatusANum.Size = new Size(28, 21);
-            StatusANum.TabIndex = 0;
-            StatusANum.Text = "0";
-            StatusANum.TextAlign = ContentAlignment.TopCenter;
+            StatusCNum6.Font = new Font("Yu Gothic UI", 12F);
+            StatusCNum6.ForeColor = Color.White;
+            StatusCNum6.Location = new Point(156, 60);
+            StatusCNum6.Margin = new Padding(6, 0, 6, 0);
+            StatusCNum6.Name = "StatusCNum6";
+            StatusCNum6.Size = new Size(28, 21);
+            StatusCNum6.TabIndex = 0;
+            StatusCNum6.Text = "0";
+            StatusCNum6.TextAlign = ContentAlignment.TopCenter;
             // 
-            // StatusHNum
+            // StatusCNum5
             // 
-            StatusHNum.Font = new Font("Yu Gothic UI", 12F);
-            StatusHNum.ForeColor = Color.White;
-            StatusHNum.Location = new Point(12, 24);
-            StatusHNum.Margin = new Padding(6, 0, 6, 0);
-            StatusHNum.Name = "StatusHNum";
-            StatusHNum.Size = new Size(28, 21);
-            StatusHNum.TabIndex = 0;
-            StatusHNum.Text = "0";
-            StatusHNum.TextAlign = ContentAlignment.TopCenter;
+            StatusCNum5.Font = new Font("Yu Gothic UI", 12F);
+            StatusCNum5.ForeColor = Color.White;
+            StatusCNum5.Location = new Point(156, 30);
+            StatusCNum5.Margin = new Padding(6, 0, 6, 0);
+            StatusCNum5.Name = "StatusCNum5";
+            StatusCNum5.Size = new Size(28, 21);
+            StatusCNum5.TabIndex = 0;
+            StatusCNum5.Text = "0";
+            StatusCNum5.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // StatusBNum6
+            // 
+            StatusBNum6.Font = new Font("Yu Gothic UI", 12F);
+            StatusBNum6.ForeColor = Color.White;
+            StatusBNum6.Location = new Point(124, 60);
+            StatusBNum6.Margin = new Padding(6, 0, 6, 0);
+            StatusBNum6.Name = "StatusBNum6";
+            StatusBNum6.Size = new Size(28, 21);
+            StatusBNum6.TabIndex = 0;
+            StatusBNum6.Text = "0";
+            StatusBNum6.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // StatusBNum5
+            // 
+            StatusBNum5.Font = new Font("Yu Gothic UI", 12F);
+            StatusBNum5.ForeColor = Color.White;
+            StatusBNum5.Location = new Point(124, 30);
+            StatusBNum5.Margin = new Padding(6, 0, 6, 0);
+            StatusBNum5.Name = "StatusBNum5";
+            StatusBNum5.Size = new Size(28, 21);
+            StatusBNum5.TabIndex = 0;
+            StatusBNum5.Text = "0";
+            StatusBNum5.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // StatusANum6
+            // 
+            StatusANum6.Font = new Font("Yu Gothic UI", 12F);
+            StatusANum6.ForeColor = Color.White;
+            StatusANum6.Location = new Point(92, 60);
+            StatusANum6.Margin = new Padding(6, 0, 6, 0);
+            StatusANum6.Name = "StatusANum6";
+            StatusANum6.Size = new Size(28, 21);
+            StatusANum6.TabIndex = 0;
+            StatusANum6.Text = "0";
+            StatusANum6.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // StatusANum5
+            // 
+            StatusANum5.Font = new Font("Yu Gothic UI", 12F);
+            StatusANum5.ForeColor = Color.White;
+            StatusANum5.Location = new Point(92, 30);
+            StatusANum5.Margin = new Padding(6, 0, 6, 0);
+            StatusANum5.Name = "StatusANum5";
+            StatusANum5.Size = new Size(28, 21);
+            StatusANum5.TabIndex = 0;
+            StatusANum5.Text = "0";
+            StatusANum5.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // StatusHNum6
+            // 
+            StatusHNum6.Font = new Font("Yu Gothic UI", 12F);
+            StatusHNum6.ForeColor = Color.White;
+            StatusHNum6.Location = new Point(60, 60);
+            StatusHNum6.Margin = new Padding(6, 0, 6, 0);
+            StatusHNum6.Name = "StatusHNum6";
+            StatusHNum6.Size = new Size(28, 21);
+            StatusHNum6.TabIndex = 0;
+            StatusHNum6.Text = "0";
+            StatusHNum6.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // StatusHNum5
+            // 
+            StatusHNum5.Font = new Font("Yu Gothic UI", 12F);
+            StatusHNum5.ForeColor = Color.White;
+            StatusHNum5.Location = new Point(60, 30);
+            StatusHNum5.Margin = new Padding(6, 0, 6, 0);
+            StatusHNum5.Name = "StatusHNum5";
+            StatusHNum5.Size = new Size(28, 21);
+            StatusHNum5.TabIndex = 0;
+            StatusHNum5.Text = "0";
+            StatusHNum5.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Yu Gothic UI", 12F);
+            label15.ForeColor = Color.White;
+            label15.Location = new Point(6, 60);
+            label15.Margin = new Padding(6, 0, 6, 0);
+            label15.Name = "label15";
+            label15.Size = new Size(41, 21);
+            label15.TabIndex = 0;
+            label15.Text = "Lv. 6";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Yu Gothic UI", 12F);
+            label14.ForeColor = Color.White;
+            label14.Location = new Point(6, 30);
+            label14.Margin = new Padding(6, 0, 6, 0);
+            label14.Name = "label14";
+            label14.Size = new Size(41, 21);
+            label14.TabIndex = 0;
+            label14.Text = "Lv. 5";
             // 
             // StatusHLabel
             // 
             StatusHLabel.AutoSize = true;
             StatusHLabel.Font = new Font("Yu Gothic UI", 12F);
             StatusHLabel.ForeColor = Color.White;
-            StatusHLabel.Location = new Point(15, 3);
+            StatusHLabel.Location = new Point(63, 3);
             StatusHLabel.Margin = new Padding(6, 0, 6, 0);
             StatusHLabel.Name = "StatusHLabel";
             StatusHLabel.Size = new Size(21, 21);
@@ -1293,29 +1426,29 @@
             // 
             // SerchAroundFramesButton
             // 
-            SerchAroundFramesButton.Location = new Point(417, 438);
+            SerchAroundFramesButton.Location = new Point(201, 449);
             SerchAroundFramesButton.Name = "SerchAroundFramesButton";
-            SerchAroundFramesButton.Size = new Size(254, 48);
-            SerchAroundFramesButton.TabIndex = 6;
+            SerchAroundFramesButton.Size = new Size(210, 37);
+            SerchAroundFramesButton.TabIndex = 2;
             SerchAroundFramesButton.Text = "周辺フレーム検索";
             SerchAroundFramesButton.UseVisualStyleBackColor = true;
             SerchAroundFramesButton.Click += SerchAroundFramesButton_Click;
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, 設定ToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { FileToolStripMenuItem, SettingsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(886, 24);
+            menuStrip1.Size = new Size(958, 24);
             menuStrip1.TabIndex = 7;
             menuStrip1.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // FileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { LoadConfigsFromFile, SaveConfigs });
-            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(67, 20);
-            fileToolStripMenuItem.Text = "ファイル(&F)";
+            FileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { LoadConfigsFromFile, SaveConfigs });
+            FileToolStripMenuItem.Name = "FileToolStripMenuItem";
+            FileToolStripMenuItem.Size = new Size(67, 20);
+            FileToolStripMenuItem.Text = "ファイル(&F)";
             // 
             // LoadConfigsFromFile
             // 
@@ -1333,42 +1466,223 @@
             SaveConfigs.ToolTipText = "Settings.jsonを起動時に自動で読み込みます";
             SaveConfigs.Click += SaveConfigs_Click;
             // 
-            // 設定ToolStripMenuItem
+            // SettingsToolStripMenuItem
             // 
-            設定ToolStripMenuItem.Name = "設定ToolStripMenuItem";
-            設定ToolStripMenuItem.Size = new Size(57, 20);
-            設定ToolStripMenuItem.Text = "設定(&S)";
+            SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem";
+            SettingsToolStripMenuItem.Size = new Size(57, 20);
+            SettingsToolStripMenuItem.Text = "設定(&S)";
+            SettingsToolStripMenuItem.Click += SettingsToolStripMenuItem_Click;
             // 
-            // dataGridView1
+            // WordEXPList
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(677, 27);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(197, 405);
-            dataGridView1.TabIndex = 8;
+            WordEXPList.AllowUserToAddRows = false;
+            WordEXPList.AllowUserToDeleteRows = false;
+            WordEXPList.AllowUserToResizeRows = false;
+            WordEXPList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Yu Gothic UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            WordEXPList.DefaultCellStyle = dataGridViewCellStyle6;
+            WordEXPList.Location = new Point(677, 27);
+            WordEXPList.Name = "WordEXPList";
+            WordEXPList.ReadOnly = true;
+            WordEXPList.RowHeadersVisible = false;
+            WordEXPList.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            WordEXPList.Size = new Size(269, 456);
+            WordEXPList.TabIndex = 4;
+            WordEXPList.TabStop = false;
+            WordEXPList.CellFormatting += CalcList_CellFormatting;
             // 
-            // Form1
+            // panel2
+            // 
+            panel2.BackColor = SystemColors.ControlText;
+            panel2.Controls.Add(IVsSLabel);
+            panel2.Controls.Add(IVsDLabel);
+            panel2.Controls.Add(IVsCLabel);
+            panel2.Controls.Add(IVsBLabel);
+            panel2.Controls.Add(IVsALabel);
+            panel2.Controls.Add(IVsSNum);
+            panel2.Controls.Add(IVsDNum);
+            panel2.Controls.Add(IVsCNum);
+            panel2.Controls.Add(IVsBNum);
+            panel2.Controls.Add(IVsANum);
+            panel2.Controls.Add(IVsHNum);
+            panel2.Controls.Add(IVsHLabel);
+            panel2.Location = new Point(201, 395);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(210, 48);
+            panel2.TabIndex = 5;
+            // 
+            // IVsSLabel
+            // 
+            IVsSLabel.AutoSize = true;
+            IVsSLabel.Font = new Font("Yu Gothic UI", 12F);
+            IVsSLabel.ForeColor = Color.White;
+            IVsSLabel.Location = new Point(176, 3);
+            IVsSLabel.Margin = new Padding(6, 0, 6, 0);
+            IVsSLabel.Name = "IVsSLabel";
+            IVsSLabel.Size = new Size(19, 21);
+            IVsSLabel.TabIndex = 0;
+            IVsSLabel.Text = "S";
+            // 
+            // IVsDLabel
+            // 
+            IVsDLabel.AutoSize = true;
+            IVsDLabel.Font = new Font("Yu Gothic UI", 12F);
+            IVsDLabel.ForeColor = Color.White;
+            IVsDLabel.Location = new Point(143, 3);
+            IVsDLabel.Margin = new Padding(6, 0, 6, 0);
+            IVsDLabel.Name = "IVsDLabel";
+            IVsDLabel.Size = new Size(21, 21);
+            IVsDLabel.TabIndex = 0;
+            IVsDLabel.Text = "D";
+            // 
+            // IVsCLabel
+            // 
+            IVsCLabel.AutoSize = true;
+            IVsCLabel.Font = new Font("Yu Gothic UI", 12F);
+            IVsCLabel.ForeColor = Color.White;
+            IVsCLabel.Location = new Point(111, 3);
+            IVsCLabel.Margin = new Padding(6, 0, 6, 0);
+            IVsCLabel.Name = "IVsCLabel";
+            IVsCLabel.Size = new Size(20, 21);
+            IVsCLabel.TabIndex = 0;
+            IVsCLabel.Text = "C";
+            // 
+            // IVsBLabel
+            // 
+            IVsBLabel.AutoSize = true;
+            IVsBLabel.Font = new Font("Yu Gothic UI", 12F);
+            IVsBLabel.ForeColor = Color.White;
+            IVsBLabel.Location = new Point(80, 3);
+            IVsBLabel.Margin = new Padding(6, 0, 6, 0);
+            IVsBLabel.Name = "IVsBLabel";
+            IVsBLabel.Size = new Size(19, 21);
+            IVsBLabel.TabIndex = 0;
+            IVsBLabel.Text = "B";
+            // 
+            // IVsALabel
+            // 
+            IVsALabel.AutoSize = true;
+            IVsALabel.Font = new Font("Yu Gothic UI", 12F);
+            IVsALabel.ForeColor = Color.White;
+            IVsALabel.Location = new Point(48, 3);
+            IVsALabel.Margin = new Padding(6, 0, 6, 0);
+            IVsALabel.Name = "IVsALabel";
+            IVsALabel.Size = new Size(20, 21);
+            IVsALabel.TabIndex = 0;
+            IVsALabel.Text = "A";
+            // 
+            // IVsSNum
+            // 
+            IVsSNum.Font = new Font("Yu Gothic UI", 12F);
+            IVsSNum.ForeColor = Color.White;
+            IVsSNum.Location = new Point(172, 24);
+            IVsSNum.Margin = new Padding(6, 0, 6, 0);
+            IVsSNum.Name = "IVsSNum";
+            IVsSNum.Size = new Size(28, 21);
+            IVsSNum.TabIndex = 0;
+            IVsSNum.Text = "0";
+            IVsSNum.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // IVsDNum
+            // 
+            IVsDNum.Font = new Font("Yu Gothic UI", 12F);
+            IVsDNum.ForeColor = Color.White;
+            IVsDNum.Location = new Point(140, 24);
+            IVsDNum.Margin = new Padding(6, 0, 6, 0);
+            IVsDNum.Name = "IVsDNum";
+            IVsDNum.Size = new Size(28, 21);
+            IVsDNum.TabIndex = 0;
+            IVsDNum.Text = "0";
+            IVsDNum.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // IVsCNum
+            // 
+            IVsCNum.Font = new Font("Yu Gothic UI", 12F);
+            IVsCNum.ForeColor = Color.White;
+            IVsCNum.Location = new Point(108, 24);
+            IVsCNum.Margin = new Padding(6, 0, 6, 0);
+            IVsCNum.Name = "IVsCNum";
+            IVsCNum.Size = new Size(28, 21);
+            IVsCNum.TabIndex = 0;
+            IVsCNum.Text = "0";
+            IVsCNum.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // IVsBNum
+            // 
+            IVsBNum.Font = new Font("Yu Gothic UI", 12F);
+            IVsBNum.ForeColor = Color.White;
+            IVsBNum.Location = new Point(76, 24);
+            IVsBNum.Margin = new Padding(6, 0, 6, 0);
+            IVsBNum.Name = "IVsBNum";
+            IVsBNum.Size = new Size(28, 21);
+            IVsBNum.TabIndex = 0;
+            IVsBNum.Text = "0";
+            IVsBNum.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // IVsANum
+            // 
+            IVsANum.Font = new Font("Yu Gothic UI", 12F);
+            IVsANum.ForeColor = Color.White;
+            IVsANum.Location = new Point(44, 24);
+            IVsANum.Margin = new Padding(6, 0, 6, 0);
+            IVsANum.Name = "IVsANum";
+            IVsANum.Size = new Size(28, 21);
+            IVsANum.TabIndex = 0;
+            IVsANum.Text = "0";
+            IVsANum.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // IVsHNum
+            // 
+            IVsHNum.Font = new Font("Yu Gothic UI", 12F);
+            IVsHNum.ForeColor = Color.White;
+            IVsHNum.Location = new Point(12, 24);
+            IVsHNum.Margin = new Padding(6, 0, 6, 0);
+            IVsHNum.Name = "IVsHNum";
+            IVsHNum.Size = new Size(28, 21);
+            IVsHNum.TabIndex = 0;
+            IVsHNum.Text = "0";
+            IVsHNum.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // IVsHLabel
+            // 
+            IVsHLabel.AutoSize = true;
+            IVsHLabel.Font = new Font("Yu Gothic UI", 12F);
+            IVsHLabel.ForeColor = Color.White;
+            IVsHLabel.Location = new Point(15, 3);
+            IVsHLabel.Margin = new Padding(6, 0, 6, 0);
+            IVsHLabel.Name = "IVsHLabel";
+            IVsHLabel.Size = new Size(21, 21);
+            IVsHLabel.TabIndex = 0;
+            IVsHLabel.Text = "H";
+            // 
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(886, 495);
-            Controls.Add(dataGridView1);
+            ClientSize = new Size(958, 495);
             Controls.Add(SerchAroundFramesButton);
             Controls.Add(CalcButton);
+            Controls.Add(panel2);
             Controls.Add(panel1);
+            Controls.Add(WordEXPList);
             Controls.Add(CalcList);
             Controls.Add(NaturGroup);
             Controls.Add(TermsGroup);
-            Controls.Add(SelectPokemonGroup);
             Controls.Add(IVsRequirement);
             Controls.Add(menuStrip1);
-            Name = "Form1";
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "MainForm";
             Text = "FRLG任意コード実行用　御三家乱数調整";
             Load += Form1_Load;
             IVsRequirement.ResumeLayout(false);
             IVsRequirement.PerformLayout();
-            SelectPokemonGroup.ResumeLayout(false);
-            SelectPokemonGroup.PerformLayout();
             TermsGroup.ResumeLayout(false);
             TermsGroup.PerformLayout();
             NaturGroup.ResumeLayout(false);
@@ -1378,7 +1692,9 @@
             panel1.PerformLayout();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)WordEXPList).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1410,10 +1726,6 @@
         private Label SpAtkLabel;
         private Label DefenseLabel;
         private Label AttackLabel;
-        private GroupBox SelectPokemonGroup;
-        private RadioButton Balbasaur;
-        private RadioButton Squirtle;
-        private RadioButton Charmander;
         private GroupBox TermsGroup;
         private TextBox MaxFrame;
         private TextBox MinFrame;
@@ -1466,19 +1778,44 @@
         private Label StatusCLabel;
         private Label StatusBLabel;
         private Label StatusALabel;
-        private Label StatusHNum;
-        private Label StatusBNum;
-        private Label StatusANum;
-        private Label StatusSNum;
-        private Label StatusDNum;
-        private Label StatusCNum;
+        private Label StatusHNum5;
+        private Label StatusBNum5;
+        private Label StatusANum5;
+        private Label StatusSNum5;
+        private Label StatusDNum5;
+        private Label StatusCNum5;
         private Button SerchAroundFramesButton;
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem FileToolStripMenuItem;
         private ToolStripMenuItem LoadConfigsFromFile;
         private ToolStripMenuItem SaveConfigs;
         private Button ClearTIDButton;
-        private ToolStripMenuItem 設定ToolStripMenuItem;
-        private DataGridView dataGridView1;
+        private ToolStripMenuItem SettingsToolStripMenuItem;
+        private DataGridView WordEXPList;
+        private Panel panel2;
+        private Label IVsSLabel;
+        private Label IVsDLabel;
+        private Label IVsCLabel;
+        private Label IVsBLabel;
+        private Label IVsALabel;
+        private Label IVsSNum;
+        private Label IVsDNum;
+        private Label IVsCNum;
+        private Label IVsBNum;
+        private Label IVsANum;
+        private Label IVsHNum;
+        private Label IVsHLabel;
+        private Label StatusSNum6;
+        private Label StatusDNum6;
+        private Label StatusCNum6;
+        private Label StatusBNum6;
+        private Label StatusANum6;
+        private Label StatusHNum6;
+        private Label label15;
+        private Label label14;
+        private Label maxExpLabel;
+        private Label minExpLabel;
+        private TextBox MaxExpText;
+        private TextBox MinExpText;
     }
 }

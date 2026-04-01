@@ -1,0 +1,41 @@
+{
+  "version": "LeafGreen",
+  "checkedNatures": [
+    "Modest",
+    "Mild",
+    "Rash"
+  ],
+  "starter": "Squirtle",
+  "seedPokemon": "Wartortle",
+  "isSearchForACE": true,
+  "minExp": 13087,
+  "maxExp": 15000,
+  "minFrame": 4000,
+  "maxFrame": 8000,
+  "requiredHIV": 0,
+  "requiredAIV": [
+    21,
+    0,
+    0
+  ],
+  "requiredBIV": [
+    0,
+    0,
+    0
+  ],
+  "requiredCIV": [
+    0,
+    0,
+    28
+  ],
+  "requiredDIV": [
+    0,
+    0,
+    0
+  ],
+  "requiredSIV": [
+    0,
+    14,
+    0
+  ]
+}
