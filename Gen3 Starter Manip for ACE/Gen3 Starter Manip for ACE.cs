@@ -30,6 +30,8 @@ namespace Gen3_Starter_Manip_for_ACE
             else
                 filePath = "corrupted_pokemon_LG.csv";
             Resources.loadCorruptedPokemonData(filePath);
+            var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            SoftVersionLabel.Text = $"ÉoÅ[ÉWÉáÉì: {version.Major}.{version.Minor}";
             CalcList.RowTemplate.Height = 16;
             TIDText.Focus();
         }
@@ -268,6 +270,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(Hreq.Text, out int hpReq))
             {
+                if (hpReq < 0)
+                {
+                    hpReq = 0;
+                    Hreq.Text = "0";
+                }
+                else if (hpReq > 31)
+                {
+                    hpReq = 31;
+                    Hreq.Text = "31";
+                }
                 ConfigData.Instance.requiredHIV = hpReq;
             }
             else
@@ -281,6 +293,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(ADreq.Text, out int atkDReq))
             {
+                if (atkDReq < 0)
+                {
+                    atkDReq = 0;
+                    ADreq.Text = "0";
+                }
+                else if (atkDReq > 31)
+                {
+                    atkDReq = 31;
+                    ADreq.Text = "31";
+                }
                 ConfigData.Instance.requiredAIV[0] = atkDReq;
             }
             else
@@ -294,6 +316,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(Areq.Text, out int atkNReq))
             {
+                if (atkNReq < 0)
+                {
+                    atkNReq = 0;
+                    Areq.Text = "0";
+                }
+                else if (atkNReq > 31)
+                {
+                    atkNReq = 31;
+                    Areq.Text = "31";
+                }
                 ConfigData.Instance.requiredAIV[1] = atkNReq;
             }
             else
@@ -307,6 +339,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(AUreq.Text, out int atkPReq))
             {
+                if (atkPReq < 0)
+                {
+                    atkPReq = 0;
+                    AUreq.Text = "0";
+                }
+                else if (atkPReq > 31)
+                {
+                    atkPReq = 31;
+                    AUreq.Text = "31";
+                }
                 ConfigData.Instance.requiredAIV[2] = atkPReq;
             }
             else
@@ -320,6 +362,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(BDreq.Text, out int defDReq))
             {
+                if (defDReq < 0)
+                {
+                    defDReq = 0;
+                    BDreq.Text = "0";
+                }
+                else if (defDReq > 31)
+                {
+                    defDReq = 31;
+                    BDreq.Text = "31";
+                }
                 ConfigData.Instance.requiredBIV[0] = defDReq;
             }
             else
@@ -333,6 +385,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(Breq.Text, out int defNReq))
             {
+                if (defNReq < 0)
+                {
+                    defNReq = 0;
+                    Breq.Text = "0";
+                }
+                else if (defNReq > 31)
+                {
+                    defNReq = 31;
+                    Breq.Text = "31";
+                }
                 ConfigData.Instance.requiredBIV[1] = defNReq;
             }
             else
@@ -346,6 +408,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(BUreq.Text, out int defPReq))
             {
+                if (defPReq < 0)
+                {
+                    defPReq = 0;
+                    BUreq.Text = "0";
+                }
+                else if (defPReq > 31)
+                {
+                    defPReq = 31;
+                    BUreq.Text = "31";
+                }
                 ConfigData.Instance.requiredBIV[2] = defPReq;
             }
             else
@@ -359,6 +431,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(CDreq.Text, out int spADReq))
             {
+                if (spADReq < 0)
+                {
+                    spADReq = 0;
+                    CDreq.Text = "0";
+                }
+                else if (spADReq > 31)
+                {
+                    spADReq = 31;
+                    CDreq.Text = "31";
+                }
                 ConfigData.Instance.requiredCIV[0] = spADReq;
             }
             else
@@ -372,6 +454,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(Creq.Text, out int spANReq))
             {
+                if (spANReq < 0)
+                {
+                    spANReq = 0;
+                    Creq.Text = "0";
+                }
+                else if (spANReq > 31)
+                {
+                    spANReq = 31;
+                    Creq.Text = "31";
+                }
                 ConfigData.Instance.requiredCIV[1] = spANReq;
             }
             else
@@ -385,6 +477,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(CUreq.Text, out int spAPReq))
             {
+                if (spAPReq < 0)
+                {
+                    spAPReq = 0;
+                    CUreq.Text = "0";
+                }
+                else if (spAPReq > 31)
+                {
+                    spAPReq = 31;
+                    CUreq.Text = "31";
+                }
                 ConfigData.Instance.requiredCIV[2] = spAPReq;
             }
             else
@@ -398,6 +500,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(DDreq.Text, out int spDDReq))
             {
+                if (spDDReq < 0)
+                {
+                    spDDReq = 0;
+                    DDreq.Text = "0";
+                }
+                else if (spDDReq > 31)
+                {
+                    spDDReq = 31;
+                    DDreq.Text = "31";
+                }
                 ConfigData.Instance.requiredDIV[0] = spDDReq;
             }
             else
@@ -411,6 +523,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(Dreq.Text, out int spDNReq))
             {
+                if (spDNReq < 0)
+                {
+                    spDNReq = 0;
+                    Dreq.Text = "0";
+                }
+                else if (spDNReq > 31)
+                {
+                    spDNReq = 31;
+                    Dreq.Text = "31";
+                }
                 ConfigData.Instance.requiredDIV[1] = spDNReq;
             }
             else
@@ -424,6 +546,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(DUreq.Text, out int spDPReq))
             {
+                if (spDPReq < 0)
+                {
+                    spDPReq = 0;
+                    DUreq.Text = "0";
+                }
+                else if (spDPReq > 31)
+                {
+                    spDPReq = 31;
+                    DUreq.Text = "31";
+                }
                 ConfigData.Instance.requiredDIV[2] = spDPReq;
             }
             else
@@ -437,6 +569,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(SDreq.Text, out int spdDReq))
             {
+                if (spdDReq < 0)
+                {
+                    spdDReq = 0;
+                    SDreq.Text = "0";
+                }
+                else if (spdDReq > 31)
+                {
+                    spdDReq = 31;
+                    SDreq.Text = "31";
+                }
                 ConfigData.Instance.requiredSIV[0] = spdDReq;
             }
             else
@@ -450,6 +592,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(Sreq.Text, out int spdNReq))
             {
+                if (spdNReq < 0)
+                {
+                    spdNReq = 0;
+                    Sreq.Text = "0";
+                }
+                else if (spdNReq > 31)
+                {
+                    spdNReq = 31;
+                    Sreq.Text = "31";
+                }
                 ConfigData.Instance.requiredSIV[1] = spdNReq;
             }
             else
@@ -463,6 +615,16 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (int.TryParse(SUreq.Text, out int spdPReq))
             {
+                if (spdPReq < 0)
+                {
+                    spdPReq = 0;
+                    SUreq.Text = "0";
+                }
+                else if (spdPReq > 31)
+                {
+                    spdPReq = 31;
+                    SUreq.Text = "31";
+                }
                 ConfigData.Instance.requiredSIV[2] = spdPReq;
             }
             else
@@ -730,12 +892,38 @@ namespace Gen3_Starter_Manip_for_ACE
 
         private void MinFrame_TextChanged(object sender, EventArgs e)
         {
-            ConfigData.Instance.minFrame = int.TryParse(MinFrame.Text, out int minFrame) ? minFrame : 0;
+            if (int.TryParse(MinFrame.Text, out int minFrame))
+            {
+                if (minFrame < 0)
+                {
+                    minFrame = 0;
+                    MinFrame.Text = "0";
+                }
+                ConfigData.Instance.minFrame = minFrame;
+            }
+            else
+            {
+                ConfigData.Instance.minFrame = 0;
+                MinFrame.Text = "";
+            }
         }
 
         private void MaxFrame_TextChanged(object sender, EventArgs e)
         {
-            ConfigData.Instance.maxFrame = int.TryParse(MaxFrame.Text, out int maxFrame) ? maxFrame : 0;
+            if (int.TryParse(MaxFrame.Text, out int maxFrame))
+            {
+                if (maxFrame < 0)
+                {
+                    maxFrame = 0;
+                    MaxFrame.Text = "0";
+                }
+                ConfigData.Instance.maxFrame = maxFrame;
+            }
+            else
+            {
+                ConfigData.Instance.maxFrame = 0;
+                MaxFrame.Text = "";
+            }
         }
 
         private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -766,12 +954,76 @@ namespace Gen3_Starter_Manip_for_ACE
 
         private void MinExpText_TextChanged(object sender, EventArgs e)
         {
-            ConfigData.Instance.minExp = int.TryParse(MinExpText.Text, out int minExp) ? minExp : 0;
+            if (int.TryParse(MinExpText.Text, out int minExp))
+            {
+                if (minExp < 0)
+                {
+                    minExp = 0;
+                    MinExpText.Text = "";
+                }
+                ConfigData.Instance.minExp = minExp;
+            }
+            else
+            {
+                ConfigData.Instance.minExp = 0;
+                MinExpText.Text = "";
+            }
         }
 
         private void MaxExpText_TextChanged(object sender, EventArgs e)
         {
-            ConfigData.Instance.maxExp = int.TryParse(MaxExpText.Text, out int maxExp) ? maxExp : 0;
+            if (int.TryParse(MaxExpText.Text, out int maxExp))
+            {
+                if (maxExp < 0)
+                {
+                    maxExp = 0;
+                    MaxExpText.Text = "";
+                }
+                ConfigData.Instance.maxExp = maxExp;
+            }
+            else
+            {
+                ConfigData.Instance.maxExp = 0;
+                MaxExpText.Text = "";
+            }
+        }
+
+        private void TIDText_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MaxExpText_Leave(object sender, EventArgs e)
+        {
+            if (int.TryParse(MaxExpText.Text, out int maxExp) && maxExp < ConfigData.Instance.minExp)
+            {
+                maxExp = ConfigData.Instance.minExp;
+                MaxExpText.Text = ConfigData.Instance.minExp.ToString();
+                ConfigData.Instance.maxExp = maxExp;
+            }
+        }
+
+        private void MaxFrame_Leave(object sender, EventArgs e)
+        {
+            if (int.TryParse(MaxFrame.Text, out int maxFrame) && maxFrame < ConfigData.Instance.minFrame)
+            {
+                maxFrame = ConfigData.Instance.minFrame;
+                MaxFrame.Text = ConfigData.Instance.minFrame.ToString();
+                ConfigData.Instance.maxFrame = maxFrame;
+            }
+        }
+
+        private void TIDText_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(TIDText.Text, out int tid))
+            {
+                if (65535 < tid)
+                    TIDText.Text = "65535";
+            }
+            else
+            {
+                TIDText.Text = "";
+            }
         }
     }
 }

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             IVsRequirement = new GroupBox();
             SpeedLabel = new Label();
             SpDefLabel = new Label();
@@ -132,6 +132,7 @@
             LoadConfigsFromFile = new ToolStripMenuItem();
             SaveConfigs = new ToolStripMenuItem();
             SettingsToolStripMenuItem = new ToolStripMenuItem();
+            SoftVersionLabel = new ToolStripMenuItem();
             WordEXPList = new DataGridView();
             panel2 = new Panel();
             IVsSLabel = new Label();
@@ -249,7 +250,7 @@
             SDreq.ImeMode = ImeMode.Disable;
             SDreq.Location = new Point(96, 172);
             SDreq.Margin = new Padding(3, 2, 3, 2);
-            SDreq.MaxLength = 2;
+            SDreq.MaxLength = 3;
             SDreq.Name = "SDreq";
             SDreq.Size = new Size(23, 23);
             SDreq.TabIndex = 1;
@@ -266,7 +267,7 @@
             Sreq.ImeMode = ImeMode.Disable;
             Sreq.Location = new Point(125, 172);
             Sreq.Margin = new Padding(3, 2, 3, 2);
-            Sreq.MaxLength = 2;
+            Sreq.MaxLength = 3;
             Sreq.Name = "Sreq";
             Sreq.Size = new Size(23, 23);
             Sreq.TabIndex = 1;
@@ -283,7 +284,7 @@
             DDreq.ImeMode = ImeMode.Disable;
             DDreq.Location = new Point(96, 145);
             DDreq.Margin = new Padding(3, 2, 3, 2);
-            DDreq.MaxLength = 2;
+            DDreq.MaxLength = 3;
             DDreq.Name = "DDreq";
             DDreq.Size = new Size(23, 23);
             DDreq.TabIndex = 1;
@@ -300,7 +301,7 @@
             Dreq.ImeMode = ImeMode.Disable;
             Dreq.Location = new Point(125, 145);
             Dreq.Margin = new Padding(3, 2, 3, 2);
-            Dreq.MaxLength = 2;
+            Dreq.MaxLength = 3;
             Dreq.Name = "Dreq";
             Dreq.Size = new Size(23, 23);
             Dreq.TabIndex = 1;
@@ -317,7 +318,7 @@
             CDreq.ImeMode = ImeMode.Disable;
             CDreq.Location = new Point(96, 118);
             CDreq.Margin = new Padding(3, 2, 3, 2);
-            CDreq.MaxLength = 2;
+            CDreq.MaxLength = 3;
             CDreq.Name = "CDreq";
             CDreq.Size = new Size(23, 23);
             CDreq.TabIndex = 1;
@@ -334,7 +335,7 @@
             Creq.ImeMode = ImeMode.Disable;
             Creq.Location = new Point(125, 118);
             Creq.Margin = new Padding(3, 2, 3, 2);
-            Creq.MaxLength = 2;
+            Creq.MaxLength = 3;
             Creq.Name = "Creq";
             Creq.Size = new Size(23, 23);
             Creq.TabIndex = 1;
@@ -351,7 +352,7 @@
             BDreq.ImeMode = ImeMode.Disable;
             BDreq.Location = new Point(96, 91);
             BDreq.Margin = new Padding(3, 2, 3, 2);
-            BDreq.MaxLength = 2;
+            BDreq.MaxLength = 3;
             BDreq.Name = "BDreq";
             BDreq.Size = new Size(23, 23);
             BDreq.TabIndex = 1;
@@ -368,7 +369,7 @@
             SUreq.ImeMode = ImeMode.Disable;
             SUreq.Location = new Point(154, 172);
             SUreq.Margin = new Padding(3, 2, 3, 2);
-            SUreq.MaxLength = 2;
+            SUreq.MaxLength = 3;
             SUreq.Name = "SUreq";
             SUreq.Size = new Size(23, 23);
             SUreq.TabIndex = 1;
@@ -385,7 +386,7 @@
             Breq.ImeMode = ImeMode.Disable;
             Breq.Location = new Point(125, 91);
             Breq.Margin = new Padding(3, 2, 3, 2);
-            Breq.MaxLength = 2;
+            Breq.MaxLength = 3;
             Breq.Name = "Breq";
             Breq.Size = new Size(23, 23);
             Breq.TabIndex = 1;
@@ -402,7 +403,7 @@
             DUreq.ImeMode = ImeMode.Disable;
             DUreq.Location = new Point(154, 145);
             DUreq.Margin = new Padding(3, 2, 3, 2);
-            DUreq.MaxLength = 2;
+            DUreq.MaxLength = 3;
             DUreq.Name = "DUreq";
             DUreq.Size = new Size(23, 23);
             DUreq.TabIndex = 1;
@@ -419,7 +420,7 @@
             ADreq.ImeMode = ImeMode.Disable;
             ADreq.Location = new Point(96, 64);
             ADreq.Margin = new Padding(3, 2, 3, 2);
-            ADreq.MaxLength = 2;
+            ADreq.MaxLength = 3;
             ADreq.Name = "ADreq";
             ADreq.Size = new Size(23, 23);
             ADreq.TabIndex = 1;
@@ -436,7 +437,7 @@
             CUreq.ImeMode = ImeMode.Disable;
             CUreq.Location = new Point(154, 118);
             CUreq.Margin = new Padding(3, 2, 3, 2);
-            CUreq.MaxLength = 2;
+            CUreq.MaxLength = 3;
             CUreq.Name = "CUreq";
             CUreq.Size = new Size(23, 23);
             CUreq.TabIndex = 1;
@@ -453,7 +454,7 @@
             Areq.ImeMode = ImeMode.Disable;
             Areq.Location = new Point(125, 64);
             Areq.Margin = new Padding(3, 2, 3, 2);
-            Areq.MaxLength = 2;
+            Areq.MaxLength = 3;
             Areq.Name = "Areq";
             Areq.Size = new Size(23, 23);
             Areq.TabIndex = 1;
@@ -470,7 +471,7 @@
             BUreq.ImeMode = ImeMode.Disable;
             BUreq.Location = new Point(154, 91);
             BUreq.Margin = new Padding(3, 2, 3, 2);
-            BUreq.MaxLength = 2;
+            BUreq.MaxLength = 3;
             BUreq.Name = "BUreq";
             BUreq.Size = new Size(23, 23);
             BUreq.TabIndex = 1;
@@ -488,7 +489,7 @@
             Hreq.ImeMode = ImeMode.Disable;
             Hreq.Location = new Point(96, 37);
             Hreq.Margin = new Padding(3, 2, 3, 2);
-            Hreq.MaxLength = 2;
+            Hreq.MaxLength = 3;
             Hreq.Name = "Hreq";
             Hreq.Size = new Size(81, 23);
             Hreq.TabIndex = 1;
@@ -505,7 +506,7 @@
             AUreq.ImeMode = ImeMode.Disable;
             AUreq.Location = new Point(154, 64);
             AUreq.Margin = new Padding(3, 2, 3, 2);
-            AUreq.MaxLength = 2;
+            AUreq.MaxLength = 3;
             AUreq.Name = "AUreq";
             AUreq.Size = new Size(23, 23);
             AUreq.TabIndex = 1;
@@ -621,6 +622,7 @@
             TIDText.Size = new Size(81, 23);
             TIDText.TabIndex = 0;
             TIDText.TextAlign = HorizontalAlignment.Right;
+            TIDText.TextChanged += TIDText_TextChanged;
             TIDText.KeyDown += TIDText_KeyDown;
             // 
             // MaxExpText
@@ -638,6 +640,7 @@
             MaxExpText.TextChanged += MaxExpText_TextChanged;
             MaxExpText.Enter += TextBox_Enter;
             MaxExpText.KeyDown += Frames_KeyDown;
+            MaxExpText.Leave += MaxExpText_Leave;
             // 
             // MinExpText
             // 
@@ -670,6 +673,7 @@
             MaxFrame.TextChanged += MaxFrame_TextChanged;
             MaxFrame.Enter += TextBox_Enter;
             MaxFrame.KeyDown += Frames_KeyDown;
+            MaxFrame.Leave += MaxFrame_Leave;
             // 
             // MinFrame
             // 
@@ -1137,14 +1141,14 @@
             CalcList.AllowUserToDeleteRows = false;
             CalcList.AllowUserToResizeRows = false;
             CalcList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Yu Gothic UI", 9F);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            CalcList.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Yu Gothic UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            CalcList.DefaultCellStyle = dataGridViewCellStyle1;
             CalcList.Location = new Point(201, 210);
             CalcList.Name = "CalcList";
             CalcList.ReadOnly = true;
@@ -1436,7 +1440,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { FileToolStripMenuItem, SettingsToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { FileToolStripMenuItem, SettingsToolStripMenuItem, SoftVersionLabel });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(958, 24);
@@ -1473,20 +1477,29 @@
             SettingsToolStripMenuItem.Text = "設定(&S)";
             SettingsToolStripMenuItem.Click += SettingsToolStripMenuItem_Click;
             // 
+            // SoftVersionLabel
+            // 
+            SoftVersionLabel.Alignment = ToolStripItemAlignment.Right;
+            SoftVersionLabel.AutoSize = false;
+            SoftVersionLabel.Enabled = false;
+            SoftVersionLabel.Name = "SoftVersionLabel";
+            SoftVersionLabel.Size = new Size(100, 20);
+            SoftVersionLabel.Text = "バージョン:";
+            // 
             // WordEXPList
             // 
             WordEXPList.AllowUserToAddRows = false;
             WordEXPList.AllowUserToDeleteRows = false;
             WordEXPList.AllowUserToResizeRows = false;
             WordEXPList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Yu Gothic UI", 9F);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            WordEXPList.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Yu Gothic UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            WordEXPList.DefaultCellStyle = dataGridViewCellStyle2;
             WordEXPList.Location = new Point(677, 27);
             WordEXPList.Name = "WordEXPList";
             WordEXPList.ReadOnly = true;
@@ -1817,5 +1830,6 @@
         private Label minExpLabel;
         private TextBox MaxExpText;
         private TextBox MinExpText;
+        private ToolStripMenuItem SoftVersionLabel;
     }
 }
