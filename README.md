@@ -31,3 +31,10 @@ ACE表も非表示になり、ウィンドウが小さくなります。
 ## 設定ファイルについて
 個体値や性格を含め、各種設定値は設定ファイル「config.json」に保存されています。  
 設定変更後、config.jsonを上書き保存することで次回起動時の設定を更新できます。
+# 謝辞
+このソフトは主に以下の記事およびツールを参考に作成しています。  
+情報を公開頂いている皆様に感謝申し上げます。  
+ありがとうございます！  
+[ポケットモンスター ファイアレッド・リーフグリーン 殿堂入り（任意コード実行）](https://flag3.github.io/blog/posts/hall-of-fame-in-firered-leafgreen/)  
+[Getting ACE in Japanese FireRed and LeafGreen](https://pomeg-letterbombers.github.io/pokemon-ace-notes/jpn-frlg-ace-explanation/)  
+[FRLG任意コード実行用バグポケモン作製用計算機](http://detelony.blog.fc2.com/blog-entry-29.html)
