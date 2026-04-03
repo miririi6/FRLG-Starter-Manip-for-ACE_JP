@@ -105,6 +105,10 @@ namespace Gen3_Starter_Manip_for_ACE
                     WordEXPList.Columns[WordEXPList.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
+            if (results.Count == 0)
+            {
+                WordEXPList.DataSource = null;
+            }
         }
 
         public void CalcStartCall()
