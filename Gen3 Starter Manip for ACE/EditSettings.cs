@@ -330,7 +330,8 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             if (SelectWindowsListForSettings.SelectedItem.ToString() == "ゲーム画面ウィンドウを選択してください") return;
             ScreenScaner.selectedWindow = ScreenScaner.windowList[SelectWindowsListForSettings.SelectedIndex];
-            LaunchScanAreaButton.Enabled = true;
+            if (_cts == null || _cts.IsCancellationRequested)
+                LaunchScanAreaButton.Enabled = true;
             this.ActiveControl = null;
         }
         [System.Runtime.InteropServices.DllImport("user32.dll")]
