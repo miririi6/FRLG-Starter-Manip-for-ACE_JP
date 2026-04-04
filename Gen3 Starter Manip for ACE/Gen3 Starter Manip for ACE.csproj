@@ -8,7 +8,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <FileVersion></FileVersion>
-    <AssemblyVersion>1.0</AssemblyVersion>
+    <AssemblyVersion>1.1</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +18,9 @@
     <None Remove="poke_words.csv" />
     <None Remove="README.md" />
     <None Remove="words.csv" />
+    <Content Include="NumberImages\**">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +45,11 @@
     <Content Include="words.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenCvSharp4.Extensions" Version="4.6.0.20220608" />
+    <PackageReference Include="OpenCvSharp4.Windows" Version="4.6.0.20220608" />
   </ItemGroup>
 
   <ItemGroup>

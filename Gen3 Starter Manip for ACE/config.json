@@ -37,5 +37,23 @@
     0,
     14,
     0
-  ]
+  ],
+  "searchArea": {
+    "Location": {
+      "X": 1378,
+      "Y": 133
+    },
+    "Size": {
+      "Width": 160,
+      "Height": 40
+    },
+    "X": 1378,
+    "Y": 133,
+    "Width": 160,
+    "Height": 40
+  },
+  "scanThreshold": 0.88,
+  "waitTime": 0.5,
+  "scanWindowTitle": null,
+  "isAutoConnectTimer": false
 }

@@ -27,6 +27,8 @@ namespace Gen3_Starter_Manip_for_ACE
             requiredCIV = new int[3];
             requiredDIV = new int[3];
             requiredSIV = new int[3];
+            searchArea = new Rectangle(0, 0, 100, 100);
+            scanThreshold = 0.8;
         }
         public static void SetInstance(ConfigData newConfig)
         {
@@ -47,12 +49,18 @@ namespace Gen3_Starter_Manip_for_ACE
         public int[] requiredCIV { get; set; }
         public int[] requiredDIV { get; set; }
         public int[] requiredSIV { get; set; }
+        public Rectangle searchArea { get; set; }
+        public double scanThreshold { get; set; } = 0.9;
+        public double waitTime { get; set; } = 0.5;
+        public string scanWindowTitle { get; set; }
+        public bool isAutoConnectTimer { get; set; }
     }
     public static class ConfigUtils
     {
         private static readonly JsonSerializerOptions _options = new JsonSerializerOptions
         {
             WriteIndented = true,
+            IgnoreReadOnlyProperties = true,
             Converters = { new JsonStringEnumConverter() }
         };
         public static void saveConfigData(string filePath)

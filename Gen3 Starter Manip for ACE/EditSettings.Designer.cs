@@ -48,10 +48,25 @@
             SeedVenusaur = new RadioButton();
             SeedIvysaur = new RadioButton();
             SeedBulbasaur = new RadioButton();
+            ScanSettingGroup = new GroupBox();
+            ThresholdNum = new NumericUpDown();
+            WaitTimeNum = new NumericUpDown();
+            WindowNameInputBox = new TextBox();
+            WindowNameInputLabel = new Label();
+            ThresholdLabel = new Label();
+            WaitTimeLabel = new Label();
+            RangeViewBox = new PictureBox();
+            DecideRangeButton = new Button();
+            LaunchScanAreaButton = new Button();
+            SelectWindowsListForSettings = new ComboBox();
             SelectPokemonGroup.SuspendLayout();
             VersionBox.SuspendLayout();
             SerchModeBox.SuspendLayout();
             SeedPokemonBox.SuspendLayout();
+            ScanSettingGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ThresholdNum).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)WaitTimeNum).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RangeViewBox).BeginInit();
             SuspendLayout();
             // 
             // FRButton
@@ -307,11 +322,135 @@
             SeedBulbasaur.UseVisualStyleBackColor = true;
             SeedBulbasaur.CheckedChanged += SeedPokemons_CheckedChanged_1;
             // 
+            // ScanSettingGroup
+            // 
+            ScanSettingGroup.Controls.Add(ThresholdNum);
+            ScanSettingGroup.Controls.Add(WaitTimeNum);
+            ScanSettingGroup.Controls.Add(WindowNameInputBox);
+            ScanSettingGroup.Controls.Add(WindowNameInputLabel);
+            ScanSettingGroup.Controls.Add(ThresholdLabel);
+            ScanSettingGroup.Controls.Add(WaitTimeLabel);
+            ScanSettingGroup.Controls.Add(RangeViewBox);
+            ScanSettingGroup.Controls.Add(DecideRangeButton);
+            ScanSettingGroup.Controls.Add(LaunchScanAreaButton);
+            ScanSettingGroup.Controls.Add(SelectWindowsListForSettings);
+            ScanSettingGroup.Location = new Point(213, 12);
+            ScanSettingGroup.Name = "ScanSettingGroup";
+            ScanSettingGroup.Size = new Size(145, 283);
+            ScanSettingGroup.TabIndex = 8;
+            ScanSettingGroup.TabStop = false;
+            ScanSettingGroup.Text = "画像認識設定";
+            // 
+            // ThresholdNum
+            // 
+            ThresholdNum.DecimalPlaces = 2;
+            ThresholdNum.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
+            ThresholdNum.Location = new Point(87, 182);
+            ThresholdNum.Maximum = new decimal(new int[] { 1, 0, 0, 0 });
+            ThresholdNum.Minimum = new decimal(new int[] { 5, 0, 0, 65536 });
+            ThresholdNum.Name = "ThresholdNum";
+            ThresholdNum.Size = new Size(52, 23);
+            ThresholdNum.TabIndex = 7;
+            ThresholdNum.Value = new decimal(new int[] { 90, 0, 0, 131072 });
+            ThresholdNum.ValueChanged += ThresholdNum_ValueChanged;
+            // 
+            // WaitTimeNum
+            // 
+            WaitTimeNum.DecimalPlaces = 1;
+            WaitTimeNum.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
+            WaitTimeNum.Location = new Point(87, 153);
+            WaitTimeNum.Maximum = new decimal(new int[] { 2, 0, 0, 0 });
+            WaitTimeNum.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
+            WaitTimeNum.Name = "WaitTimeNum";
+            WaitTimeNum.Size = new Size(52, 23);
+            WaitTimeNum.TabIndex = 7;
+            WaitTimeNum.Value = new decimal(new int[] { 5, 0, 0, 65536 });
+            WaitTimeNum.ValueChanged += WaitTimeNum_ValueChanged;
+            // 
+            // WindowNameInputBox
+            // 
+            WindowNameInputBox.Location = new Point(6, 252);
+            WindowNameInputBox.Name = "WindowNameInputBox";
+            WindowNameInputBox.Size = new Size(131, 23);
+            WindowNameInputBox.TabIndex = 6;
+            WindowNameInputBox.TextChanged += WindowNameInputBox_TextChanged;
+            // 
+            // WindowNameInputLabel
+            // 
+            WindowNameInputLabel.Location = new Point(6, 217);
+            WindowNameInputLabel.Name = "WindowNameInputLabel";
+            WindowNameInputLabel.Size = new Size(131, 32);
+            WindowNameInputLabel.TabIndex = 5;
+            WindowNameInputLabel.Text = "起動時取得ウィンドウ名\r\n※部分一致";
+            // 
+            // ThresholdLabel
+            // 
+            ThresholdLabel.AutoSize = true;
+            ThresholdLabel.Location = new Point(6, 184);
+            ThresholdLabel.Name = "ThresholdLabel";
+            ThresholdLabel.Size = new Size(63, 15);
+            ThresholdLabel.TabIndex = 5;
+            ThresholdLabel.Text = "閾値(0～1)";
+            // 
+            // WaitTimeLabel
+            // 
+            WaitTimeLabel.AutoSize = true;
+            WaitTimeLabel.Location = new Point(6, 157);
+            WaitTimeLabel.Name = "WaitTimeLabel";
+            WaitTimeLabel.Size = new Size(75, 15);
+            WaitTimeLabel.TabIndex = 5;
+            WaitTimeLabel.Text = "実行間隔(秒)";
+            // 
+            // RangeViewBox
+            // 
+            RangeViewBox.Location = new Point(6, 82);
+            RangeViewBox.Name = "RangeViewBox";
+            RangeViewBox.Size = new Size(131, 33);
+            RangeViewBox.SizeMode = PictureBoxSizeMode.Zoom;
+            RangeViewBox.TabIndex = 4;
+            RangeViewBox.TabStop = false;
+            // 
+            // DecideRangeButton
+            // 
+            DecideRangeButton.Enabled = false;
+            DecideRangeButton.Location = new Point(6, 121);
+            DecideRangeButton.Name = "DecideRangeButton";
+            DecideRangeButton.Size = new Size(131, 23);
+            DecideRangeButton.TabIndex = 3;
+            DecideRangeButton.Text = "範囲決定";
+            DecideRangeButton.UseVisualStyleBackColor = true;
+            DecideRangeButton.Click += DecideRangeButton_Click;
+            // 
+            // LaunchScanAreaButton
+            // 
+            LaunchScanAreaButton.AutoSize = true;
+            LaunchScanAreaButton.Enabled = false;
+            LaunchScanAreaButton.Location = new Point(6, 51);
+            LaunchScanAreaButton.Name = "LaunchScanAreaButton";
+            LaunchScanAreaButton.Size = new Size(133, 25);
+            LaunchScanAreaButton.TabIndex = 2;
+            LaunchScanAreaButton.Text = "範囲選択ウィンドウ起動";
+            LaunchScanAreaButton.UseVisualStyleBackColor = true;
+            LaunchScanAreaButton.Click += LaunchScanAreaButton_Click;
+            // 
+            // SelectWindowsListForSettings
+            // 
+            SelectWindowsListForSettings.DropDownStyle = ComboBoxStyle.DropDownList;
+            SelectWindowsListForSettings.DropDownWidth = 360;
+            SelectWindowsListForSettings.FormattingEnabled = true;
+            SelectWindowsListForSettings.Location = new Point(6, 22);
+            SelectWindowsListForSettings.Name = "SelectWindowsListForSettings";
+            SelectWindowsListForSettings.Size = new Size(131, 23);
+            SelectWindowsListForSettings.TabIndex = 1;
+            SelectWindowsListForSettings.SelectedIndexChanged += SelectWindowsListForSettings_SelectedIndexChanged;
+            SelectWindowsListForSettings.Enter += SelectWindowsListForSettings_Enter;
+            // 
             // EditSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(216, 352);
+            ClientSize = new Size(370, 352);
+            Controls.Add(ScanSettingGroup);
             Controls.Add(SeedPokemonBox);
             Controls.Add(SerchModeBox);
             Controls.Add(VersionBox);
@@ -320,6 +459,8 @@
             MaximizeBox = false;
             Name = "EditSettings";
             Text = "設定変更";
+            TopMost = true;
+            FormClosing += EditSettings_FormClosing;
             SelectPokemonGroup.ResumeLayout(false);
             SelectPokemonGroup.PerformLayout();
             VersionBox.ResumeLayout(false);
@@ -328,6 +469,11 @@
             SerchModeBox.PerformLayout();
             SeedPokemonBox.ResumeLayout(false);
             SeedPokemonBox.PerformLayout();
+            ScanSettingGroup.ResumeLayout(false);
+            ScanSettingGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ThresholdNum).EndInit();
+            ((System.ComponentModel.ISupportInitialize)WaitTimeNum).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RangeViewBox).EndInit();
             ResumeLayout(false);
         }
 
@@ -353,5 +499,16 @@
         private RadioButton SeedBlastoise;
         private RadioButton SeedWartortle;
         private RadioButton SeedSquirtle;
+        private GroupBox ScanSettingGroup;
+        private ComboBox SelectWindowsListForSettings;
+        private Button LaunchScanAreaButton;
+        private PictureBox RangeViewBox;
+        private Button DecideRangeButton;
+        private Label ThresholdLabel;
+        private Label WaitTimeLabel;
+        private Label WindowNameInputLabel;
+        private TextBox WindowNameInputBox;
+        private NumericUpDown ThresholdNum;
+        private NumericUpDown WaitTimeNum;
     }
 }

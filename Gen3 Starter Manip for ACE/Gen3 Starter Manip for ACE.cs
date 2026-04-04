@@ -1,14 +1,16 @@
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
-using static Gen3_Starter_Manip_for_ACE.MainForm;
-using static Gen3_Starter_Manip_for_ACE.Types;
-using static Gen3_Starter_Manip_for_ACE.Constants;
 using static Gen3_Starter_Manip_for_ACE.ConfigData;
 using static Gen3_Starter_Manip_for_ACE.ConfigUtils;
+using static Gen3_Starter_Manip_for_ACE.Constants;
+using static Gen3_Starter_Manip_for_ACE.MainForm;
 using static Gen3_Starter_Manip_for_ACE.SearchEngine;
+using static Gen3_Starter_Manip_for_ACE.Types;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Gen3_Starter_Manip_for_ACE
 {
@@ -32,6 +34,29 @@ namespace Gen3_Starter_Manip_for_ACE
             Resources.loadCorruptedPokemonData(filePath);
             var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             SoftVersionLabel.Text = $"バージョン: {version.Major}.{version.Minor}";
+            if (!string.IsNullOrEmpty(ConfigData.Instance.scanWindowTitle))
+            {
+                foreach (Process p in Process.GetProcesses())
+                {
+                    if (p.MainWindowTitle.Contains(ConfigData.Instance.scanWindowTitle))
+                    {
+                        ScreenScaner.windowList.Add(new ScreenScaner.WindowType { Hwnd = p.MainWindowHandle, Title = p.MainWindowTitle });
+                        SelectWindowList.Items.Add(p.MainWindowTitle);
+                        SelectWindowList.SelectedIndex = 0;
+                    }
+                }                
+            }
+            if (ScreenScaner.selectedWindow.Hwnd == IntPtr.Zero)
+            {
+                {
+                    SelectWindowList.Items.Add("ゲーム画面ウィンドウを選択してください");
+                    SelectWindowList.SelectedIndex = 0;
+                }
+            }
+            else
+            {
+                ScanStartButton.Enabled = true;
+            }
             CalcList.RowTemplate.Height = 16;
             TIDText.Focus();
         }
@@ -206,7 +231,7 @@ namespace Gen3_Starter_Manip_for_ACE
         private void TextBox_Enter(object sender, EventArgs e)
         {
             // sender を TextBox にキャストして汎用的に使う
-            if (sender is TextBox tb)
+            if (sender is System.Windows.Forms.TextBox tb)
             {
                 this.BeginInvoke((MethodInvoker)delegate
                 {
@@ -218,7 +243,7 @@ namespace Gen3_Starter_Manip_for_ACE
         private void TextBox_Click(object sender, EventArgs e)
         {
             // sender を TextBox にキャストして汎用的に使う
-            if (sender is TextBox tb)
+            if (sender is System.Windows.Forms.TextBox tb)
             {
                 this.BeginInvoke((MethodInvoker)delegate
                 {
@@ -934,6 +959,11 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             EditSettings settingsForm = new EditSettings(this);
             settingsForm.Show();
+            SettingsToolStripMenuItem.Enabled = false;
+        }
+        public void SettingsFormClosed()
+        {
+            SettingsToolStripMenuItem.Enabled = true;
         }
         private int[] getStatus(NatureType nature, int ivH, int ivA, int ivB, int ivC, int ivD, int ivS, int level, StatusType upStatus, StatusType downStatus)
         {
@@ -992,11 +1022,6 @@ namespace Gen3_Starter_Manip_for_ACE
             }
         }
 
-        private void TIDText_Leave(object sender, EventArgs e)
-        {
-
-        }
-
         private void MaxExpText_Leave(object sender, EventArgs e)
         {
             if (int.TryParse(MaxExpText.Text, out int maxExp) && maxExp < ConfigData.Instance.minExp)
@@ -1024,9 +1049,120 @@ namespace Gen3_Starter_Manip_for_ACE
                 if (65535 < tid)
                     TIDText.Text = "65535";
             }
+            else if (TIDText.Text == "画像認識中...")
+            {
+                // 何もしない
+            }
             else
             {
                 TIDText.Text = "";
+            }
+        }
+
+        private void SelectWindowList_Enter(object sender, EventArgs e)
+        {
+            ScreenScaner.windowList.Clear();
+            foreach (Process p in Process.GetProcesses())
+            {
+                // 「メインウィンドウのタイトル」があるものだけをリストアップ
+                if (!string.IsNullOrEmpty(p.MainWindowTitle))
+                {
+                    ScreenScaner.windowList.Add(new ScreenScaner.WindowType { Hwnd = p.MainWindowHandle, Title = p.MainWindowTitle });
+                }
+            }
+            SelectWindowList.Items.Clear();
+            foreach (var window in ScreenScaner.windowList)
+                SelectWindowList.Items.Add(window.Title);
+        }
+
+        private void SelectWindowList_Click(object sender, EventArgs e)
+        {
+            if (!SelectWindowList.DroppedDown)
+            {
+                SelectWindowList.DroppedDown = true;
+            }
+        }
+
+        private void SelectWindowList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (SelectWindowList.SelectedItem.ToString() == "ゲーム画面ウィンドウを選択してください") return;
+            ScreenScaner.selectedWindow = ScreenScaner.windowList[SelectWindowList.SelectedIndex];
+            ScanStartButton.Enabled = true;
+            this.ActiveControl = null;
+        }
+
+        private CancellationTokenSource _cts;
+        private bool _isScanning = false;
+        private async void ScanStartButton_Click(object sender, EventArgs e)
+        {
+            if (ScreenScaner.isScanning)
+            {
+                ScreenScaner.isScanning = false;
+                ScanStartButton.Text = "画像認識";
+                TIDText.Text = "";
+                _cts.Cancel();
+                return;
+            }
+            ScreenScaner.isScanning = true;
+            ScanStartButton.Text = "画像認識終了";
+            _cts = new CancellationTokenSource();
+            var token = _cts.Token;
+
+            try
+            {
+                // UIを固めないために Task.Run で別スレッドへ
+                await Task.Run(async () =>
+                {
+                    while (!token.IsCancellationRequested)
+                    {
+                        // ここで画像認識を実行
+                        // 先ほど統合した Scanner クラスのメソッドを呼ぶ
+                        var result = ScreenScaner.Scan(ScreenScaner.selectedWindow.Hwnd, ConfigData.Instance.searchArea, ConfigData.Instance.scanThreshold);
+
+                        // UI側のコントロール（ラベルなど）を更新する場合は Invoke が必要
+                        this.Invoke(new Action(() =>
+                        {
+                            if (result == -1)
+                            {
+                                MessageBox.Show("ウィンドウの位置の取得に失敗しました。");
+                                ScreenScaner.isScanning = false;
+                                ScanStartButton.Text = "画像認識";
+                                _cts.Cancel();
+                                return;
+                            }
+                            else if (result == -2)
+                            {
+                                TIDText.Text = "画像認識中...";
+                            }
+                            else
+                            {
+                                TIDText.Text = result.ToString();
+                                CalcButton_Click(null, null);
+                                ScreenScaner.isScanning = false;
+                                ScanStartButton.Text = "画像認識";
+                                _cts.Cancel();
+                                return;
+                            }
+                        }));
+
+                        // CPU負荷を抑えるための待機時間（ミリ秒）
+                        // ループ速度を調整してください
+                        await Task.Delay(500, token);
+                    }
+                }, token);
+            }
+            catch (OperationCanceledException)
+            {
+                // キャンセル時はここを通る（正常終了）
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"スキャン中にエラーが発生しました: {ex.Message}");
+            }
+            finally
+            {
+                _isScanning = false;
+                ScanStartButton.Text = "画像認識";
             }
         }
     }

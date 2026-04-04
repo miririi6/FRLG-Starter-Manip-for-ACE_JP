@@ -133,6 +133,8 @@
             SaveConfigs = new ToolStripMenuItem();
             SettingsToolStripMenuItem = new ToolStripMenuItem();
             SoftVersionLabel = new ToolStripMenuItem();
+            ScanStartButton = new ToolStripMenuItem();
+            SelectWindowList = new ToolStripComboBox();
             WordEXPList = new DataGridView();
             panel2 = new Panel();
             IVsSLabel = new Label();
@@ -1440,10 +1442,10 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { FileToolStripMenuItem, SettingsToolStripMenuItem, SoftVersionLabel });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { FileToolStripMenuItem, SettingsToolStripMenuItem, SoftVersionLabel, ScanStartButton, SelectWindowList });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(958, 24);
+            menuStrip1.Size = new Size(958, 27);
             menuStrip1.TabIndex = 7;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -1451,7 +1453,7 @@
             // 
             FileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { LoadConfigsFromFile, SaveConfigs });
             FileToolStripMenuItem.Name = "FileToolStripMenuItem";
-            FileToolStripMenuItem.Size = new Size(67, 20);
+            FileToolStripMenuItem.Size = new Size(67, 23);
             FileToolStripMenuItem.Text = "ファイル(&F)";
             // 
             // LoadConfigsFromFile
@@ -1473,7 +1475,7 @@
             // SettingsToolStripMenuItem
             // 
             SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem";
-            SettingsToolStripMenuItem.Size = new Size(57, 20);
+            SettingsToolStripMenuItem.Size = new Size(57, 23);
             SettingsToolStripMenuItem.Text = "設定(&S)";
             SettingsToolStripMenuItem.Click += SettingsToolStripMenuItem_Click;
             // 
@@ -1483,8 +1485,26 @@
             SoftVersionLabel.AutoSize = false;
             SoftVersionLabel.Enabled = false;
             SoftVersionLabel.Name = "SoftVersionLabel";
-            SoftVersionLabel.Size = new Size(100, 20);
+            SoftVersionLabel.Size = new Size(122, 20);
             SoftVersionLabel.Text = "バージョン:";
+            // 
+            // ScanStartButton
+            // 
+            ScanStartButton.AutoSize = false;
+            ScanStartButton.Enabled = false;
+            ScanStartButton.Name = "ScanStartButton";
+            ScanStartButton.Size = new Size(100, 23);
+            ScanStartButton.Text = "画面認識";
+            ScanStartButton.Click += ScanStartButton_Click;
+            // 
+            // SelectWindowList
+            // 
+            SelectWindowList.DropDownStyle = ComboBoxStyle.DropDownList;
+            SelectWindowList.Name = "SelectWindowList";
+            SelectWindowList.Size = new Size(350, 23);
+            SelectWindowList.SelectedIndexChanged += SelectWindowList_SelectedIndexChanged;
+            SelectWindowList.Enter += SelectWindowList_Enter;
+            SelectWindowList.Click += SelectWindowList_Click;
             // 
             // WordEXPList
             // 
@@ -1831,5 +1851,7 @@
         private TextBox MaxExpText;
         private TextBox MinExpText;
         private ToolStripMenuItem SoftVersionLabel;
+        private ToolStripMenuItem ScanStartButton;
+        private ToolStripComboBox SelectWindowList;
     }
 }
