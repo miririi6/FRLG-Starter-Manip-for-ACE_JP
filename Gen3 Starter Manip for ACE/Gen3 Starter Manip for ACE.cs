@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -129,6 +130,8 @@ namespace Gen3_Starter_Manip_for_ACE
                     WordEXPList.Columns[WordEXPList.ColumnCount - 1].MinimumWidth = 50;
                     WordEXPList.Columns[WordEXPList.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
+                if (ConfigData.Instance.isAutoConnectTimer)
+                    NumberSender.SendTextToTargetEdit("FlowTimer (Build 47)", 0, CalcList.Rows[0].Cells[0].Value.ToString(), 241, 34);
             }
             if (results.Count == 0)
             {
@@ -195,6 +198,8 @@ namespace Gen3_Starter_Manip_for_ACE
                 var wordExpData = SearchEngine.GetWordExpData(tid, pid);
                 WordEXPList.DataSource = wordExpData;
             }
+            if (ConfigData.Instance.isAutoConnectTimer)
+                NumberSender.SendTextToTargetEdit("FlowTimer (Build 47)", 0, CalcList.Rows[e.RowIndex].Cells[0].Value.ToString(), 241, 34);
         }
         /*
         public void RefreshWordExpList()

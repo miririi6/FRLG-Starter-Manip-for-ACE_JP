@@ -53,7 +53,7 @@ namespace Gen3_Starter_Manip_for_ACE
         public double scanThreshold { get; set; } = 0.9;
         public double waitTime { get; set; } = 0.5;
         public string scanWindowTitle { get; set; }
-        public bool isAutoConnectTimer { get; set; }
+        public bool isAutoConnectTimer { get; set; } = false;
     }
     public static class ConfigUtils
     {

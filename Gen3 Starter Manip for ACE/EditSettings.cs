@@ -85,12 +85,14 @@ namespace Gen3_Starter_Manip_for_ACE
                     SeedBlastoise.Checked = true;
                     break;
             }
-            if(ConfigData.Instance.waitTime != null)
+            if (ConfigData.Instance.waitTime != null)
                 WaitTimeNum.Value = (decimal)ConfigData.Instance.waitTime;
-            if(ConfigData.Instance.scanThreshold != null)
+            if (ConfigData.Instance.scanThreshold != null)
                 ThresholdNum.Value = (decimal)ConfigData.Instance.scanThreshold;
-            if(ConfigData.Instance.scanWindowTitle != null)
+            if (ConfigData.Instance.scanWindowTitle != null)
                 WindowNameInputBox.Text = ConfigData.Instance.scanWindowTitle;
+            if (ConfigData.Instance.isAutoConnectTimer)
+                ConnectTimerCheckBox.Checked = true;
             SelectWindowsListForSettings.Items.Add("ゲーム画面ウィンドウを選択してください");
             SelectWindowsListForSettings.SelectedIndex = 0;
         }
@@ -385,6 +387,14 @@ namespace Gen3_Starter_Manip_for_ACE
         private void WindowNameInputBox_TextChanged(object sender, EventArgs e)
         {
             ConfigData.Instance.scanWindowTitle = WindowNameInputBox.Text;
+        }
+
+        private void ConnectTimerCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ConnectTimerCheckBox.Checked)
+                ConfigData.Instance.isAutoConnectTimer = true;
+            else
+                ConfigData.Instance.isAutoConnectTimer = false;
         }
     }
 }

@@ -59,6 +59,7 @@
             DecideRangeButton = new Button();
             LaunchScanAreaButton = new Button();
             SelectWindowsListForSettings = new ComboBox();
+            ConnectTimerCheckBox = new CheckBox();
             SelectPokemonGroup.SuspendLayout();
             VersionBox.SuspendLayout();
             SerchModeBox.SuspendLayout();
@@ -445,11 +446,22 @@
             SelectWindowsListForSettings.SelectedIndexChanged += SelectWindowsListForSettings_SelectedIndexChanged;
             SelectWindowsListForSettings.Enter += SelectWindowsListForSettings_Enter;
             // 
+            // ConnectTimerCheckBox
+            // 
+            ConnectTimerCheckBox.Location = new Point(213, 301);
+            ConnectTimerCheckBox.Name = "ConnectTimerCheckBox";
+            ConnectTimerCheckBox.Size = new Size(137, 40);
+            ConnectTimerCheckBox.TabIndex = 9;
+            ConnectTimerCheckBox.Text = "FlowTimerに自動送信\r\n※Build47専用";
+            ConnectTimerCheckBox.UseVisualStyleBackColor = true;
+            ConnectTimerCheckBox.CheckedChanged += ConnectTimerCheckBox_CheckedChanged;
+            // 
             // EditSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(370, 352);
+            Controls.Add(ConnectTimerCheckBox);
             Controls.Add(ScanSettingGroup);
             Controls.Add(SeedPokemonBox);
             Controls.Add(SerchModeBox);
@@ -510,5 +522,6 @@
         private TextBox WindowNameInputBox;
         private NumericUpDown ThresholdNum;
         private NumericUpDown WaitTimeNum;
+        private CheckBox ConnectTimerCheckBox;
     }
 }
