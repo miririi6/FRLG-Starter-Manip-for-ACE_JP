@@ -1,12 +1,12 @@
-﻿using System;
+﻿using OpenCvSharp;
+using OpenCvSharp.Extensions;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using System.Drawing;
-using OpenCvSharp;
-using OpenCvSharp.Extensions;
+using static System.Windows.Forms.DataFormats;
 
 namespace Gen3_Starter_Manip_for_ACE
 {
@@ -62,53 +62,61 @@ namespace Gen3_Starter_Manip_for_ACE
                     g.CopyFromScreen(selectionRect.X, selectionRect.Y, 0, 0, selectionRect.Size);
                 }
 
-                // Bitmapから直接Matに変換してScanImageに渡す
                 using (Mat scene = bmp.ToMat())
                 {
-                    Cv2.ImWrite("check_area.png", scene);
                     // グレースケール化
                     Cv2.CvtColor(scene, scene, ColorConversionCodes.BGR2GRAY);
-                    return ScanImage(scene, threshold);
+
+                    int cellWidth = scene.Width / 5;
+                    int[] results = new int[5];
+
+                    for (int i = 0; i < 5; i++)
+                    {
+                        // i番目のエリアを切り出す (Rectの範囲外エラーを防ぐため幅を調整)
+                        int x = i * cellWidth;
+                        Rect cellRect = new Rect(x, 0, Math.Min(cellWidth, scene.Width - x), scene.Height);
+
+                        using (Mat cell = new Mat(scene, cellRect))
+                        {
+                            // そのエリアで一番似ている数字を1つ特定する
+                            results[i] = GetBestDigit(cell, threshold);
+                        }
+                    }
+
+                    // 1つでも認識失敗(-1)があれば、不正な結果として空を返す
+                    if (results.Any(r => r == -1)) return new int[0];
+                    return results;
                 }
             }
         }
-        private static int[] ScanImage(Mat scene, double threshold)
+        private static int GetBestDigit(Mat cell, double threshold)
         {
-            var foundDigits = new List<(int Digit, int X)>(); // (見つかった数字, X座標)
+            int bestDigit = -1;
+            double bestScore = -1.0;
 
-            // 2. 0～9のテンプレートをループして探す
             for (int i = 0; i <= 9; i++)
             {
-                string templatePath = $"NumberImages/{i}.png"; // テンプレート画像のパス
-                if (!File.Exists(templatePath))
-                {
-                    MessageBox.Show($"テンプレート画像が見つかりません: {templatePath}");
-                    return new int[0];
-                }
+                string templatePath = $"NumberImages/{i}.png";
+                if (!File.Exists(templatePath)) continue;
+
                 using var template = Cv2.ImRead(templatePath, ImreadModes.Grayscale);
-                using var res = scene.MatchTemplate(template, TemplateMatchModes.CCoeffNormed);
+                using var res = new Mat();
 
-                // 一致度がしきい値以上の場所をすべて探す
-                Cv2.MinMaxLoc(res, out _, out double maxVal, out _, out OpenCvSharp.Point maxLoc);
+                // テンプレートの方が大きい場合はエラーになるのでリサイズかスキップが必要
+                if (template.Width > cell.Width || template.Height > cell.Height) continue;
 
-                if (maxVal > threshold)
+                Cv2.MatchTemplate(cell, template, res, TemplateMatchModes.CCoeffNormed);
+                Cv2.MinMaxLoc(res, out _, out double maxVal, out _, out _);
+
+                // 「しきい値を超えている」かつ「これまでのどの数字よりも似ている」場合
+                if (maxVal > threshold && maxVal > bestScore)
                 {
-                    // 見つかった場所を記録
-                    foundDigits.Add((i, maxLoc.X));
-
-                    // 【重要】見つけた場所を黒（0）で塗りつぶして、二度と同じ場所で見つからないようにする
-                    // これにより、同じ数字が複数並んでいても順番に見つけられる
-                    Rect rect = new Rect(maxLoc.X, maxLoc.Y, template.Width, template.Height);
-                    scene.Rectangle(rect, Scalar.Black, -1); // -1は「塗りつぶし」
-
-                    // 同じ数字がまだあるかもしれないので、i をデクリメントしてもう一度同じ数字で探す
-                    i--;
+                    bestScore = maxVal;
+                    bestDigit = i;
                 }
             }
-            if (foundDigits.Count != 5) return new int[0]; // 5文字見つからなかった場合は空の配列を返す
 
-            // 3. X座標が小さい順（左から右）に並び替える
-            return foundDigits.OrderBy(d => d.X).Select(d => d.Digit).ToArray();
+            return bestDigit;
         }
     }
 }

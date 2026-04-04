@@ -41,6 +41,8 @@
             Opacity = 0.5D;
             Text = "ScanRangeWindow";
             TopMost = true;
+            Paint += ScanRangeWindow_Paint;
+            Resize += ScanRangeWindow_Resize;
             ResumeLayout(false);
         }
 

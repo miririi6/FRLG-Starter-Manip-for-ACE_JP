@@ -238,7 +238,7 @@ namespace Gen3_Starter_Manip_for_ACE
                 {
                     ushort dec_v = (ushort)(key ^ word.ID);
                     int adj = checksumDiff + dec_v;
-                    if (ConfigData.Instance.minExp + 87 <= adj || (adj - ConfigData.Instance.minExp % 2 == 0 && ConfigData.Instance.minExp <= adj))
+                    if (ConfigData.Instance.minExp2 <= adj || (adj - ConfigData.Instance.minExp % 2 == 0 && ConfigData.Instance.minExp <= adj))
                     {
                         minExp = Math.Min(adj, minExp);
                     }
@@ -247,7 +247,7 @@ namespace Gen3_Starter_Manip_for_ACE
                 {
                     ushort dec_v = (ushort)(key ^ pokeWord.ID);
                     int adj = checksumDiff + dec_v;
-                    if (ConfigData.Instance.minExp + 87 <= adj || (adj - ConfigData.Instance.minExp % 2 == 0 && ConfigData.Instance.minExp <= adj))
+                    if (ConfigData.Instance.minExp2 <= adj || (adj - ConfigData.Instance.minExp % 2 == 0 && ConfigData.Instance.minExp <= adj))
                     {
                         minExp = Math.Min(adj, minExp);
                     }

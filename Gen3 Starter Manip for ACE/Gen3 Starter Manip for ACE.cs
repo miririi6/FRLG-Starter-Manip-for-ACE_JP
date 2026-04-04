@@ -45,7 +45,7 @@ namespace Gen3_Starter_Manip_for_ACE
                         SelectWindowList.Items.Add(p.MainWindowTitle);
                         SelectWindowList.SelectedIndex = 0;
                     }
-                }                
+                }
             }
             if (ScreenScaner.selectedWindow.Hwnd == IntPtr.Zero)
             {
@@ -65,14 +65,14 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             WordEXPList.Visible = false;
             ClientSize = new Size(682, 495);
-            MinExpText.Enabled = false;
+            MinExpText1.Enabled = false;
             MaxExpText.Enabled = false;
         }
         public void AceModeView()
         {
             WordEXPList.Visible = true;
             ClientSize = new Size(958, 495);
-            MinExpText.Enabled = true;
+            MinExpText1.Enabled = true;
             MaxExpText.Enabled = true;
         }
 
@@ -187,6 +187,7 @@ namespace Gen3_Starter_Manip_for_ACE
                 e.SuppressKeyPress = true;
         }
 
+        bool SendToTimer = true;
         private void CalcList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -198,7 +199,7 @@ namespace Gen3_Starter_Manip_for_ACE
                 var wordExpData = SearchEngine.GetWordExpData(tid, pid);
                 WordEXPList.DataSource = wordExpData;
             }
-            if (ConfigData.Instance.isAutoConnectTimer)
+            if (ConfigData.Instance.isAutoConnectTimer && SendToTimer)
                 NumberSender.SendTextToTargetEdit("FlowTimer (Build 47)", 0, CalcList.Rows[e.RowIndex].Cells[0].Value.ToString(), 241, 34);
         }
         /*
@@ -231,6 +232,7 @@ namespace Gen3_Starter_Manip_for_ACE
             int displayedRowCount = CalcList.DisplayedRowCount(false);
             CalcList.CurrentCell = CalcList.Rows[focusIndex].Cells[0];
             CalcList.FirstDisplayedScrollingRowIndex = focusIndex - displayedRowCount / 2;
+            SendToTimer = false;
         }
 
         private void TextBox_Enter(object sender, EventArgs e)
@@ -843,7 +845,8 @@ namespace Gen3_Starter_Manip_for_ACE
             Quirky.Checked = config.checkedNatures.Contains(NatureType.Quirky);
             MinFrame.Text = config.minFrame.ToString();
             MaxFrame.Text = config.maxFrame.ToString();
-            MinExpText.Text = config.minExp.ToString();
+            MinExpText1.Text = config.minExp.ToString();
+            MinExpText2.Text = config.minExp2.ToString();
             MaxExpText.Text = config.maxExp.ToString();
             // 性格のチェックボックスを更新
             foreach (var nature in Constants.natureEffects)
@@ -993,19 +996,46 @@ namespace Gen3_Starter_Manip_for_ACE
 
         private void MinExpText_TextChanged(object sender, EventArgs e)
         {
-            if (int.TryParse(MinExpText.Text, out int minExp))
+            if (int.TryParse(MinExpText1.Text, out int minExp))
             {
                 if (minExp < 0)
                 {
                     minExp = 0;
-                    MinExpText.Text = "";
+                    MinExpText1.Text = "";
                 }
                 ConfigData.Instance.minExp = minExp;
             }
             else
             {
                 ConfigData.Instance.minExp = 0;
-                MinExpText.Text = "";
+                MinExpText1.Text = "";
+            }
+        }
+        private void MinExpText2_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(MinExpText2.Text, out int minExp2))
+                ConfigData.Instance.minExp2 = minExp2;
+            else
+            {
+                ConfigData.Instance.minExp2 = 0;
+                MinExpText2.Text = "";
+            }
+        }
+        private void MinExpText2_Leave(object sender, EventArgs e)
+        {
+            if (int.TryParse(MinExpText2.Text, out int minExp2))
+            {
+                if (minExp2 < ConfigData.Instance.minExp)
+                {
+                    minExp2 = ConfigData.Instance.minExp;
+                    MinExpText2.Text = ConfigData.Instance.minExp.ToString();
+                }
+                ConfigData.Instance.minExp2 = minExp2;
+            }
+            else
+            {
+                minExp2 = ConfigData.Instance.minExp;
+                ConfigData.Instance.minExp2 = minExp2;
             }
         }
 

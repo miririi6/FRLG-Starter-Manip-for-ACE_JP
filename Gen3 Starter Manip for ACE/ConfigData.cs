@@ -20,6 +20,7 @@ namespace Gen3_Starter_Manip_for_ACE
             checkedNatures = new List<NatureType> { NatureType.Modest, NatureType.Mild, NatureType.Rash };
             starter = StarterPokemonType.Squirtle;
             minExp = 0;
+            minExp2 = 0;
             maxExp = 65536;
             requiredHIV = 0;
             requiredAIV = new int[3];
@@ -40,6 +41,7 @@ namespace Gen3_Starter_Manip_for_ACE
         public SeedPokemonType seedPokemon { get; set; }
         public bool isSearchForACE { get; set; }
         public int minExp { get; set; }
+        public int minExp2 { get; set; }
         public int maxExp { get; set; }
         public int minFrame { get; set; }
         public int maxFrame { get; set; }

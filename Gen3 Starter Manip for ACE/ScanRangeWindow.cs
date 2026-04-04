@@ -38,5 +38,33 @@ namespace Gen3_Starter_Manip_for_ACE
                     m.Result = (IntPtr)HTCAPTION;
             }
         }
+
+        private void ScanRangeWindow_Paint(object sender, PaintEventArgs e)
+        {
+            // 現在の表示領域の幅と高さを取得
+            int w = this.ClientSize.Width;
+            int h = this.ClientSize.Height;
+
+            using (Pen guidePen = new Pen(Color.Red, 1))
+            {
+                // 点線にする（よりガイド線っぽくなる）
+                guidePen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+
+                // 5分割なので、境界線は4本
+                for (int i = 1; i <= 4; i++)
+                {
+                    int x = (w * i) / 5;
+                    e.Graphics.DrawLine(guidePen, x, 0, x, h);
+                }
+            }
+
+            // 外枠も引いておくと、どこが認識範囲か分かりやすい
+            e.Graphics.DrawRectangle(Pens.Red, 0, 0, w - 1, h - 1);
+        }
+
+        private void ScanRangeWindow_Resize(object sender, EventArgs e)
+        {
+            this.Invalidate();
+        }
     }
 }

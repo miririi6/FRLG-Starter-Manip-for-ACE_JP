@@ -60,11 +60,13 @@
             TIDLabel = new Label();
             maxExpLabel = new Label();
             MaxFrameLabel = new Label();
-            minExpLabel = new Label();
+            minExpLabel2 = new Label();
+            minExpLabel1 = new Label();
             MinFrameLabel = new Label();
             TIDText = new TextBox();
             MaxExpText = new TextBox();
-            MinExpText = new TextBox();
+            MinExpText2 = new TextBox();
+            MinExpText1 = new TextBox();
             MaxFrame = new TextBox();
             MinFrame = new TextBox();
             CalcButton = new Button();
@@ -543,16 +545,18 @@
             TermsGroup.Controls.Add(TIDLabel);
             TermsGroup.Controls.Add(maxExpLabel);
             TermsGroup.Controls.Add(MaxFrameLabel);
-            TermsGroup.Controls.Add(minExpLabel);
+            TermsGroup.Controls.Add(minExpLabel2);
+            TermsGroup.Controls.Add(minExpLabel1);
             TermsGroup.Controls.Add(MinFrameLabel);
             TermsGroup.Controls.Add(TIDText);
             TermsGroup.Controls.Add(MaxExpText);
-            TermsGroup.Controls.Add(MinExpText);
+            TermsGroup.Controls.Add(MinExpText2);
+            TermsGroup.Controls.Add(MinExpText1);
             TermsGroup.Controls.Add(MaxFrame);
             TermsGroup.Controls.Add(MinFrame);
             TermsGroup.Location = new Point(12, 235);
             TermsGroup.Name = "TermsGroup";
-            TermsGroup.Size = new Size(183, 208);
+            TermsGroup.Size = new Size(183, 222);
             TermsGroup.TabIndex = 0;
             TermsGroup.TabStop = false;
             TermsGroup.Text = "検索条件";
@@ -560,7 +564,8 @@
             // 
             // ClearTIDButton
             // 
-            ClearTIDButton.Location = new Point(96, 179);
+            ClearTIDButton.Location = new Point(96, 194);
+            ClearTIDButton.Margin = new Padding(3, 3, 3, 2);
             ClearTIDButton.Name = "ClearTIDButton";
             ClearTIDButton.Size = new Size(81, 23);
             ClearTIDButton.TabIndex = 1;
@@ -571,7 +576,7 @@
             // TIDLabel
             // 
             TIDLabel.AutoSize = true;
-            TIDLabel.Location = new Point(6, 152);
+            TIDLabel.Location = new Point(6, 169);
             TIDLabel.Name = "TIDLabel";
             TIDLabel.Size = new Size(60, 15);
             TIDLabel.TabIndex = 2;
@@ -580,7 +585,7 @@
             // maxExpLabel
             // 
             maxExpLabel.AutoSize = true;
-            maxExpLabel.Location = new Point(6, 52);
+            maxExpLabel.Location = new Point(6, 80);
             maxExpLabel.Name = "maxExpLabel";
             maxExpLabel.Size = new Size(67, 15);
             maxExpLabel.TabIndex = 2;
@@ -589,25 +594,34 @@
             // MaxFrameLabel
             // 
             MaxFrameLabel.AutoSize = true;
-            MaxFrameLabel.Location = new Point(6, 123);
+            MaxFrameLabel.Location = new Point(6, 136);
             MaxFrameLabel.Name = "MaxFrameLabel";
             MaxFrameLabel.Size = new Size(65, 15);
             MaxFrameLabel.TabIndex = 2;
             MaxFrameLabel.Text = "最大フレーム";
             // 
-            // minExpLabel
+            // minExpLabel2
             // 
-            minExpLabel.AutoSize = true;
-            minExpLabel.Location = new Point(6, 24);
-            minExpLabel.Name = "minExpLabel";
-            minExpLabel.Size = new Size(67, 15);
-            minExpLabel.TabIndex = 2;
-            minExpLabel.Text = "最小経験値";
+            minExpLabel2.AutoSize = true;
+            minExpLabel2.Location = new Point(6, 52);
+            minExpLabel2.Name = "minExpLabel2";
+            minExpLabel2.Size = new Size(73, 15);
+            minExpLabel2.TabIndex = 2;
+            minExpLabel2.Text = "最小経験値2";
+            // 
+            // minExpLabel1
+            // 
+            minExpLabel1.AutoSize = true;
+            minExpLabel1.Location = new Point(6, 24);
+            minExpLabel1.Name = "minExpLabel1";
+            minExpLabel1.Size = new Size(73, 15);
+            minExpLabel1.TabIndex = 2;
+            minExpLabel1.Text = "最小経験値1";
             // 
             // MinFrameLabel
             // 
             MinFrameLabel.AutoSize = true;
-            MinFrameLabel.Location = new Point(6, 95);
+            MinFrameLabel.Location = new Point(6, 108);
             MinFrameLabel.Name = "MinFrameLabel";
             MinFrameLabel.Size = new Size(65, 15);
             MinFrameLabel.TabIndex = 2;
@@ -618,7 +632,8 @@
             TIDText.BorderStyle = BorderStyle.FixedSingle;
             TIDText.Font = new Font("Yu Gothic UI", 9F);
             TIDText.ImeMode = ImeMode.Disable;
-            TIDText.Location = new Point(96, 150);
+            TIDText.Location = new Point(96, 166);
+            TIDText.Margin = new Padding(3, 3, 3, 2);
             TIDText.MaxLength = 5;
             TIDText.Name = "TIDText";
             TIDText.Size = new Size(81, 23);
@@ -632,7 +647,8 @@
             MaxExpText.BorderStyle = BorderStyle.FixedSingle;
             MaxExpText.Font = new Font("Yu Gothic UI", 9F);
             MaxExpText.ImeMode = ImeMode.Disable;
-            MaxExpText.Location = new Point(96, 50);
+            MaxExpText.Location = new Point(96, 78);
+            MaxExpText.Margin = new Padding(3, 3, 3, 2);
             MaxExpText.MaxLength = 256;
             MaxExpText.Name = "MaxExpText";
             MaxExpText.Size = new Size(81, 23);
@@ -644,28 +660,48 @@
             MaxExpText.KeyDown += Frames_KeyDown;
             MaxExpText.Leave += MaxExpText_Leave;
             // 
-            // MinExpText
+            // MinExpText2
             // 
-            MinExpText.BorderStyle = BorderStyle.FixedSingle;
-            MinExpText.Font = new Font("Yu Gothic UI", 9F);
-            MinExpText.ImeMode = ImeMode.Disable;
-            MinExpText.Location = new Point(96, 22);
-            MinExpText.MaxLength = 256;
-            MinExpText.Name = "MinExpText";
-            MinExpText.Size = new Size(81, 23);
-            MinExpText.TabIndex = 2;
-            MinExpText.TextAlign = HorizontalAlignment.Right;
-            MinExpText.Click += TextBox_Click;
-            MinExpText.TextChanged += MinExpText_TextChanged;
-            MinExpText.Enter += TextBox_Enter;
-            MinExpText.KeyDown += Frames_KeyDown;
+            MinExpText2.BorderStyle = BorderStyle.FixedSingle;
+            MinExpText2.Font = new Font("Yu Gothic UI", 9F);
+            MinExpText2.ImeMode = ImeMode.Disable;
+            MinExpText2.Location = new Point(96, 50);
+            MinExpText2.Margin = new Padding(3, 3, 3, 2);
+            MinExpText2.MaxLength = 256;
+            MinExpText2.Name = "MinExpText2";
+            MinExpText2.Size = new Size(81, 23);
+            MinExpText2.TabIndex = 2;
+            MinExpText2.TextAlign = HorizontalAlignment.Right;
+            MinExpText2.Click += TextBox_Click;
+            MinExpText2.TextChanged += MinExpText2_TextChanged;
+            MinExpText2.Enter += TextBox_Enter;
+            MinExpText2.KeyDown += Frames_KeyDown;
+            MinExpText2.Leave += MinExpText2_Leave;
+            // 
+            // MinExpText1
+            // 
+            MinExpText1.BorderStyle = BorderStyle.FixedSingle;
+            MinExpText1.Font = new Font("Yu Gothic UI", 9F);
+            MinExpText1.ImeMode = ImeMode.Disable;
+            MinExpText1.Location = new Point(96, 22);
+            MinExpText1.Margin = new Padding(3, 3, 3, 2);
+            MinExpText1.MaxLength = 256;
+            MinExpText1.Name = "MinExpText1";
+            MinExpText1.Size = new Size(81, 23);
+            MinExpText1.TabIndex = 2;
+            MinExpText1.TextAlign = HorizontalAlignment.Right;
+            MinExpText1.Click += TextBox_Click;
+            MinExpText1.TextChanged += MinExpText_TextChanged;
+            MinExpText1.Enter += TextBox_Enter;
+            MinExpText1.KeyDown += Frames_KeyDown;
             // 
             // MaxFrame
             // 
             MaxFrame.BorderStyle = BorderStyle.FixedSingle;
             MaxFrame.Font = new Font("Yu Gothic UI", 9F);
             MaxFrame.ImeMode = ImeMode.Disable;
-            MaxFrame.Location = new Point(96, 121);
+            MaxFrame.Location = new Point(96, 134);
+            MaxFrame.Margin = new Padding(3, 3, 3, 2);
             MaxFrame.MaxLength = 256;
             MaxFrame.Name = "MaxFrame";
             MaxFrame.Size = new Size(81, 23);
@@ -682,7 +718,8 @@
             MinFrame.BorderStyle = BorderStyle.FixedSingle;
             MinFrame.Font = new Font("Yu Gothic UI", 9F);
             MinFrame.ImeMode = ImeMode.Disable;
-            MinFrame.Location = new Point(96, 93);
+            MinFrame.Location = new Point(96, 106);
+            MinFrame.Margin = new Padding(3, 3, 3, 2);
             MinFrame.MaxLength = 256;
             MinFrame.Name = "MinFrame";
             MinFrame.Size = new Size(81, 23);
@@ -695,9 +732,9 @@
             // 
             // CalcButton
             // 
-            CalcButton.Location = new Point(12, 449);
+            CalcButton.Location = new Point(12, 463);
             CalcButton.Name = "CalcButton";
-            CalcButton.Size = new Size(183, 37);
+            CalcButton.Size = new Size(183, 23);
             CalcButton.TabIndex = 1;
             CalcButton.Text = "検索";
             CalcButton.UseVisualStyleBackColor = true;
@@ -1187,7 +1224,7 @@
             panel1.Controls.Add(StatusHLabel);
             panel1.Location = new Point(417, 395);
             panel1.Name = "panel1";
-            panel1.Size = new Size(254, 88);
+            panel1.Size = new Size(254, 91);
             panel1.TabIndex = 5;
             // 
             // StatusSLabel
@@ -1432,9 +1469,9 @@
             // 
             // SerchAroundFramesButton
             // 
-            SerchAroundFramesButton.Location = new Point(201, 449);
+            SerchAroundFramesButton.Location = new Point(201, 463);
             SerchAroundFramesButton.Name = "SerchAroundFramesButton";
-            SerchAroundFramesButton.Size = new Size(210, 37);
+            SerchAroundFramesButton.Size = new Size(210, 23);
             SerchAroundFramesButton.TabIndex = 2;
             SerchAroundFramesButton.Text = "周辺フレーム検索";
             SerchAroundFramesButton.UseVisualStyleBackColor = true;
@@ -1547,7 +1584,7 @@
             panel2.Controls.Add(IVsHLabel);
             panel2.Location = new Point(201, 395);
             panel2.Name = "panel2";
-            panel2.Size = new Size(210, 48);
+            panel2.Size = new Size(210, 62);
             panel2.TabIndex = 5;
             // 
             // IVsSLabel
@@ -1614,7 +1651,7 @@
             // 
             IVsSNum.Font = new Font("Yu Gothic UI", 12F);
             IVsSNum.ForeColor = Color.White;
-            IVsSNum.Location = new Point(172, 24);
+            IVsSNum.Location = new Point(172, 30);
             IVsSNum.Margin = new Padding(6, 0, 6, 0);
             IVsSNum.Name = "IVsSNum";
             IVsSNum.Size = new Size(28, 21);
@@ -1626,7 +1663,7 @@
             // 
             IVsDNum.Font = new Font("Yu Gothic UI", 12F);
             IVsDNum.ForeColor = Color.White;
-            IVsDNum.Location = new Point(140, 24);
+            IVsDNum.Location = new Point(140, 30);
             IVsDNum.Margin = new Padding(6, 0, 6, 0);
             IVsDNum.Name = "IVsDNum";
             IVsDNum.Size = new Size(28, 21);
@@ -1638,7 +1675,7 @@
             // 
             IVsCNum.Font = new Font("Yu Gothic UI", 12F);
             IVsCNum.ForeColor = Color.White;
-            IVsCNum.Location = new Point(108, 24);
+            IVsCNum.Location = new Point(108, 30);
             IVsCNum.Margin = new Padding(6, 0, 6, 0);
             IVsCNum.Name = "IVsCNum";
             IVsCNum.Size = new Size(28, 21);
@@ -1650,7 +1687,7 @@
             // 
             IVsBNum.Font = new Font("Yu Gothic UI", 12F);
             IVsBNum.ForeColor = Color.White;
-            IVsBNum.Location = new Point(76, 24);
+            IVsBNum.Location = new Point(76, 30);
             IVsBNum.Margin = new Padding(6, 0, 6, 0);
             IVsBNum.Name = "IVsBNum";
             IVsBNum.Size = new Size(28, 21);
@@ -1662,7 +1699,7 @@
             // 
             IVsANum.Font = new Font("Yu Gothic UI", 12F);
             IVsANum.ForeColor = Color.White;
-            IVsANum.Location = new Point(44, 24);
+            IVsANum.Location = new Point(44, 30);
             IVsANum.Margin = new Padding(6, 0, 6, 0);
             IVsANum.Name = "IVsANum";
             IVsANum.Size = new Size(28, 21);
@@ -1674,7 +1711,7 @@
             // 
             IVsHNum.Font = new Font("Yu Gothic UI", 12F);
             IVsHNum.ForeColor = Color.White;
-            IVsHNum.Location = new Point(12, 24);
+            IVsHNum.Location = new Point(12, 30);
             IVsHNum.Margin = new Padding(6, 0, 6, 0);
             IVsHNum.Name = "IVsHNum";
             IVsHNum.Size = new Size(28, 21);
@@ -1698,7 +1735,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(958, 495);
+            ClientSize = new Size(958, 498);
             Controls.Add(SerchAroundFramesButton);
             Controls.Add(CalcButton);
             Controls.Add(panel2);
@@ -1847,11 +1884,13 @@
         private Label label15;
         private Label label14;
         private Label maxExpLabel;
-        private Label minExpLabel;
+        private Label minExpLabel1;
         private TextBox MaxExpText;
-        private TextBox MinExpText;
+        private TextBox MinExpText1;
         private ToolStripMenuItem SoftVersionLabel;
         private ToolStripMenuItem ScanStartButton;
         private ToolStripComboBox SelectWindowList;
+        private Label minExpLabel2;
+        private TextBox MinExpText2;
     }
 }
