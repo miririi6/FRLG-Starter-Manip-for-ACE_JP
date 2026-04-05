@@ -1538,7 +1538,7 @@
             // 
             SelectWindowList.DropDownStyle = ComboBoxStyle.DropDownList;
             SelectWindowList.Name = "SelectWindowList";
-            SelectWindowList.Size = new Size(350, 23);
+            SelectWindowList.Size = new Size(300, 23);
             SelectWindowList.SelectedIndexChanged += SelectWindowList_SelectedIndexChanged;
             SelectWindowList.Enter += SelectWindowList_Enter;
             SelectWindowList.Click += SelectWindowList_Click;

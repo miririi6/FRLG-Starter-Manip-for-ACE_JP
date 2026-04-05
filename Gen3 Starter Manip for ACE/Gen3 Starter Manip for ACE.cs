@@ -66,6 +66,7 @@ namespace Gen3_Starter_Manip_for_ACE
             WordEXPList.Visible = false;
             ClientSize = new Size(682, 495);
             MinExpText1.Enabled = false;
+            MinExpText2.Enabled = false;
             MaxExpText.Enabled = false;
         }
         public void AceModeView()
@@ -73,6 +74,7 @@ namespace Gen3_Starter_Manip_for_ACE
             WordEXPList.Visible = true;
             ClientSize = new Size(958, 495);
             MinExpText1.Enabled = true;
+            MinExpText2.Enabled = true;
             MaxExpText.Enabled = true;
         }
 
