@@ -114,16 +114,23 @@ namespace Gen3_Starter_Manip_for_ACE
 
                 Types.NatureType nature = (Types.NatureType)(pid % 25);
 
-                ushort key = (ushort)((ushort)pid ^ tid);
-
                 List<Types.CorruptedPokemon> targetCorruptedPokemons = new();
                 int minExp = 65535;
                 if (isSerchForACE)
                 {
-                    targetCorruptedPokemons = GetGeneratableCorruptedPokemons(key);
+                    ushort key = (ushort)((ushort)pid ^ tid);
+                    if (Constants.expIn2ndIndex.Contains(pid % 24))
+                    {
+                        targetCorruptedPokemons = GetGeneratableCorruptedPokemons(key);
 
-                    //経験値が基準を満たしているか確認
-                    minExp = GetMinimumExpForCorruption(key, targetCorruptedPokemons);
+                        //経験値が基準を満たしているか確認
+                        int min = GetMinimumExpForCorruption(key, targetCorruptedPokemons);
+                        if (min <= ConfigData.Instance.maxExp)
+                        {
+                            minExp = min;
+                        }
+
+                    }
                 }
 
                 string sex = (pid & 0xFF) <= 30 ? "♀" : "♂";
@@ -147,33 +154,37 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             ushort key = (ushort)((ushort)pid ^ tid);
 
-            List<Types.CorruptedPokemon> targetCorruptedPokemons = new();
-            targetCorruptedPokemons = GetGeneratableCorruptedPokemons(key);
+
             List<Types.WordExpDataType> wordExpDataList = new();
-            GetMinimumExpForCorruption(key, targetCorruptedPokemons);
-            foreach (var poke in targetCorruptedPokemons)
+            if (Constants.expIn2ndIndex.Contains(pid % 24))
             {
-                ushort checksumDiff = (ushort)(poke.ID - ((ushort)ConfigData.Instance.seedPokemon + 1));
-                foreach (var word in Resources.wordData)
+                List<Types.CorruptedPokemon> targetCorruptedPokemons = new();
+                targetCorruptedPokemons = GetGeneratableCorruptedPokemons(key);
+                GetMinimumExpForCorruption(key, targetCorruptedPokemons);
+                foreach (var poke in targetCorruptedPokemons)
                 {
-                    ushort dec_v = (ushort)(key ^ word.ID);
-                    int adj = checksumDiff + dec_v;
-                    if ((ConfigData.Instance.minExp + 87 <= adj || (adj - ConfigData.Instance.minExp % 2 == 0 && ConfigData.Instance.minExp <= adj)) && adj <= ConfigData.Instance.maxExp)
+                    ushort checksumDiff = (ushort)(poke.ID - ((ushort)ConfigData.Instance.seedPokemon + 1));
+                    foreach (var word in Resources.wordData)
                     {
-                        wordExpDataList.Add(new Types.WordExpDataType { 経験値 = adj, ワード3 = poke.Text, ワード5 = word.Text, パターン = poke.Pattern });
+                        ushort dec_v = (ushort)(key ^ word.ID);
+                        int adj = checksumDiff + dec_v;
+                        if ((ConfigData.Instance.minExp2 <= adj || (adj - ConfigData.Instance.minExp % 2 == 0 && ConfigData.Instance.minExp <= adj)) && adj <= ConfigData.Instance.maxExp)
+                        {
+                            wordExpDataList.Add(new Types.WordExpDataType { 経験値 = adj, ワード3 = poke.Text, ワード5 = word.Text, パターン = poke.Pattern });
+                        }
+                    }
+                    foreach (var pokeWord in Resources.pokeWordData)
+                    {
+                        ushort dec_v = (ushort)(key ^ pokeWord.ID);
+                        int adj = checksumDiff + dec_v;
+                        if ((ConfigData.Instance.minExp2 <= adj || (adj - ConfigData.Instance.minExp % 2 == 0 && ConfigData.Instance.minExp <= adj)) && adj <= ConfigData.Instance.maxExp)
+                        {
+                            wordExpDataList.Add(new Types.WordExpDataType { 経験値 = adj, ワード3 = poke.Text, ワード5 = pokeWord.Text, パターン = poke.Pattern });
+                        }
                     }
                 }
-                foreach (var pokeWord in Resources.pokeWordData)
-                {
-                    ushort dec_v = (ushort)(key ^ pokeWord.ID);
-                    int adj = checksumDiff + dec_v;
-                    if ((ConfigData.Instance.minExp + 87 <= adj || (adj - ConfigData.Instance.minExp % 2 == 0 && ConfigData.Instance.minExp <= adj)) && adj <= ConfigData.Instance.maxExp)
-                    {
-                        wordExpDataList.Add(new Types.WordExpDataType { 経験値 = adj, ワード3 = poke.Text, ワード5 = pokeWord.Text, パターン = poke.Pattern });
-                    }
-                }
+                wordExpDataList.Sort((a, b) => a.経験値.CompareTo(b.経験値));
             }
-            wordExpDataList.Sort((a, b) => a.経験値.CompareTo(b.経験値));
             return wordExpDataList;
         }
         static Types.IVs GetIVs(uint seed)

@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\Csha\\Gen3 Starter Manip for ACE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|C:\\Csha\\Gen3 Starter Manip for ACE\\gen3 starter manip for ace\\gen3 starter manip for ace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\gen3 starter manip for ace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\searchengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\searchengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\configdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\configdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\screenscaner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\screenscaner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\editsettings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\editsettings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\gen3 starter manip for ace.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\gen3 starter manip for ace.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\gen3 starter manip for ace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\gen3 starter manip for ace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\gen3 starter manip for ace.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\gen3 starter manip for ace.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|C:\\Csha\\Gen3 Starter Manip for ACE\\gen3 starter manip for ace\\gen3 starter manip for ace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\gen3 starter manip for ace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\editsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,24 +39,12 @@
       "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\editsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\screenscaner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\screenscaner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\scanrangewindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\scanrangewindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\searchengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\searchengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\gen3 starter manip for ace.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\gen3 starter manip for ace.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|c:\\csha\\gen3 starter manip for ace\\gen3 starter manip for ace\\configdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|solutionrelative:gen3 starter manip for ace\\configdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{46A42458-F5A9-4A25-BB3D-E00C5FCF23A2}|Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj|C:\\Csha\\Gen3 Starter Manip for ACE\\gen3 starter manip for ace\\scanrangewindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -86,7 +86,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 18,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
@@ -102,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Gen3 Starter Manip for ACE",
               "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj",
               "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj",
@@ -114,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Gen3 Starter Manip for ACE.csproj",
               "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj",
               "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.csproj",
@@ -126,20 +126,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "EditSettings.Designer.cs",
               "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\EditSettings.Designer.cs",
               "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\EditSettings.Designer.cs",
               "ToolTip": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\EditSettings.Designer.cs",
               "RelativeToolTip": "Gen3 Starter Manip for ACE\\EditSettings.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsCAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAOwBAAAAAAAAAAAAABQAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-04T08:21:18.151Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "ScanRangeWindow.cs",
               "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\ScanRangeWindow.cs",
               "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\ScanRangeWindow.cs",
@@ -163,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "ScreenScaner.cs",
               "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\ScreenScaner.cs",
               "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\ScreenScaner.cs",
@@ -171,7 +171,8 @@
               "RelativeToolTip": "Gen3 Starter Manip for ACE\\ScreenScaner.cs",
               "ViewState": "AgIAAEwAAAAAAAAAAAAAAHgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-03T13:48:26.167Z"
+              "WhenOpened": "2026-04-03T13:48:26.167Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -187,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "EditSettings.cs",
               "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\EditSettings.cs",
               "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\EditSettings.cs",
@@ -220,20 +221,20 @@
               "RelativeToolTip": "Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAOB0wBYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-28T14:35:10.887Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-28T14:35:10.887Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "SearchEngine.cs",
               "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\SearchEngine.cs",
               "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\SearchEngine.cs",
               "ToolTip": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\SearchEngine.cs",
               "RelativeToolTip": "Gen3 Starter Manip for ACE\\SearchEngine.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAP4AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAGcAAAAAAAAAAADwv4EAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T14:51:46.876Z"
+              "WhenOpened": "2026-03-30T14:51:46.876Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -249,7 +250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Gen3 Starter Manip for ACE.cs",
               "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.cs",
               "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.cs",
@@ -262,15 +263,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
               "Title": "ConfigData.cs",
               "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\ConfigData.cs",
               "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\ConfigData.cs",
               "ToolTip": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\ConfigData.cs",
               "RelativeToolTip": "Gen3 Starter Manip for ACE\\ConfigData.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAIwCoAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAAAACYAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T09:52:36.427Z"
+              "WhenOpened": "2026-03-30T09:52:36.427Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -298,7 +300,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "EditSettings.cs [\u30C7\u30B6\u30A4\u30F3]",
               "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\EditSettings.cs",
               "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\EditSettings.cs",
@@ -309,15 +311,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Gen3 Starter Manip for ACE.cs [\u30C7\u30B6\u30A4\u30F3]",
               "DocumentMoniker": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.cs",
               "RelativeDocumentMoniker": "Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.cs",
               "ToolTip": "C:\\Csha\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.cs [\u30C7\u30B6\u30A4\u30F3]",
               "RelativeToolTip": "Gen3 Starter Manip for ACE\\Gen3 Starter Manip for ACE.cs [\u30C7\u30B6\u30A4\u30F3]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-28T09:31:48.06Z",
-              "EditorCaption": " [\u30C7\u30B6\u30A4\u30F3]"
+              "WhenOpened": "2026-03-28T09:31:48.06Z"
             }
           ]
         }
