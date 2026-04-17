@@ -9,6 +9,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <FileVersion></FileVersion>
     <AssemblyVersion>1.5</AssemblyVersion>
+    <ApplicationIcon>hatena.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,6 +37,7 @@
     <Content Include="corrupted_pokemon_FR.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="hatena.ico" />
     <Content Include="poke_words.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

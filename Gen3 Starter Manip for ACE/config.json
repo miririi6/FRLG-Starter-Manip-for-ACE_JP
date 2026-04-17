@@ -9,10 +9,10 @@
   "starter": "Squirtle",
   "seedPokemon": "Wartortle",
   "isSearchForACE": true,
-  "minExp": 13087,
-  "minExp2": 13130,
+  "minExp": 12712,
+  "minExp2": 12713,
   "maxExp": 15000,
-  "minFrame": 4000,
+  "minFrame": 3630,
   "maxFrame": 8000,
   "requiredHIV": 0,
   "requiredAIV": [
@@ -28,7 +28,7 @@
   "requiredCIV": [
     0,
     0,
-    20
+    19
   ],
   "requiredDIV": [
     0,
@@ -42,17 +42,17 @@
   ],
   "searchArea": {
     "Location": {
-      "X": 1374,
-      "Y": 129
+      "X": 1376,
+      "Y": 133
     },
     "Size": {
-      "Width": 164,
-      "Height": 45
+      "Width": 160,
+      "Height": 40
     },
-    "X": 1374,
-    "Y": 129,
-    "Width": 164,
-    "Height": 45
+    "X": 1376,
+    "Y": 133,
+    "Width": 160,
+    "Height": 40
   },
   "scanThreshold": 0.8,
   "waitTime": 0.5,
