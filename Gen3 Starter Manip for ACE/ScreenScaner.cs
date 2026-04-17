@@ -66,20 +66,30 @@ namespace Gen3_Starter_Manip_for_ACE
                 {
                     // グレースケール化
                     Cv2.CvtColor(scene, scene, ColorConversionCodes.BGR2GRAY);
-
-                    int cellWidth = scene.Width / 5;
                     int[] results = new int[5];
+
+                    double cellWidth = scene.Width / 5;
+                    double x = 0;
 
                     for (int i = 0; i < 5; i++)
                     {
                         // i番目のエリアを切り出す (Rectの範囲外エラーを防ぐため幅を調整)
-                        int x = i * cellWidth;
-                        Rect cellRect = new Rect(x, 0, Math.Min(cellWidth, scene.Width - x), scene.Height);
+                        Rect cellRect = new Rect((int)Math.Max(0, x - cellWidth * 0.15), 0, (int)Math.Min(cellWidth * 1.15, scene.Width - x), scene.Height);
 
+                        int digit;
                         using (Mat cell = new Mat(scene, cellRect))
                         {
                             // そのエリアで一番似ている数字を1つ特定する
-                            results[i] = GetBestDigit(cell, threshold);
+                            digit = GetBestDigit(cell, threshold);
+                            results[i] = digit;
+                        }
+                        if (digit == 1)
+                        {
+                            x += cellWidth * 8.0 / 9.0;
+                        }
+                        else
+                        {
+                            x += cellWidth;
                         }
                     }
 

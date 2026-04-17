@@ -76,8 +76,8 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             public int フレーム { get; set; }
             public double 時間 { get; set; }
-            public Types.NatureType 性格 { get; set; }
             public uint 性格値 { get; set; }
+            public Types.NatureType 性格 { get; set; }
             public int H { get; set; }
             public int A { get; set; }
             public int B { get; set; }

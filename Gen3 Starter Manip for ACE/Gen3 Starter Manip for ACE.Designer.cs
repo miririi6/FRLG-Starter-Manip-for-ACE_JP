@@ -137,6 +137,7 @@
             SoftVersionLabel = new ToolStripMenuItem();
             ScanStartButton = new ToolStripMenuItem();
             SelectWindowList = new ToolStripComboBox();
+            ConutHelperToolStripMenuItem = new ToolStripMenuItem();
             WordEXPList = new DataGridView();
             panel2 = new Panel();
             IVsSLabel = new Label();
@@ -694,6 +695,7 @@
             MinExpText1.TextChanged += MinExpText_TextChanged;
             MinExpText1.Enter += TextBox_Enter;
             MinExpText1.KeyDown += Frames_KeyDown;
+            MinExpText1.Leave += MinExpText1_Leave;
             // 
             // MaxFrame
             // 
@@ -1479,7 +1481,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { FileToolStripMenuItem, SettingsToolStripMenuItem, SoftVersionLabel, ScanStartButton, SelectWindowList });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { FileToolStripMenuItem, SettingsToolStripMenuItem, SoftVersionLabel, ScanStartButton, SelectWindowList, ConutHelperToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(958, 27);
@@ -1543,6 +1545,13 @@
             SelectWindowList.Enter += SelectWindowList_Enter;
             SelectWindowList.Click += SelectWindowList_Click;
             // 
+            // ConutHelperToolStripMenuItem
+            // 
+            ConutHelperToolStripMenuItem.Name = "ConutHelperToolStripMenuItem";
+            ConutHelperToolStripMenuItem.Size = new Size(116, 23);
+            ConutHelperToolStripMenuItem.Text = "歩数カウントヘルパー";
+            ConutHelperToolStripMenuItem.Click += ConutHelperToolStripMenuItem_Click;
+            // 
             // WordEXPList
             // 
             WordEXPList.AllowUserToAddRows = false;
@@ -1565,6 +1574,7 @@
             WordEXPList.Size = new Size(269, 456);
             WordEXPList.TabIndex = 4;
             WordEXPList.TabStop = false;
+            WordEXPList.CellClick += WordEXPList_CellClick;
             WordEXPList.CellFormatting += CalcList_CellFormatting;
             // 
             // panel2
@@ -1892,5 +1902,6 @@
         private ToolStripComboBox SelectWindowList;
         private Label minExpLabel2;
         private TextBox MinExpText2;
+        private ToolStripMenuItem ConutHelperToolStripMenuItem;
     }
 }

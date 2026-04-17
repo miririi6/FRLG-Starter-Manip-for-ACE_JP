@@ -30,6 +30,11 @@ namespace Gen3_Starter_Manip_for_ACE
             requiredSIV = new int[3];
             searchArea = new Rectangle(0, 0, 100, 100);
             scanThreshold = 0.8;
+            InitialExp1 = 0;
+            InitialExp2 = 0;
+            FixedStepCount1 = 0;
+            FixedStepCount2 = 0;
+            StepsPerCycle = 0;
         }
         public static void SetInstance(ConfigData newConfig)
         {
@@ -56,6 +61,12 @@ namespace Gen3_Starter_Manip_for_ACE
         public double waitTime { get; set; } = 0.5;
         public string scanWindowTitle { get; set; }
         public bool isAutoConnectTimer { get; set; } = false;
+        public int FixedStepCount1 { get; set; } = 0;
+        public int FixedStepCount2 { get; set; } = 0;
+        public int InitialExp1 { get; set; } = 0;
+        public int InitialExp2 { get; set; } = 0;
+        public int StepsPerCycle { get; set; } = 0;
+
     }
     public static class ConfigUtils
     {

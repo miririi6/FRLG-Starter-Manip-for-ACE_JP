@@ -82,6 +82,7 @@ namespace Gen3_Starter_Manip_for_ACE
         public void CalcButton_Click(object sender, EventArgs e)
         {
             ClickedCalcButton = true;
+            SendToTimer = true;
             ushort tid;
             if (!ushort.TryParse(TIDText.Text, out tid))
             {
@@ -122,7 +123,7 @@ namespace Gen3_Starter_Manip_for_ACE
                 showStatus(0);
                 if (ConfigData.Instance.isSearchForACE)
                 {
-                    uint pid = (uint)CalcList.Rows[0].Cells[3].Value;
+                    uint pid = (uint)CalcList.Rows[0].Cells[2].Value;
                     var wordExpData = SearchEngine.GetWordExpData(tid, pid);
                     WordEXPList.DataSource = wordExpData;
                     WordEXPList.Columns["経験値"].Width = 50;
@@ -131,6 +132,10 @@ namespace Gen3_Starter_Manip_for_ACE
                     WordEXPList.Columns["パターン"].Width = 50;
                     WordEXPList.Columns[WordEXPList.ColumnCount - 1].MinimumWidth = 50;
                     WordEXPList.Columns[WordEXPList.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    if (isCountHelperOpen && WordEXPList.Rows.Count > 0)
+                    {
+                        helperForm.SetTargetExp((int)WordEXPList.Rows[0].Cells[0].Value);
+                    }
                 }
                 if (ConfigData.Instance.isAutoConnectTimer)
                     NumberSender.SendTextToTargetEdit("FlowTimer (Build 47)", 0, CalcList.Rows[0].Cells[0].Value.ToString(), 241, 34);
@@ -197,9 +202,13 @@ namespace Gen3_Starter_Manip_for_ACE
             if (ConfigData.Instance.isSearchForACE)
             {
                 ushort tid = ushort.TryParse(TIDText.Text, out tid) ? tid : (ushort)0;
-                uint pid = (uint)CalcList.Rows[e.RowIndex].Cells[3].Value;
+                uint pid = (uint)CalcList.Rows[e.RowIndex].Cells[2].Value;
                 var wordExpData = SearchEngine.GetWordExpData(tid, pid);
                 WordEXPList.DataSource = wordExpData;
+                if (isCountHelperOpen && WordEXPList.Rows.Count > 0)
+                {
+                    helperForm.SetTargetExp((int)WordEXPList.Rows[0].Cells[0].Value);
+                }
             }
             if (ConfigData.Instance.isAutoConnectTimer && SendToTimer)
                 NumberSender.SendTextToTargetEdit("FlowTimer (Build 47)", 0, CalcList.Rows[e.RowIndex].Cells[0].Value.ToString(), 241, 34);
@@ -675,7 +684,7 @@ namespace Gen3_Starter_Manip_for_ACE
 
         private void showStatus(int rowIndex)
         {
-            Types.NatureType nature = (Types.NatureType)CalcList.Rows[rowIndex].Cells[2].Value;
+            Types.NatureType nature = (Types.NatureType)CalcList.Rows[rowIndex].Cells[3].Value;
             int ivH = (int)CalcList.Rows[rowIndex].Cells[4].Value;
             int ivA = (int)CalcList.Rows[rowIndex].Cells[5].Value;
             int ivB = (int)CalcList.Rows[rowIndex].Cells[6].Value;
@@ -866,7 +875,7 @@ namespace Gen3_Starter_Manip_for_ACE
         private bool isNumberOrActionKey(Keys key)
         {
             bool isNumber = (key >= Keys.D0 && key <= Keys.D9) ||
-                            (key >= Keys.NumPad0 && key <= Keys.NumPad1);
+                            (key >= Keys.NumPad0 && key <= Keys.NumPad9);
             bool isActionKey = key == Keys.Back ||
                                key == Keys.Delete ||
                                key == Keys.Left ||
@@ -1021,6 +1030,17 @@ namespace Gen3_Starter_Manip_for_ACE
             {
                 ConfigData.Instance.minExp2 = 0;
                 MinExpText2.Text = "";
+            }
+        }
+        private void MinExpText1_Leave(object sender, EventArgs e)
+        {
+            if (int.TryParse(MinExpText1.Text, out int minExp1))
+            {
+                if (ConfigData.Instance.minExp2 < minExp1)
+                {
+                    ConfigData.Instance.minExp2 = minExp1;
+                    MinExpText2.Text = minExp1.ToString();
+                }
             }
         }
         private void MinExpText2_Leave(object sender, EventArgs e)
@@ -1200,6 +1220,30 @@ namespace Gen3_Starter_Manip_for_ACE
             {
                 _isScanning = false;
                 ScanStartButton.Text = "画像認識";
+            }
+        }
+
+        bool isCountHelperOpen = false;
+        StepCountHelper helperForm;
+        private void ConutHelperToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            helperForm = new StepCountHelper();
+
+            helperForm.Show();
+            ConutHelperToolStripMenuItem.Enabled = false;
+            isCountHelperOpen = true;
+            if (WordEXPList.CurrentCell != null)
+            {
+                helperForm.SetTargetExp((int)WordEXPList.CurrentRow.Cells[0].Value);
+            }
+            helperForm.FormClosed += (s, args) => { ConutHelperToolStripMenuItem.Enabled = true; isCountHelperOpen = false; };
+        }
+
+        private void WordEXPList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (isCountHelperOpen && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                helperForm.SetTargetExp((int)WordEXPList.Rows[e.RowIndex].Cells[0].Value);
             }
         }
     }

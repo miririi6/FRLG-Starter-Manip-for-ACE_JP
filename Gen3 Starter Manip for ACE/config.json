@@ -3,7 +3,8 @@
   "checkedNatures": [
     "Modest",
     "Mild",
-    "Rash"
+    "Rash",
+    "Quiet"
   ],
   "starter": "Squirtle",
   "seedPokemon": "Wartortle",
@@ -15,8 +16,8 @@
   "maxFrame": 8000,
   "requiredHIV": 0,
   "requiredAIV": [
-    4,
-    0,
+    24,
+    9,
     0
   ],
   "requiredBIV": [
@@ -35,8 +36,8 @@
     0
   ],
   "requiredSIV": [
-    0,
     14,
+    0,
     0
   ],
   "searchArea": {
@@ -56,5 +57,10 @@
   "scanThreshold": 0.8,
   "waitTime": 0.5,
   "scanWindowTitle": "OBS",
-  "isAutoConnectTimer": true
+  "isAutoConnectTimer": true,
+  "FixedStepCount1": 20,
+  "FixedStepCount2": 1316,
+  "InitialExp1": 13130,
+  "InitialExp2": 13087,
+  "StepsPerCycle": 14
 }
