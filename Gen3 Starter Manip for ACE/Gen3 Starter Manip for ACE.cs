@@ -277,7 +277,7 @@ namespace Gen3_Starter_Manip_for_ACE
             if (ConfigData.Instance.isSearchForACE)
             {
                 ushort tid = ushort.TryParse(TIDText.Text, out tid) ? tid : (ushort)0;
-                uint pid = (uint)CalcList.Rows[CalcList.CurrentCell.RowIndex].Cells[3].Value;
+                uint pid = (uint)CalcList.Rows[CalcList.CurrentCell.RowIndex].Cells[2].Value;
                 var wordExpData = SearchEngine.GetWordExpData(tid, pid);
                 WordEXPList.DataSource = wordExpData;
             }
