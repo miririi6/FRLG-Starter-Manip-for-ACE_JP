@@ -60,6 +60,7 @@
             LaunchScanAreaButton = new Button();
             SelectWindowsListForSettings = new ComboBox();
             ConnectTimerCheckBox = new CheckBox();
+            mainTopMostCheckbox = new CheckBox();
             SelectPokemonGroup.SuspendLayout();
             VersionBox.SuspendLayout();
             SerchModeBox.SuspendLayout();
@@ -448,19 +449,32 @@
             // 
             // ConnectTimerCheckBox
             // 
+            ConnectTimerCheckBox.AutoSize = true;
             ConnectTimerCheckBox.Location = new Point(213, 301);
             ConnectTimerCheckBox.Name = "ConnectTimerCheckBox";
-            ConnectTimerCheckBox.Size = new Size(137, 40);
+            ConnectTimerCheckBox.Size = new Size(137, 19);
             ConnectTimerCheckBox.TabIndex = 9;
-            ConnectTimerCheckBox.Text = "FlowTimerに自動送信\r\n※Build47専用";
+            ConnectTimerCheckBox.Text = "FlowTimerに自動送信\r\n";
             ConnectTimerCheckBox.UseVisualStyleBackColor = true;
             ConnectTimerCheckBox.CheckedChanged += ConnectTimerCheckBox_CheckedChanged;
+            // 
+            // mainTopMostCheckbox
+            // 
+            mainTopMostCheckbox.AutoSize = true;
+            mainTopMostCheckbox.Location = new Point(213, 322);
+            mainTopMostCheckbox.Name = "mainTopMostCheckbox";
+            mainTopMostCheckbox.Size = new Size(145, 19);
+            mainTopMostCheckbox.TabIndex = 9;
+            mainTopMostCheckbox.Text = "メインフォーム最前面固定";
+            mainTopMostCheckbox.UseVisualStyleBackColor = true;
+            mainTopMostCheckbox.CheckedChanged += mainTopMostCheckbox_CheckedChanged;
             // 
             // EditSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(370, 352);
+            Controls.Add(mainTopMostCheckbox);
             Controls.Add(ConnectTimerCheckBox);
             Controls.Add(ScanSettingGroup);
             Controls.Add(SeedPokemonBox);
@@ -487,6 +501,7 @@
             ((System.ComponentModel.ISupportInitialize)WaitTimeNum).EndInit();
             ((System.ComponentModel.ISupportInitialize)RangeViewBox).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -523,5 +538,6 @@
         private NumericUpDown ThresholdNum;
         private NumericUpDown WaitTimeNum;
         private CheckBox ConnectTimerCheckBox;
+        private CheckBox mainTopMostCheckbox;
     }
 }

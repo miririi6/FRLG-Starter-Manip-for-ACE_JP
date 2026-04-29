@@ -860,6 +860,7 @@ namespace Gen3_Starter_Manip_for_ACE
             MinExpText1.Text = config.minExp.ToString();
             MinExpText2.Text = config.minExp2.ToString();
             MaxExpText.Text = config.maxExp.ToString();
+            this.TopMost = config.TopMost;
             // 性格のチェックボックスを更新
             foreach (var nature in Constants.natureEffects)
             {
@@ -872,6 +873,10 @@ namespace Gen3_Starter_Manip_for_ACE
             }
             if (!config.isSearchForACE)
                 NoAceModeView();
+        }
+        public void applyTopMostConfig()
+        {
+            this.TopMost = ConfigData.Instance.TopMost;
         }
         private bool isNumberOrActionKey(Keys key)
         {

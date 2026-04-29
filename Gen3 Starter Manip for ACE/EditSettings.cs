@@ -397,5 +397,16 @@ namespace Gen3_Starter_Manip_for_ACE
             else
                 ConfigData.Instance.isAutoConnectTimer = false;
         }
+
+        private void mainTopMostCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (mainTopMostCheckbox.Checked)
+                ConfigData.Instance.TopMost = true;
+            else
+                ConfigData.Instance.TopMost = false;
+            if (_parent is MainForm mainForm)
+                mainForm.applyTopMostConfig();
+            this.Activate();
+        }
     }
 }

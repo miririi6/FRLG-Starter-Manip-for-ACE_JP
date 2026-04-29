@@ -252,6 +252,7 @@
             Controls.Add(InitialExpLabel);
             Name = "StepCountHelper";
             Text = "歩数カウントヘルパー";
+            TopMost = true;
             Load += StepCountHelper_Load;
             ((System.ComponentModel.ISupportInitialize)InitialExpNum).EndInit();
             ((System.ComponentModel.ISupportInitialize)FixedStepCountNum).EndInit();

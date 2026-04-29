@@ -35,6 +35,7 @@ namespace Gen3_Starter_Manip_for_ACE
             FixedStepCount1 = 0;
             FixedStepCount2 = 0;
             StepsPerCycle = 0;
+            TopMost = false;
         }
         public static void SetInstance(ConfigData newConfig)
         {
@@ -66,6 +67,7 @@ namespace Gen3_Starter_Manip_for_ACE
         public int InitialExp1 { get; set; } = 0;
         public int InitialExp2 { get; set; } = 0;
         public int StepsPerCycle { get; set; } = 0;
+        public bool TopMost { get; set; }
 
     }
     public static class ConfigUtils
