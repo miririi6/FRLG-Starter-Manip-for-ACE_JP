@@ -21,9 +21,10 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             InitializeComponent();
         }
-
+        int initWidth;
         private void Form1_Load(object sender, EventArgs e)
         {
+            initWidth = this.Width;
             ConfigUtils.loadConfigData("config.json");
             setConfigData();
             Resources.loadResources("words.csv", "poke_words.csv");
@@ -64,7 +65,7 @@ namespace Gen3_Starter_Manip_for_ACE
         public void NoAceModeView()
         {
             WordEXPList.Visible = false;
-            ClientSize = new Size(682, 495);
+            this.Width = (int)(initWidth * 684 / 958);
             MinExpText1.Enabled = false;
             MinExpText2.Enabled = false;
             MaxExpText.Enabled = false;
@@ -72,7 +73,7 @@ namespace Gen3_Starter_Manip_for_ACE
         public void AceModeView()
         {
             WordEXPList.Visible = true;
-            ClientSize = new Size(958, 495);
+            this.Width = initWidth;
             MinExpText1.Enabled = true;
             MinExpText2.Enabled = true;
             MaxExpText.Enabled = true;
