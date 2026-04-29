@@ -1499,7 +1499,7 @@
             // LoadConfigsFromFile
             // 
             LoadConfigsFromFile.Name = "LoadConfigsFromFile";
-            LoadConfigsFromFile.Size = new Size(178, 22);
+            LoadConfigsFromFile.Size = new Size(180, 22);
             LoadConfigsFromFile.Text = "設定ファイル読み込み";
             LoadConfigsFromFile.Click += LoadConfigsFromFile_Click;
             // 
@@ -1507,9 +1507,9 @@
             // 
             SaveConfigs.AutoToolTip = true;
             SaveConfigs.Name = "SaveConfigs";
-            SaveConfigs.Size = new Size(178, 22);
+            SaveConfigs.Size = new Size(180, 22);
             SaveConfigs.Text = "設定ファイル保存";
-            SaveConfigs.ToolTipText = "Settings.jsonを起動時に自動で読み込みます";
+            SaveConfigs.ToolTipText = "config.jsonを起動時に自動で読み込みます";
             SaveConfigs.Click += SaveConfigs_Click;
             // 
             // SettingsToolStripMenuItem
