@@ -8,7 +8,7 @@
   ],
   "starter": "Squirtle",
   "seedPokemon": "Wartortle",
-  "isSearchForACE": false,
+  "isSearchForACE": true,
   "minExp": 12712,
   "minExp2": 12713,
   "maxExp": 15000,
@@ -57,11 +57,13 @@
   "scanThreshold": 0.8,
   "waitTime": 0.5,
   "scanWindowTitle": "OBS",
-  "isAutoConnectTimer": true,
+  "isAutoConnectTimer": false,
   "FixedStepCount1": 20,
   "FixedStepCount2": 1316,
   "InitialExp1": 13130,
   "InitialExp2": 13087,
   "StepsPerCycle": 14,
-  "TopMost": true
+  "TopMost": true,
+  "ScanHotKeyEnable": false,
+  "scanHotKeyStr": "None"
 }

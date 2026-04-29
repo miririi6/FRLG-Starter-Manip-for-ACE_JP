@@ -95,6 +95,11 @@ namespace Gen3_Starter_Manip_for_ACE
                 ConnectTimerCheckBox.Checked = true;
             SelectWindowsListForSettings.Items.Add("ゲーム画面ウィンドウを選択してください");
             SelectWindowsListForSettings.SelectedIndex = 0;
+            if (ConfigData.Instance.TopMost)
+                mainTopMostCheckbox.Checked = true;
+            if (ConfigData.Instance.ScanHotKeyEnable)
+                scanHotKeyCheckbox.Checked = true;
+            scanHotKeyText.Text = ConfigData.Instance.scanHotKeyStr;
         }
 
         private void FRButton_CheckedChanged(object sender, EventArgs e)
@@ -407,6 +412,33 @@ namespace Gen3_Starter_Manip_for_ACE
             if (_parent is MainForm mainForm)
                 mainForm.applyTopMostConfig();
             this.Activate();
+        }
+
+        private void scanHotKeyCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (scanHotKeyCheckbox.Checked)
+                ConfigData.Instance.ScanHotKeyEnable = true;
+            else
+                ConfigData.Instance.ScanHotKeyEnable = false;
+        }
+
+        private void scanHotKeyText_Enter(object sender, EventArgs e)
+        {
+            scanHotKeyText.Text = "入力...";
+        }
+
+        private void scanHotKeyText_KeyDown(object sender, KeyEventArgs e)
+        {
+            string str = e.KeyData.ToString();
+            if (e.KeyData == Keys.Escape)
+            {
+                str = "None";
+            }
+            scanHotKeyText.Text = str;
+            ConfigData.Instance.scanHotKeyStr = str;
+            if (_parent is MainForm mainForm)
+                mainForm.setScanHotKey();
+            e.SuppressKeyPress = true;
         }
     }
 }

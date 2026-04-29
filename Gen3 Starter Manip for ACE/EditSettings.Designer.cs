@@ -49,6 +49,8 @@
             SeedIvysaur = new RadioButton();
             SeedBulbasaur = new RadioButton();
             ScanSettingGroup = new GroupBox();
+            scanHotKeyCheckbox = new CheckBox();
+            scanHotKeyText = new TextBox();
             ThresholdNum = new NumericUpDown();
             WaitTimeNum = new NumericUpDown();
             WindowNameInputBox = new TextBox();
@@ -326,6 +328,8 @@
             // 
             // ScanSettingGroup
             // 
+            ScanSettingGroup.Controls.Add(scanHotKeyCheckbox);
+            ScanSettingGroup.Controls.Add(scanHotKeyText);
             ScanSettingGroup.Controls.Add(ThresholdNum);
             ScanSettingGroup.Controls.Add(WaitTimeNum);
             ScanSettingGroup.Controls.Add(WindowNameInputBox);
@@ -338,10 +342,30 @@
             ScanSettingGroup.Controls.Add(SelectWindowsListForSettings);
             ScanSettingGroup.Location = new Point(213, 12);
             ScanSettingGroup.Name = "ScanSettingGroup";
-            ScanSettingGroup.Size = new Size(145, 283);
+            ScanSettingGroup.Size = new Size(145, 321);
             ScanSettingGroup.TabIndex = 8;
             ScanSettingGroup.TabStop = false;
             ScanSettingGroup.Text = "画像認識設定";
+            // 
+            // scanHotKeyCheckbox
+            // 
+            scanHotKeyCheckbox.AutoSize = true;
+            scanHotKeyCheckbox.Location = new Point(6, 294);
+            scanHotKeyCheckbox.Name = "scanHotKeyCheckbox";
+            scanHotKeyCheckbox.Size = new Size(69, 19);
+            scanHotKeyCheckbox.TabIndex = 10;
+            scanHotKeyCheckbox.Text = "ホットキー";
+            scanHotKeyCheckbox.UseVisualStyleBackColor = true;
+            scanHotKeyCheckbox.CheckedChanged += scanHotKeyCheckbox_CheckedChanged;
+            // 
+            // scanHotKeyText
+            // 
+            scanHotKeyText.Location = new Point(81, 292);
+            scanHotKeyText.Name = "scanHotKeyText";
+            scanHotKeyText.Size = new Size(56, 23);
+            scanHotKeyText.TabIndex = 10;
+            scanHotKeyText.Enter += scanHotKeyText_Enter;
+            scanHotKeyText.KeyDown += scanHotKeyText_KeyDown;
             // 
             // ThresholdNum
             // 
@@ -449,23 +473,22 @@
             // 
             // ConnectTimerCheckBox
             // 
-            ConnectTimerCheckBox.AutoSize = true;
-            ConnectTimerCheckBox.Location = new Point(213, 301);
+            ConnectTimerCheckBox.Location = new Point(364, 52);
             ConnectTimerCheckBox.Name = "ConnectTimerCheckBox";
-            ConnectTimerCheckBox.Size = new Size(137, 19);
+            ConnectTimerCheckBox.Size = new Size(137, 39);
             ConnectTimerCheckBox.TabIndex = 9;
-            ConnectTimerCheckBox.Text = "FlowTimerに自動送信\r\n";
+            ConnectTimerCheckBox.Text = "FlowTimerに自動送信\r\n※Build47限定";
             ConnectTimerCheckBox.UseVisualStyleBackColor = true;
             ConnectTimerCheckBox.CheckedChanged += ConnectTimerCheckBox_CheckedChanged;
             // 
             // mainTopMostCheckbox
             // 
             mainTopMostCheckbox.AutoSize = true;
-            mainTopMostCheckbox.Location = new Point(213, 322);
+            mainTopMostCheckbox.Location = new Point(364, 12);
             mainTopMostCheckbox.Name = "mainTopMostCheckbox";
-            mainTopMostCheckbox.Size = new Size(145, 19);
+            mainTopMostCheckbox.Size = new Size(95, 34);
             mainTopMostCheckbox.TabIndex = 9;
-            mainTopMostCheckbox.Text = "メインフォーム最前面固定";
+            mainTopMostCheckbox.Text = "メインフォームを\r\n最前面に固定";
             mainTopMostCheckbox.UseVisualStyleBackColor = true;
             mainTopMostCheckbox.CheckedChanged += mainTopMostCheckbox_CheckedChanged;
             // 
@@ -473,7 +496,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(370, 352);
+            ClientSize = new Size(504, 352);
             Controls.Add(mainTopMostCheckbox);
             Controls.Add(ConnectTimerCheckBox);
             Controls.Add(ScanSettingGroup);
@@ -539,5 +562,7 @@
         private NumericUpDown WaitTimeNum;
         private CheckBox ConnectTimerCheckBox;
         private CheckBox mainTopMostCheckbox;
+        private CheckBox scanHotKeyCheckbox;
+        private TextBox scanHotKeyText;
     }
 }

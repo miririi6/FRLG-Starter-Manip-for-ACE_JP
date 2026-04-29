@@ -36,6 +36,8 @@ namespace Gen3_Starter_Manip_for_ACE
             FixedStepCount2 = 0;
             StepsPerCycle = 0;
             TopMost = false;
+            ScanHotKeyEnable = false;
+            scanHotKeyStr = "None";
         }
         public static void SetInstance(ConfigData newConfig)
         {
@@ -68,7 +70,8 @@ namespace Gen3_Starter_Manip_for_ACE
         public int InitialExp2 { get; set; } = 0;
         public int StepsPerCycle { get; set; } = 0;
         public bool TopMost { get; set; }
-
+        public bool ScanHotKeyEnable { get; set; }
+        public string scanHotKeyStr { get; set; }
     }
     public static class ConfigUtils
     {

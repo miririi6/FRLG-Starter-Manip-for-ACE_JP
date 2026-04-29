@@ -27,6 +27,8 @@ namespace Gen3_Starter_Manip_for_ACE
             initWidth = this.Width;
             ConfigUtils.loadConfigData("config.json");
             setConfigData();
+            applyTopMostConfig();
+            setScanHotKey();
             Resources.loadResources("words.csv", "poke_words.csv");
             string filePath;
             if (ConfigData.Instance.version == RomVersionType.FireRed)
@@ -878,6 +880,11 @@ namespace Gen3_Starter_Manip_for_ACE
         {
             this.TopMost = ConfigData.Instance.TopMost;
         }
+        Keys scanHotKey = Keys.None;
+        public void setScanHotKey()
+        {
+            scanHotKey = (Keys)Enum.Parse(typeof(Keys), ConfigData.Instance.scanHotKeyStr, true);
+        }
         private bool isNumberOrActionKey(Keys key)
         {
             bool isNumber = (key >= Keys.D0 && key <= Keys.D9) ||
@@ -1250,6 +1257,23 @@ namespace Gen3_Starter_Manip_for_ACE
             if (isCountHelperOpen && e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 helperForm.SetTargetExp((int)WordEXPList.Rows[e.RowIndex].Cells[0].Value);
+            }
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (ConfigData.Instance.ScanHotKeyEnable)
+            {
+                if (scanHotKey == Keys.None) return;
+
+                if (e.KeyData == scanHotKey)
+                {
+                    ScanStartButton_Click(sender, e);
+
+                    // 他のコントロールにキー入力を渡さない
+                    e.SuppressKeyPress = true;
+                    e.Handled = true;
+                }
             }
         }
     }
