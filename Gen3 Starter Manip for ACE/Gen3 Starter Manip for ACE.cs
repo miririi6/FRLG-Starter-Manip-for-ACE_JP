@@ -140,12 +140,19 @@ namespace Gen3_Starter_Manip_for_ACE
                         helperForm.SetTargetExp((int)WordEXPList.Rows[0].Cells[0].Value);
                     }
                 }
-                if (ConfigData.Instance.isAutoConnectTimer)
-                    NumberSender.SendTextToTargetEdit("FlowTimer (Build 47)", 0, CalcList.Rows[0].Cells[0].Value.ToString(), 241, 34);
+                CallSendToTimer();
             }
             if (results.Count == 0)
             {
                 WordEXPList.DataSource = null;
+            }
+        }
+
+        public void CallSendToTimer()
+        {
+            if (ConfigData.Instance.isAutoConnectTimer)
+            {
+                NumberSender.SendTextToTargetEdit(ConfigData.Instance.FlowTimerWindowName, 0, CalcList.Rows[CalcList.CurrentCell.RowIndex].Cells[0].Value.ToString(), ConfigData.Instance.FlowTimerOffsetX, ConfigData.Instance.FlowTimerOffsetY);
             }
         }
 
@@ -213,8 +220,8 @@ namespace Gen3_Starter_Manip_for_ACE
                     helperForm.SetTargetExp((int)WordEXPList.Rows[0].Cells[0].Value);
                 }
             }
-            if (ConfigData.Instance.isAutoConnectTimer && SendToTimer)
-                NumberSender.SendTextToTargetEdit("FlowTimer (Build 47)", 0, CalcList.Rows[e.RowIndex].Cells[0].Value.ToString(), 241, 34);
+            if (SendToTimer)
+                CallSendToTimer();
         }
         /*
         public void RefreshWordExpList()

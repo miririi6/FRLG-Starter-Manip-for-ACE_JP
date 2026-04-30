@@ -65,5 +65,8 @@
   "StepsPerCycle": 14,
   "TopMost": true,
   "ScanHotKeyEnable": false,
-  "scanHotKeyStr": "None"
+  "scanHotKeyStr": "None",
+  "FlowTimerWindowName": "FlowTimer (Build 47)",
+  "FlowTimerOffsetX": 241,
+  "FlowTimerOffsetY": 34
 }

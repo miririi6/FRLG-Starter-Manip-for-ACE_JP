@@ -38,6 +38,9 @@ namespace Gen3_Starter_Manip_for_ACE
             TopMost = false;
             ScanHotKeyEnable = false;
             scanHotKeyStr = "None";
+            FlowTimerWindowName = "FlowTimer (Build 47)";
+            FlowTimerOffsetX = 0;
+            FlowTimerOffsetY = 0;
         }
         public static void SetInstance(ConfigData newConfig)
         {
@@ -72,6 +75,9 @@ namespace Gen3_Starter_Manip_for_ACE
         public bool TopMost { get; set; }
         public bool ScanHotKeyEnable { get; set; }
         public string scanHotKeyStr { get; set; }
+        public string FlowTimerWindowName { get; set; }
+        public int FlowTimerOffsetX { get; set; }
+        public int FlowTimerOffsetY { get; set; }
     }
     public static class ConfigUtils
     {
