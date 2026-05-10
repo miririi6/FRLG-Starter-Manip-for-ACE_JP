@@ -414,9 +414,9 @@
             ThresholdLabel.AutoSize = true;
             ThresholdLabel.Location = new Point(6, 184);
             ThresholdLabel.Name = "ThresholdLabel";
-            ThresholdLabel.Size = new Size(63, 15);
+            ThresholdLabel.Size = new Size(72, 15);
             ThresholdLabel.TabIndex = 5;
-            ThresholdLabel.Text = "閾値(0～1)";
+            ThresholdLabel.Text = "閾値(0.5～1)";
             // 
             // WaitTimeLabel
             // 
@@ -473,11 +473,12 @@
             // 
             // ConnectTimerCheckBox
             // 
+            ConnectTimerCheckBox.AutoSize = true;
             ConnectTimerCheckBox.Location = new Point(364, 52);
             ConnectTimerCheckBox.Name = "ConnectTimerCheckBox";
-            ConnectTimerCheckBox.Size = new Size(137, 39);
+            ConnectTimerCheckBox.Size = new Size(137, 19);
             ConnectTimerCheckBox.TabIndex = 9;
-            ConnectTimerCheckBox.Text = "FlowTimerに自動送信\r\n※Build47限定";
+            ConnectTimerCheckBox.Text = "FlowTimerに自動送信";
             ConnectTimerCheckBox.UseVisualStyleBackColor = true;
             ConnectTimerCheckBox.CheckedChanged += ConnectTimerCheckBox_CheckedChanged;
             // 
