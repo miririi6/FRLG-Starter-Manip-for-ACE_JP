@@ -41,6 +41,8 @@ namespace Gen3_Starter_Manip_for_ACE
             FlowTimerWindowName = "FlowTimer (Build 47)";
             FlowTimerOffsetX = 0;
             FlowTimerOffsetY = 0;
+            isSearchConsecutive = false;
+            ConsecutiveCount = 4;
         }
         public static void SetInstance(ConfigData newConfig)
         {
@@ -78,6 +80,8 @@ namespace Gen3_Starter_Manip_for_ACE
         public string FlowTimerWindowName { get; set; }
         public int FlowTimerOffsetX { get; set; }
         public int FlowTimerOffsetY { get; set; }
+        public bool isSearchConsecutive { get; set; }
+        public int ConsecutiveCount { get; set; }
     }
     public static class ConfigUtils
     {

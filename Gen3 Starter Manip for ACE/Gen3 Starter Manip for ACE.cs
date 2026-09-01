@@ -93,6 +93,33 @@ namespace Gen3_Starter_Manip_for_ACE
             }
             var results = SearchEngine.SearchPokemons(tid, ConfigData.Instance.isSearchForACE);
 
+            if (ConfigData.Instance.isSearchConsecutive)
+            {
+                int currentConsecutiveCount = 1;
+                var consecutiveResults = new List<Types.FilterdStarterPokemonType>();
+                for (int i = 1; i < results.Count; i++)
+                {
+                    if ((int)results[i].フレーム - (int)results[i - 1].フレーム == 1)
+                    {
+                        currentConsecutiveCount++;
+                    }
+                    else
+                    {
+                        if (currentConsecutiveCount >= ConfigData.Instance.ConsecutiveCount)
+                        {
+                            consecutiveResults.AddRange(results.GetRange(i - currentConsecutiveCount, currentConsecutiveCount));
+                        }
+                        currentConsecutiveCount = 1;
+                    }
+                    if (i == results.Count - 1 && currentConsecutiveCount >= ConfigData.Instance.ConsecutiveCount)
+                    {
+                        consecutiveResults.AddRange(results.GetRange(i - currentConsecutiveCount, currentConsecutiveCount));
+                    }
+                }
+                results = consecutiveResults;
+            }
+
+
             CalcList.DataSource = results;
 
             CalcList.Columns["フレーム"].Width = 50;
