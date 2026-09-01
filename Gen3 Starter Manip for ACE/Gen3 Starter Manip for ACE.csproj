@@ -70,4 +70,8 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="Gen3 Starter Manip for ACE.Tests" />
+  </ItemGroup>
+
 </Project>

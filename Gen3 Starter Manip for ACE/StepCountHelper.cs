@@ -94,14 +94,11 @@ namespace Gen3_Starter_Manip_for_ACE
         }
         private void SetStepCounts()
         {
-            int requiredSteps = TargetExp - InitialExp;
-            int TotalOffset = FixedStepCount + Offset;
-            int AdjustedRequiredSteps = requiredSteps - TotalOffset;
-            if (StepsPerCycle == 0)
-                StepsPerCycle = 1;//0で割るのを防止
-            int CycleCount = (int)Math.Floor((double)AdjustedRequiredSteps / StepsPerCycle);
-            CycleCountNumLabel.Text = CycleCount.ToString();
-            ModNumLabel.Text = (AdjustedRequiredSteps % StepsPerCycle).ToString();
+            var result = StepCountCalculator.Calculate(
+                TargetExp, InitialExp, FixedStepCount, Offset, StepsPerCycle);
+
+            CycleCountNumLabel.Text = result.CycleCount.ToString();
+            ModNumLabel.Text = result.RemainingSteps.ToString();
         }
     }
 }

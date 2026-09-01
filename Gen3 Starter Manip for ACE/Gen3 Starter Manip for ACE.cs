@@ -91,32 +91,11 @@ namespace Gen3_Starter_Manip_for_ACE
             {
                 tid = 0;
             }
-            var results = SearchEngine.SearchPokemons(tid, ConfigData.Instance.isSearchForACE);
+            var results = SearchEngine.SearchPokemons(ConfigData.Instance, tid);
 
             if (ConfigData.Instance.isSearchConsecutive)
             {
-                int currentConsecutiveCount = 1;
-                var consecutiveResults = new List<Types.FilterdStarterPokemonType>();
-                for (int i = 1; i < results.Count; i++)
-                {
-                    if ((int)results[i].フレーム - (int)results[i - 1].フレーム == 1)
-                    {
-                        currentConsecutiveCount++;
-                    }
-                    else
-                    {
-                        if (currentConsecutiveCount >= ConfigData.Instance.ConsecutiveCount)
-                        {
-                            consecutiveResults.AddRange(results.GetRange(i - currentConsecutiveCount, currentConsecutiveCount));
-                        }
-                        currentConsecutiveCount = 1;
-                    }
-                    if (i == results.Count - 1 && currentConsecutiveCount >= ConfigData.Instance.ConsecutiveCount)
-                    {
-                        consecutiveResults.AddRange(results.GetRange(i - currentConsecutiveCount, currentConsecutiveCount));
-                    }
-                }
-                results = consecutiveResults;
+                results = ConsecutiveFilter.Filter(results, ConfigData.Instance.ConsecutiveCount);
             }
 
 
@@ -154,7 +133,7 @@ namespace Gen3_Starter_Manip_for_ACE
                 if (ConfigData.Instance.isSearchForACE)
                 {
                     uint pid = (uint)CalcList.Rows[0].Cells[2].Value;
-                    var wordExpData = SearchEngine.GetWordExpData(tid, pid);
+                    var wordExpData = SearchEngine.GetWordExpData(ConfigData.Instance, tid, pid);
                     WordEXPList.DataSource = wordExpData;
                     WordEXPList.Columns["経験値"].Width = 50;
                     WordEXPList.Columns["ワード3"].Width = 70;
@@ -240,7 +219,7 @@ namespace Gen3_Starter_Manip_for_ACE
             {
                 ushort tid = ushort.TryParse(TIDText.Text, out tid) ? tid : (ushort)0;
                 uint pid = (uint)CalcList.Rows[e.RowIndex].Cells[2].Value;
-                var wordExpData = SearchEngine.GetWordExpData(tid, pid);
+                var wordExpData = SearchEngine.GetWordExpData(ConfigData.Instance, tid, pid);
                 WordEXPList.DataSource = wordExpData;
                 if (isCountHelperOpen && WordEXPList.Rows.Count > 0)
                 {
@@ -257,7 +236,7 @@ namespace Gen3_Starter_Manip_for_ACE
             {
                 ushort tid = ushort.TryParse(TIDText.Text, out tid) ? tid : (ushort)0;
                 uint pid = (uint)CalcList.Rows[CalcList.CurrentCell.RowIndex].Cells[3].Value;
-                var wordExpData = SearchEngine.GetWordExpData(tid, pid);
+                var wordExpData = SearchEngine.GetWordExpData(ConfigData.Instance, tid, pid);
                 WordEXPList.DataSource = wordExpData;
             }
         }
@@ -273,7 +252,7 @@ namespace Gen3_Starter_Manip_for_ACE
                 tid = 0;
             }
 
-            var results = SearchEngine.SerchAroundFrames(tid, CurrentFrame, ConfigData.Instance.isSearchForACE);
+            var results = SearchEngine.SerchAroundFrames(ConfigData.Instance, tid, CurrentFrame);
 
             CalcList.DataSource = results;
             int focusIndex = 49;
@@ -315,7 +294,7 @@ namespace Gen3_Starter_Manip_for_ACE
             {
                 ushort tid = ushort.TryParse(TIDText.Text, out tid) ? tid : (ushort)0;
                 uint pid = (uint)CalcList.Rows[CalcList.CurrentCell.RowIndex].Cells[2].Value;
-                var wordExpData = SearchEngine.GetWordExpData(tid, pid);
+                var wordExpData = SearchEngine.GetWordExpData(ConfigData.Instance, tid, pid);
                 WordEXPList.DataSource = wordExpData;
             }
         }

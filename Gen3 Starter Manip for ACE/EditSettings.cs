@@ -100,6 +100,9 @@ namespace Gen3_Starter_Manip_for_ACE
             if (ConfigData.Instance.ScanHotKeyEnable)
                 scanHotKeyCheckbox.Checked = true;
             scanHotKeyText.Text = ConfigData.Instance.scanHotKeyStr;
+            ConsecutiveNum.Value = Math.Min(Math.Max((decimal)ConfigData.Instance.ConsecutiveCount, ConsecutiveNum.Minimum), ConsecutiveNum.Maximum);
+            ConsecutiveModeButton.Checked = ConfigData.Instance.isSearchConsecutive;
+            ConsecutiveNum.Enabled = ConfigData.Instance.isSearchConsecutive;
         }
 
         private void FRButton_CheckedChanged(object sender, EventArgs e)
@@ -439,6 +442,21 @@ namespace Gen3_Starter_Manip_for_ACE
             if (_parent is MainForm mainForm)
                 mainForm.setScanHotKey();
             e.SuppressKeyPress = true;
+        }
+
+        private void ConsecutiveModeButton_CheckedChanged(object sender, EventArgs e)
+        {
+            ConfigData.Instance.isSearchConsecutive = ConsecutiveModeButton.Checked;
+            ConsecutiveNum.Enabled = ConsecutiveModeButton.Checked;
+            if (_parent is MainForm mainForm)
+                mainForm.CalcStartCall();
+        }
+
+        private void ConsecutiveNum_ValueChanged(object sender, EventArgs e)
+        {
+            ConfigData.Instance.ConsecutiveCount = (int)ConsecutiveNum.Value;
+            if (_parent is MainForm mainForm)
+                mainForm.CalcStartCall();
         }
     }
 }

@@ -13,16 +13,16 @@ namespace Gen3_Starter_Manip_for_ACE
 {
     public static class SearchEngine
     {
-        public static List<Types.FilterdStarterPokemonType> SearchPokemons(uint seed, bool isSerchForACE)
+        public static List<Types.FilterdStarterPokemonType> SearchPokemons(ConfigData config, uint seed)
         {
             ushort tid = (ushort)seed;
-            for (int i = 0; i < ConfigData.Instance.minFrame - 1; i++)
+            for (int i = 0; i < config.minFrame - 1; i++)
             {
                 seed = seed * Constants.MUL + Constants.ADD;
             }
 
             List<Types.FilterdStarterPokemonType> filterdStarterPokemonList = new();
-            for (int i = 0; i < ConfigData.Instance.maxFrame - ConfigData.Instance.minFrame; i++)
+            for (int i = 0; i < config.maxFrame - config.minFrame; i++)
             {
                 seed = seed * Constants.MUL + Constants.ADD;
 
@@ -30,9 +30,9 @@ namespace Gen3_Starter_Manip_for_ACE
                 uint pid = GetPID(seed);
 
                 Types.NatureType nature = (Types.NatureType)(pid % 25);
-                if (!ConfigData.Instance.checkedNatures.Contains(nature)) continue;
+                if (!config.checkedNatures.Contains(nature)) continue;
 
-                if (isSerchForACE)
+                if (config.isSearchForACE)
                 {
                     //uint subOrderNum = pid % 24;
                     if (!Constants.expIn2ndIndex.Contains(pid % 24)) continue;
@@ -42,12 +42,12 @@ namespace Gen3_Starter_Manip_for_ACE
                 var upStatus = effect.UpStatus;
                 var downStatus = effect.DownStatus;
 
-                int Hreq = ConfigData.Instance.requiredHIV;
-                int Areq = upStatus == Types.StatusType.A ? ConfigData.Instance.requiredAIV[2] : downStatus == Types.StatusType.A ? ConfigData.Instance.requiredAIV[0] : ConfigData.Instance.requiredAIV[1];
-                int Breq = upStatus == Types.StatusType.B ? ConfigData.Instance.requiredBIV[2] : downStatus == Types.StatusType.B ? ConfigData.Instance.requiredBIV[0] : ConfigData.Instance.requiredBIV[1];
-                int Creq = upStatus == Types.StatusType.C ? ConfigData.Instance.requiredCIV[2] : downStatus == Types.StatusType.C ? ConfigData.Instance.requiredCIV[0] : ConfigData.Instance.requiredCIV[1];
-                int Dreq = upStatus == Types.StatusType.D ? ConfigData.Instance.requiredDIV[2] : downStatus == Types.StatusType.D ? ConfigData.Instance.requiredDIV[0] : ConfigData.Instance.requiredDIV[1];
-                int Sreq = upStatus == Types.StatusType.S ? ConfigData.Instance.requiredSIV[2] : downStatus == Types.StatusType.S ? ConfigData.Instance.requiredSIV[0] : ConfigData.Instance.requiredSIV[1];
+                int Hreq = config.requiredHIV;
+                int Areq = upStatus == Types.StatusType.A ? config.requiredAIV[2] : downStatus == Types.StatusType.A ? config.requiredAIV[0] : config.requiredAIV[1];
+                int Breq = upStatus == Types.StatusType.B ? config.requiredBIV[2] : downStatus == Types.StatusType.B ? config.requiredBIV[0] : config.requiredBIV[1];
+                int Creq = upStatus == Types.StatusType.C ? config.requiredCIV[2] : downStatus == Types.StatusType.C ? config.requiredCIV[0] : config.requiredCIV[1];
+                int Dreq = upStatus == Types.StatusType.D ? config.requiredDIV[2] : downStatus == Types.StatusType.D ? config.requiredDIV[0] : config.requiredDIV[1];
+                int Sreq = upStatus == Types.StatusType.S ? config.requiredSIV[2] : downStatus == Types.StatusType.S ? config.requiredSIV[0] : config.requiredSIV[1];
 
                 if (iv.H < Hreq || iv.A < Areq || iv.B < Breq || iv.C < Creq || iv.D < Dreq || iv.S < Sreq) continue;
 
@@ -55,7 +55,7 @@ namespace Gen3_Starter_Manip_for_ACE
 
                 List<Types.CorruptedPokemon> targetCorruptedPokemons = new();
                 int minExp = 65535;
-                if (isSerchForACE)
+                if (config.isSearchForACE)
                 {
                     targetCorruptedPokemons = GetGeneratableCorruptedPokemons(key);
                     if (targetCorruptedPokemons.Count == 0)
@@ -64,9 +64,9 @@ namespace Gen3_Starter_Manip_for_ACE
                     }
 
                     //経験値が基準を満たしているか確認
-                    minExp = GetMinimumExpForCorruption(key, targetCorruptedPokemons);
+                    minExp = GetMinimumExpForCorruption(config, key, targetCorruptedPokemons);
 
-                    if (ConfigData.Instance.maxExp < minExp)
+                    if (config.maxExp < minExp)
                     {
                         continue;
                     }
@@ -76,8 +76,8 @@ namespace Gen3_Starter_Manip_for_ACE
 
                 filterdStarterPokemonList.Add(new Types.FilterdStarterPokemonType
                 {
-                    フレーム = ConfigData.Instance.minFrame + i,
-                    時間 = (ConfigData.Instance.minFrame + i) * 0.01674270646,
+                    フレーム = config.minFrame + i,
+                    時間 = (config.minFrame + i) * 0.01674270646,
                     性格 = nature,
                     性格値 = pid,
                     H = iv.H,
@@ -93,7 +93,7 @@ namespace Gen3_Starter_Manip_for_ACE
             return filterdStarterPokemonList;
         }
 
-        public static List<Types.FilterdStarterPokemonType> SerchAroundFrames(ushort tid, int currentFrame, bool isSerchForACE)
+        public static List<Types.FilterdStarterPokemonType> SerchAroundFrames(ConfigData config, ushort tid, int currentFrame)
         {
             int minFrame = currentFrame - 50;
             int maxFrame = currentFrame + 50;
@@ -116,7 +116,7 @@ namespace Gen3_Starter_Manip_for_ACE
 
                 List<Types.CorruptedPokemon> targetCorruptedPokemons = new();
                 int minExp = 65535;
-                if (isSerchForACE)
+                if (config.isSearchForACE)
                 {
                     ushort key = (ushort)((ushort)pid ^ tid);
                     if (Constants.expIn2ndIndex.Contains(pid % 24))
@@ -124,8 +124,8 @@ namespace Gen3_Starter_Manip_for_ACE
                         targetCorruptedPokemons = GetGeneratableCorruptedPokemons(key);
 
                         //経験値が基準を満たしているか確認
-                        int min = GetMinimumExpForCorruption(key, targetCorruptedPokemons);
-                        if (min <= ConfigData.Instance.maxExp)
+                        int min = GetMinimumExpForCorruption(config, key, targetCorruptedPokemons);
+                        if (min <= config.maxExp)
                         {
                             minExp = min;
                         }
@@ -140,8 +140,8 @@ namespace Gen3_Starter_Manip_for_ACE
                     性格値 = pid, H = iv.H,
                     A = iv.A,
                     B = iv.B,
-                    C = iv.C, 
-                    D = iv.D, 
+                    C = iv.C,
+                    D = iv.D,
                     S = iv.S,
                     性別 = sex,
                     性格 = nature,
@@ -150,7 +150,7 @@ namespace Gen3_Starter_Manip_for_ACE
             return pokeList;
         }
 
-        public static List<Types.WordExpDataType> GetWordExpData(ushort tid, uint pid)
+        public static List<Types.WordExpDataType> GetWordExpData(ConfigData config, ushort tid, uint pid)
         {
             ushort key = (ushort)((ushort)pid ^ tid);
 
@@ -160,15 +160,15 @@ namespace Gen3_Starter_Manip_for_ACE
             {
                 List<Types.CorruptedPokemon> targetCorruptedPokemons = new();
                 targetCorruptedPokemons = GetGeneratableCorruptedPokemons(key);
-                GetMinimumExpForCorruption(key, targetCorruptedPokemons);
+                GetMinimumExpForCorruption(config, key, targetCorruptedPokemons);
                 foreach (var poke in targetCorruptedPokemons)
                 {
-                    ushort checksumDiff = (ushort)(poke.ID - ((ushort)ConfigData.Instance.seedPokemon + 1));
+                    ushort checksumDiff = (ushort)(poke.ID - ((ushort)config.seedPokemon + 1));
                     foreach (var word in Resources.wordData)
                     {
                         ushort dec_v = (ushort)(key ^ word.ID);
                         int adj = checksumDiff + dec_v;
-                        if ((ConfigData.Instance.minExp2 <= adj || (adj - ConfigData.Instance.minExp % 2 == 0 && ConfigData.Instance.minExp <= adj)) && adj <= ConfigData.Instance.maxExp)
+                        if ((config.minExp2 <= adj || ((adj - config.minExp) % 2 == 0 && config.minExp <= adj)) && adj <= config.maxExp)
                         {
                             wordExpDataList.Add(new Types.WordExpDataType { 経験値 = adj, ワード3 = poke.Text, ワード5 = word.Text, パターン = poke.Pattern });
                         }
@@ -177,7 +177,7 @@ namespace Gen3_Starter_Manip_for_ACE
                     {
                         ushort dec_v = (ushort)(key ^ pokeWord.ID);
                         int adj = checksumDiff + dec_v;
-                        if ((ConfigData.Instance.minExp2 <= adj || (adj - ConfigData.Instance.minExp % 2 == 0 && ConfigData.Instance.minExp <= adj)) && adj <= ConfigData.Instance.maxExp)
+                        if ((config.minExp2 <= adj || ((adj - config.minExp) % 2 == 0 && config.minExp <= adj)) && adj <= config.maxExp)
                         {
                             wordExpDataList.Add(new Types.WordExpDataType { 経験値 = adj, ワード3 = poke.Text, ワード5 = pokeWord.Text, パターン = poke.Pattern });
                         }
@@ -187,7 +187,7 @@ namespace Gen3_Starter_Manip_for_ACE
             }
             return wordExpDataList;
         }
-        static Types.IVs GetIVs(uint seed)
+        internal static Types.IVs GetIVs(uint seed)
         {
             seed = seed * Constants.MUL + Constants.ADD;
             seed = seed * Constants.MUL + Constants.ADD;
@@ -209,7 +209,7 @@ namespace Gen3_Starter_Manip_for_ACE
 
             return iv;
         }
-        static uint GetPID(uint seed)
+        internal static uint GetPID(uint seed)
         {
             uint pid = seed >> 16;
             seed = seed * Constants.MUL + Constants.ADD;
@@ -239,17 +239,17 @@ namespace Gen3_Starter_Manip_for_ACE
             }
             return targetCorruptedPokemons;
         }
-        static int GetMinimumExpForCorruption(ushort key, List<Types.CorruptedPokemon> pokes)
+        static int GetMinimumExpForCorruption(ConfigData config, ushort key, List<Types.CorruptedPokemon> pokes)
         {
             int minExp = 65535;
             foreach (var poke in pokes)
             {
-                ushort checksumDiff = (ushort)(poke.ID - ((ushort)ConfigData.Instance.seedPokemon + 1));
+                ushort checksumDiff = (ushort)(poke.ID - ((ushort)config.seedPokemon + 1));
                 foreach (var word in Resources.wordData)
                 {
                     ushort dec_v = (ushort)(key ^ word.ID);
                     int adj = checksumDiff + dec_v;
-                    if (ConfigData.Instance.minExp2 <= adj || (adj - ConfigData.Instance.minExp % 2 == 0 && ConfigData.Instance.minExp <= adj))
+                    if (config.minExp2 <= adj || ((adj - config.minExp) % 2 == 0 && config.minExp <= adj))
                     {
                         minExp = Math.Min(adj, minExp);
                     }
@@ -258,7 +258,7 @@ namespace Gen3_Starter_Manip_for_ACE
                 {
                     ushort dec_v = (ushort)(key ^ pokeWord.ID);
                     int adj = checksumDiff + dec_v;
-                    if (ConfigData.Instance.minExp2 <= adj || (adj - ConfigData.Instance.minExp % 2 == 0 && ConfigData.Instance.minExp <= adj))
+                    if (config.minExp2 <= adj || ((adj - config.minExp) % 2 == 0 && config.minExp <= adj))
                     {
                         minExp = Math.Min(adj, minExp);
                     }

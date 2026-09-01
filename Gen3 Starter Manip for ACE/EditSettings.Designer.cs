@@ -63,6 +63,8 @@
             SelectWindowsListForSettings = new ComboBox();
             ConnectTimerCheckBox = new CheckBox();
             mainTopMostCheckbox = new CheckBox();
+            ConsecutiveModeButton = new CheckBox();
+            ConsecutiveNum = new NumericUpDown();
             SelectPokemonGroup.SuspendLayout();
             VersionBox.SuspendLayout();
             SerchModeBox.SuspendLayout();
@@ -71,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)ThresholdNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)WaitTimeNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RangeViewBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ConsecutiveNum).BeginInit();
             SuspendLayout();
             // 
             // FRButton
@@ -474,7 +477,7 @@
             // ConnectTimerCheckBox
             // 
             ConnectTimerCheckBox.AutoSize = true;
-            ConnectTimerCheckBox.Location = new Point(364, 52);
+            ConnectTimerCheckBox.Location = new Point(364, 103);
             ConnectTimerCheckBox.Name = "ConnectTimerCheckBox";
             ConnectTimerCheckBox.Size = new Size(137, 19);
             ConnectTimerCheckBox.TabIndex = 9;
@@ -485,7 +488,7 @@
             // mainTopMostCheckbox
             // 
             mainTopMostCheckbox.AutoSize = true;
-            mainTopMostCheckbox.Location = new Point(364, 12);
+            mainTopMostCheckbox.Location = new Point(364, 63);
             mainTopMostCheckbox.Name = "mainTopMostCheckbox";
             mainTopMostCheckbox.Size = new Size(95, 34);
             mainTopMostCheckbox.TabIndex = 9;
@@ -493,11 +496,35 @@
             mainTopMostCheckbox.UseVisualStyleBackColor = true;
             mainTopMostCheckbox.CheckedChanged += mainTopMostCheckbox_CheckedChanged;
             // 
+            // ConsecutiveModeButton
+            // 
+            ConsecutiveModeButton.AutoSize = true;
+            ConsecutiveModeButton.Location = new Point(364, 34);
+            ConsecutiveModeButton.Name = "ConsecutiveModeButton";
+            ConsecutiveModeButton.Size = new Size(84, 19);
+            ConsecutiveModeButton.TabIndex = 10;
+            ConsecutiveModeButton.Text = "連続フレーム";
+            ConsecutiveModeButton.UseVisualStyleBackColor = true;
+            ConsecutiveModeButton.CheckedChanged += ConsecutiveModeButton_CheckedChanged;
+            // 
+            // ConsecutiveNum
+            // 
+            ConsecutiveNum.Location = new Point(454, 30);
+            ConsecutiveNum.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            ConsecutiveNum.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            ConsecutiveNum.Name = "ConsecutiveNum";
+            ConsecutiveNum.Size = new Size(38, 23);
+            ConsecutiveNum.TabIndex = 11;
+            ConsecutiveNum.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            ConsecutiveNum.ValueChanged += ConsecutiveNum_ValueChanged;
+            // 
             // EditSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(504, 352);
+            Controls.Add(ConsecutiveNum);
+            Controls.Add(ConsecutiveModeButton);
             Controls.Add(mainTopMostCheckbox);
             Controls.Add(ConnectTimerCheckBox);
             Controls.Add(ScanSettingGroup);
@@ -524,6 +551,7 @@
             ((System.ComponentModel.ISupportInitialize)ThresholdNum).EndInit();
             ((System.ComponentModel.ISupportInitialize)WaitTimeNum).EndInit();
             ((System.ComponentModel.ISupportInitialize)RangeViewBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ConsecutiveNum).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -565,5 +593,7 @@
         private CheckBox mainTopMostCheckbox;
         private CheckBox scanHotKeyCheckbox;
         private TextBox scanHotKeyText;
+        private CheckBox ConsecutiveModeButton;
+        private NumericUpDown ConsecutiveNum;
     }
 }
